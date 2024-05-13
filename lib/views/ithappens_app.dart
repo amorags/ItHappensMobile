@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:it_happens/views/login_view.dart';
 import 'package:web_socket_channel/html.dart'; // Import for web support
 import 'package:it_happens/bLoC/ithappens_bloc.dart';
 import 'package:it_happens/views/singup_view.dart';
@@ -29,6 +30,10 @@ class ItHappensApp extends StatelessWidget {
           value: BlocProvider.of<ItHappensBloc>(context), // Provide the existing bloc
           child: SignupView(),
         ),
+        '/login': (context) => BlocProvider.value(
+        value: BlocProvider.of<ItHappensBloc>(context), // Provide the existing bloc
+        child: LoginView(),
+    ),
       },
     );
   }
@@ -65,6 +70,7 @@ class _MainScreenState extends State<MainScreen> {
                   // Perform logout action
                 }
               },
+
               itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
                 PopupMenuItem<String>(
                   value: 'signup',
@@ -129,10 +135,24 @@ class _MainScreenState extends State<MainScreen> {
             ),
           ),
         );
+      case 2:
+        return Container(
+          color: Colors.grey[200],
+          child: Center(
+            child: ElevatedButton(
+              onPressed: () {
+                // Navigate to signup screen
+                Navigator.of(context).pushNamed('/login');
+              },
+              child: Text('Login'),
+            ),
+          ),
+        );
       default:
         return Container();
     }
   }
+
 
   void _onItemTapped(int index) {
     setState(() {

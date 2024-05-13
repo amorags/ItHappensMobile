@@ -318,3 +318,216 @@ abstract class _ClientWantsToSignup implements ClientWantsToSignup {
   _$$ClientWantsToSignupImplCopyWith<_$ClientWantsToSignupImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+ClientWantsToLogin _$ClientWantsToLoginFromJson(Map<String, dynamic> json) {
+  return _ClientWantsToLogin.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ClientWantsToLogin {
+  String get eventType => throw _privateConstructorUsedError;
+  String get username => throw _privateConstructorUsedError;
+  String get password => throw _privateConstructorUsedError;
+  int get userType_id => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ClientWantsToLoginCopyWith<ClientWantsToLogin> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ClientWantsToLoginCopyWith<$Res> {
+  factory $ClientWantsToLoginCopyWith(
+          ClientWantsToLogin value, $Res Function(ClientWantsToLogin) then) =
+      _$ClientWantsToLoginCopyWithImpl<$Res, ClientWantsToLogin>;
+  @useResult
+  $Res call(
+      {String eventType, String username, String password, int userType_id});
+}
+
+/// @nodoc
+class _$ClientWantsToLoginCopyWithImpl<$Res, $Val extends ClientWantsToLogin>
+    implements $ClientWantsToLoginCopyWith<$Res> {
+  _$ClientWantsToLoginCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? eventType = null,
+    Object? username = null,
+    Object? password = null,
+    Object? userType_id = null,
+  }) {
+    return _then(_value.copyWith(
+      eventType: null == eventType
+          ? _value.eventType
+          : eventType // ignore: cast_nullable_to_non_nullable
+              as String,
+      username: null == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      userType_id: null == userType_id
+          ? _value.userType_id
+          : userType_id // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$ClientWantsToLoginImplCopyWith<$Res>
+    implements $ClientWantsToLoginCopyWith<$Res> {
+  factory _$$ClientWantsToLoginImplCopyWith(_$ClientWantsToLoginImpl value,
+          $Res Function(_$ClientWantsToLoginImpl) then) =
+      __$$ClientWantsToLoginImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String eventType, String username, String password, int userType_id});
+}
+
+/// @nodoc
+class __$$ClientWantsToLoginImplCopyWithImpl<$Res>
+    extends _$ClientWantsToLoginCopyWithImpl<$Res, _$ClientWantsToLoginImpl>
+    implements _$$ClientWantsToLoginImplCopyWith<$Res> {
+  __$$ClientWantsToLoginImplCopyWithImpl(_$ClientWantsToLoginImpl _value,
+      $Res Function(_$ClientWantsToLoginImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? eventType = null,
+    Object? username = null,
+    Object? password = null,
+    Object? userType_id = null,
+  }) {
+    return _then(_$ClientWantsToLoginImpl(
+      eventType: null == eventType
+          ? _value.eventType
+          : eventType // ignore: cast_nullable_to_non_nullable
+              as String,
+      username: null == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      userType_id: null == userType_id
+          ? _value.userType_id
+          : userType_id // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ClientWantsToLoginImpl
+    with DiagnosticableTreeMixin
+    implements _ClientWantsToLogin {
+  const _$ClientWantsToLoginImpl(
+      {required this.eventType,
+      required this.username,
+      required this.password,
+      required this.userType_id});
+
+  factory _$ClientWantsToLoginImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ClientWantsToLoginImplFromJson(json);
+
+  @override
+  final String eventType;
+  @override
+  final String username;
+  @override
+  final String password;
+  @override
+  final int userType_id;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ClientWantsToLogin(eventType: $eventType, username: $username, password: $password, userType_id: $userType_id)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ClientWantsToLogin'))
+      ..add(DiagnosticsProperty('eventType', eventType))
+      ..add(DiagnosticsProperty('username', username))
+      ..add(DiagnosticsProperty('password', password))
+      ..add(DiagnosticsProperty('userType_id', userType_id));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ClientWantsToLoginImpl &&
+            (identical(other.eventType, eventType) ||
+                other.eventType == eventType) &&
+            (identical(other.username, username) ||
+                other.username == username) &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.userType_id, userType_id) ||
+                other.userType_id == userType_id));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, eventType, username, password, userType_id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ClientWantsToLoginImplCopyWith<_$ClientWantsToLoginImpl> get copyWith =>
+      __$$ClientWantsToLoginImplCopyWithImpl<_$ClientWantsToLoginImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ClientWantsToLoginImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _ClientWantsToLogin implements ClientWantsToLogin {
+  const factory _ClientWantsToLogin(
+      {required final String eventType,
+      required final String username,
+      required final String password,
+      required final int userType_id}) = _$ClientWantsToLoginImpl;
+
+  factory _ClientWantsToLogin.fromJson(Map<String, dynamic> json) =
+      _$ClientWantsToLoginImpl.fromJson;
+
+  @override
+  String get eventType;
+  @override
+  String get username;
+  @override
+  String get password;
+  @override
+  int get userType_id;
+  @override
+  @JsonKey(ignore: true)
+  _$$ClientWantsToLoginImplCopyWith<_$ClientWantsToLoginImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
