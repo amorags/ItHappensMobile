@@ -1,8 +1,6 @@
 import 'dart:html';
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
-
 part 'events.freezed.dart';
 part 'events.g.dart';
 
@@ -29,5 +27,19 @@ class ClientWantsToSignup extends ClientEvent with _$ClientWantsToSignup {
   factory ClientWantsToSignup.fromJson(Map<String, Object?> json) =>
       _$ClientWantsToSignupFromJson(json);
 }
+@freezed
+class ClientWantsToLogin extends ClientEvent with _$ClientWantsToLogin {
+  static const String name = "ClientWantsToLogin";
+
+  const factory ClientWantsToLogin({
+    required String eventType,
+    required String username,
+    required String password,
+    required int userType_id,
+  }) =_ClientWantsToLogin;
+
+  factory ClientWantsToLogin.fromJson(Map<String, Object?> json) =>
+      _$ClientWantsToLoginFromJson(json);
 
 
+}

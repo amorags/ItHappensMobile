@@ -41,7 +41,15 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
       userType_id: userType_id
     ));
   }
-
+  /// Sends ClientWantsToLogin event to server
+  void login({required String username,  required String password, required int userType_id}) {
+    add(ClientWantsToLogin(
+        eventType: ClientWantsToLogin.name,
+        username: username,
+        password: password,
+        userType_id: userType_id
+    ));
+  }
 
   FutureOr<void> _onClientEvent(ClientEvent event, Emitter<ItHappensState> emit) {
     _channel.sink.add(jsonEncode(event.toJson()));
