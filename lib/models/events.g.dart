@@ -36,7 +36,7 @@ _$ClientWantsToLoginImpl _$$ClientWantsToLoginImplFromJson(
         Map<String, dynamic> json) =>
     _$ClientWantsToLoginImpl(
       eventType: json['eventType'] as String,
-      username: json['username'] as String,
+      email: json['email'] as String,
       password: json['password'] as String,
       userType_id: (json['userType_id'] as num).toInt(),
     );
@@ -45,7 +45,7 @@ Map<String, dynamic> _$$ClientWantsToLoginImplToJson(
         _$ClientWantsToLoginImpl instance) =>
     <String, dynamic>{
       'eventType': instance.eventType,
-      'username': instance.username,
+      'email': instance.email,
       'password': instance.password,
       'userType_id': instance.userType_id,
     };

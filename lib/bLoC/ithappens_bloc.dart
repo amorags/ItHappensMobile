@@ -42,10 +42,10 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
     ));
   }
   /// Sends ClientWantsToLogin event to server
-  void login({required String username,  required String password, required int userType_id}) {
+  void login({required String email,  required String password, required int userType_id}) {
     add(ClientWantsToLogin(
         eventType: ClientWantsToLogin.name,
-        username: username,
+        email: email,
         password: password,
         userType_id: userType_id
     ));

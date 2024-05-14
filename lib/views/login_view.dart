@@ -26,13 +26,13 @@ class LoginForm extends StatefulWidget {
 
 class _LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
-  final _usernameController = TextEditingController();
+  final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _userType_idController = TextEditingController();
 
   @override
   void dispose() {
-    _usernameController.dispose();
+    _emailController.dispose();
     _passwordController.dispose();
     _userType_idController.dispose();
     super.dispose();
@@ -46,9 +46,9 @@ class _LoginFormState extends State<LoginForm> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             TextFormField(
-              controller: _usernameController,
+              controller: _emailController,
               decoration: InputDecoration(
-                labelText: "Username",
+                labelText: "email",
                 border: OutlineInputBorder(),
                 filled: true,
                 fillColor: Colors.grey[200],
@@ -56,7 +56,7 @@ class _LoginFormState extends State<LoginForm> {
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Incorrect Username?';
+                  return 'Incorrect email?';
                 }
                 return null;
               },
@@ -81,16 +81,16 @@ class _LoginFormState extends State<LoginForm> {
               onPressed: () {
                 if(_formKey.currentState!.validate()) {
                   _formKey.currentState!.save();
-                  String username = _usernameController.text;
+                  String email = _emailController.text;
                   String password = _passwordController.text;
                   int userTyper_id = 1;
 
                   print('sending login request: '
-                  'username=$username, password=$password,');
+                  'email=$email, password=$password,');
 
                   context.read<ItHappensBloc>().add(ClientWantsToLogin(
                       eventType: ClientWantsToLogin.name,
-                      username: username,
+                      email: email,
                       password: password,
                       userType_id: userTyper_id,
                   ));

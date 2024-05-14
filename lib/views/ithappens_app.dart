@@ -65,7 +65,7 @@ class _MainScreenState extends State<MainScreen> {
                 if (value == 'signup') {
                   Navigator.of(context).pushNamed('/signup');
                 } else if (value == 'login') {
-                  // Navigate to login screen
+                  Navigator.of(context).pushNamed('/login');
                 } else if (value == 'logout') {
                   // Perform logout action
                 }

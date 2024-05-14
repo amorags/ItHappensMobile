@@ -32,7 +32,7 @@ class ClientWantsToLogin extends ClientEvent with _$ClientWantsToLogin {
 
   const factory ClientWantsToLogin({
     required String eventType,
-    required String username,
+    required String email,
     required String password,
     required int userType_id,
   }) =_ClientWantsToLogin;
