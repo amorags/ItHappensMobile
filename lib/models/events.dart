@@ -1,4 +1,3 @@
-import 'dart:html';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 part 'events.freezed.dart';
