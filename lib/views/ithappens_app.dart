@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:it_happens/views/login_view.dart';
-import 'package:web_socket_channel/html.dart'; // Import for web support
 import 'package:it_happens/bLoC/ithappens_bloc.dart';
 import 'package:it_happens/views/singup_view.dart';
+import 'package:web_socket_channel/web_socket_channel.dart';
 
 void main() {
   runApp(ItHappensApp());
@@ -12,7 +12,7 @@ void main() {
 class ItHappensApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final channel = HtmlWebSocketChannel.connect('ws://localhost:8181'); // Use HtmlWebSocketChannel for web
+    final channel = WebSocketChannel.connect(Uri.parse('ws://localhost:8181')); // Use HtmlWebSocketChannel for web
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
