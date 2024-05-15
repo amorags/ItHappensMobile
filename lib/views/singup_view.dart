@@ -54,11 +54,14 @@ class _SignupFormState extends State<SignupForm> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
+          SizedBox(height: 10),
           TextFormField(
             controller: _usernameController,
             decoration: InputDecoration(
               labelText: 'Username',
-              border: OutlineInputBorder(),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(30)
+              ),
               filled: true,
               fillColor: Colors.grey[200],
               contentPadding: EdgeInsets.all(16.0),
@@ -70,11 +73,14 @@ class _SignupFormState extends State<SignupForm> {
               return null;
             },
           ),
+          SizedBox(height: 10),
           TextFormField(
             controller: _firstnameController,
             decoration: InputDecoration(
               labelText: 'Firstname',
-              border: OutlineInputBorder(),
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30)
+              ),
               filled: true,
               fillColor: Colors.grey[200],
               contentPadding: EdgeInsets.all(16.0),
@@ -86,11 +92,14 @@ class _SignupFormState extends State<SignupForm> {
               return null;
             },
           ),
+          SizedBox(height: 10),
           TextFormField(
             controller: _lastnameController,
             decoration: InputDecoration(
               labelText: 'Lastname',
-              border: OutlineInputBorder(),
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30)
+              ),
               filled: true,
               fillColor: Colors.grey[200],
               contentPadding: EdgeInsets.all(16.0),
@@ -102,11 +111,14 @@ class _SignupFormState extends State<SignupForm> {
               return null;
             },
           ),
+          SizedBox(height: 10),
           TextFormField(
             controller: _passwordController,
             decoration: InputDecoration(
               labelText: 'Password',
-              border: OutlineInputBorder(),
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30)
+              ),
               filled: true,
               fillColor: Colors.grey[200],
               contentPadding: EdgeInsets.all(16.0),
@@ -118,11 +130,14 @@ class _SignupFormState extends State<SignupForm> {
               return null;
             },
           ),
+          SizedBox(height: 10),
           TextFormField(
             controller: _emailController,
             decoration: InputDecoration(
               labelText: 'Email',
-              border: OutlineInputBorder(),
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30)
+              ),
               filled: true,
               fillColor: Colors.grey[200],
               contentPadding: EdgeInsets.all(16.0),
@@ -134,11 +149,15 @@ class _SignupFormState extends State<SignupForm> {
               return null;
             },
           ),
+          SizedBox(height: 10),
           TextFormField(
             controller: _phoneController,
             decoration: InputDecoration(
               labelText: 'Phone',
-              border: OutlineInputBorder(),
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30)
+              ),
+
               filled: true,
               fillColor: Colors.grey[200],
               contentPadding: EdgeInsets.all(16.0),
@@ -154,6 +173,7 @@ class _SignupFormState extends State<SignupForm> {
               return null;
             },
           ),
+          SizedBox(height: 30),
           ElevatedButton(
             onPressed: () {
               if (_formKey.currentState!.validate()) {
