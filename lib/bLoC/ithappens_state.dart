@@ -7,10 +7,20 @@ part 'ithappens_state.freezed.dart';
 class ItHappensState with _$ItHappensState {
   const factory ItHappensState({
     required String? headsUp,
-  }) = ItHappensStateData; // Renamed the constructor to ItHappensStateData
+    String? token,
+    String? userType,
+  }) = ItHappensStateData;
+
+  const factory ItHappensState.loggedIn({
+    required String token,
+    required String userType,
+  }) = ItHappensLoggedInState;
+
+  const factory ItHappensState.error({
+    required String message,
+  }) = ItHappensErrorState;
 
   factory ItHappensState.empty() => const ItHappensState(headsUp: null);
 }
-
 
 
