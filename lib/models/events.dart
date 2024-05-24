@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
+import 'entities.dart';
 part 'events.freezed.dart';
 part 'events.g.dart';
 
@@ -41,4 +42,33 @@ class ClientWantsToLogin extends ClientEvent with _$ClientWantsToLogin {
       _$ClientWantsToLoginFromJson(json);
 
 
+}
+@freezed
+class ClientWantsToRetrieveEventFeed extends ClientEvent with _$ClientWantsToRetrieveEventFeed {
+  static const String name = "ClientWantsToRetrieveEventFeed";
+
+  const factory ClientWantsToRetrieveEventFeed({
+    required int Event_Id,
+    required String Name,
+    required String Location,
+    required String ImageUrl,
+    required String Description,
+    required DateTime Date,
+    required int Amount,
+    required int Association_Id,
+    required int Booking_Id
+}) = _ClientWantsToRetrieveEventFeed;
+
+ factory ClientWantsToRetrieveEventFeed.fromJson(Map<String, Object?> json) =>
+_$ClientWantsToRetrieveEventFeed(json);
+}
+
+class ServerEvent extends BaseEvent {
+  static ServerEvent fromJson(Map<String, Object?> json) {
+    final type = json['eventType'];
+    return(type){
+      ServerAddsEventFeedToClient => ServerAddsEventFeedToClient.fromJson(json)
+     _ => throw "Unknown event type $type in $json"
+    };
+    }
 }

@@ -18,9 +18,13 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
     // Handler for client events
     on<ClientEvent>(_onClientEvent);
 
+    //Handlers for Server Events
+    on<ServerAddsEventFeedToClient>(_onServerAddsEventFeedToClient);
+
     // Listen to WebSocket messages
     _channelSubscription = _channel.stream.listen(_onServerMessage);
     // Feed deserialized events from server into this bloc
+
   }
 
   @override
