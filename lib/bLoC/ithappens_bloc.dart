@@ -19,7 +19,7 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
     on<ClientEvent>(_onClientEvent);
 
     //Handlers for Server Events
-    on<ServerAddsEventFeedToClient>(_onServerAddsEventFeedToClient);
+    on<ServerSendsEventFeed>(_onServerSendsEventFeed);
 
     // Listen to WebSocket messages
     _channelSubscription = _channel.stream.listen(_onServerMessage);
@@ -36,7 +36,6 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
   /// Sends ClientWantsToRegister event to server
   void signUp({required String username, required String firstname, required String lastname, required String password, required String email, required int phone, required int userType_id}) {
     add(ClientWantsToSignup(
-        eventType: ClientWantsToSignup.name,
         username: username,
         firstname: firstname,
         lastname: lastname,
@@ -50,7 +49,6 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
   /// Sends ClientWantsToLogin event to server
   void login({required String email, required String password, required int userType_id}) {
     add(ClientWantsToLogin(
-        eventType: ClientWantsToLogin.name,
         email: email,
         password: password,
         userType_id: userType_id
@@ -133,5 +131,9 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
   Future<String?> getUserType() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getString('user_type');
+  }
+
+  FutureOr<void> _onServerSendsEventFeed(ServerSendsEventFeed event, Emitter<ItHappensState> emit) {
+
   }
 }

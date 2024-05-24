@@ -9,7 +9,6 @@ part of 'events.dart';
 _$ClientWantsToSignupImpl _$$ClientWantsToSignupImplFromJson(
         Map<String, dynamic> json) =>
     _$ClientWantsToSignupImpl(
-      eventType: json['eventType'] as String,
       username: json['username'] as String,
       firstname: json['firstname'] as String,
       lastname: json['lastname'] as String,
@@ -17,12 +16,12 @@ _$ClientWantsToSignupImpl _$$ClientWantsToSignupImplFromJson(
       email: json['email'] as String,
       phone: (json['phone'] as num).toInt(),
       userType_id: (json['userType_id'] as num).toInt(),
+      $type: json['eventType'] as String?,
     );
 
 Map<String, dynamic> _$$ClientWantsToSignupImplToJson(
         _$ClientWantsToSignupImpl instance) =>
     <String, dynamic>{
-      'eventType': instance.eventType,
       'username': instance.username,
       'firstname': instance.firstname,
       'lastname': instance.lastname,
@@ -30,24 +29,25 @@ Map<String, dynamic> _$$ClientWantsToSignupImplToJson(
       'email': instance.email,
       'phone': instance.phone,
       'userType_id': instance.userType_id,
+      'eventType': instance.$type,
     };
 
 _$ClientWantsToLoginImpl _$$ClientWantsToLoginImplFromJson(
         Map<String, dynamic> json) =>
     _$ClientWantsToLoginImpl(
-      eventType: json['eventType'] as String,
       email: json['email'] as String,
       password: json['password'] as String,
       userType_id: (json['userType_id'] as num).toInt(),
+      $type: json['eventType'] as String?,
     );
 
 Map<String, dynamic> _$$ClientWantsToLoginImplToJson(
         _$ClientWantsToLoginImpl instance) =>
     <String, dynamic>{
-      'eventType': instance.eventType,
       'email': instance.email,
       'password': instance.password,
       'userType_id': instance.userType_id,
+      'eventType': instance.$type,
     };
 
 _$ClientWantsToRetrieveEventFeedImpl
@@ -62,6 +62,7 @@ _$ClientWantsToRetrieveEventFeedImpl
           Amount: (json['Amount'] as num).toInt(),
           Association_Id: (json['Association_Id'] as num).toInt(),
           Booking_Id: (json['Booking_Id'] as num).toInt(),
+          $type: json['eventType'] as String?,
         );
 
 Map<String, dynamic> _$$ClientWantsToRetrieveEventFeedImplToJson(
@@ -76,4 +77,19 @@ Map<String, dynamic> _$$ClientWantsToRetrieveEventFeedImplToJson(
       'Amount': instance.Amount,
       'Association_Id': instance.Association_Id,
       'Booking_Id': instance.Booking_Id,
+      'eventType': instance.$type,
+    };
+
+_$ServerSendsEventFeedImpl _$$ServerSendsEventFeedImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ServerSendsEventFeedImpl(
+      EventsFeedQueries: (json['EventsFeedQueries'] as List<dynamic>)
+          .map((e) => Event.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$$ServerSendsEventFeedImplToJson(
+        _$ServerSendsEventFeedImpl instance) =>
+    <String, dynamic>{
+      'EventsFeedQueries': instance.EventsFeedQueries,
     };

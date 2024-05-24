@@ -194,7 +194,6 @@ class _SignupFormState extends State<SignupForm> {
 
                 // Create signup event and add it to the bloc using context.read<ItHappensBloc>()
                 context.read<ItHappensBloc>().add(ClientWantsToSignup(
-                  eventType: ClientWantsToSignup.name,
                   username: username,
                   firstname: firstname,
                   lastname: lastname,
