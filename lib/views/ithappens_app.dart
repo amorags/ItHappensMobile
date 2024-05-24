@@ -96,12 +96,13 @@ class _MainScreenState extends State<MainScreen> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.business),
-            label: 'Organizations',
+            label: 'Associations',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.event),
-            label: 'Activities',
+            label: 'Events',
           ),
+
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.blue,
@@ -117,7 +118,7 @@ class _MainScreenState extends State<MainScreen> {
           color: Colors.grey[200],
           child: Center(
             child: Text(
-              'Organizations Page',
+              'Association Page',
               style: TextStyle(fontSize: 24.0),
             ),
           ),
@@ -126,15 +127,13 @@ class _MainScreenState extends State<MainScreen> {
         return Container(
           color: Colors.grey[200],
           child: Center(
-            child: ElevatedButton(
-              onPressed: () {
-                // Navigate to signup screen
-                Navigator.of(context).pushNamed('/signup');
-              },
-              child: Text('Signup'),
+            child: Text(
+              'Events Page',
+              style: TextStyle(fontSize: 24.0),
             ),
           ),
         );
+
       case 2:
         return Container(
           color: Colors.grey[200],
