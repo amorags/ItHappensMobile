@@ -18,7 +18,7 @@ ClientEvent _$ClientEventFromJson(Map<String, dynamic> json) {
   switch (json['eventType']) {
     case 'ClientWantsToSignup':
       return ClientWantsToSignup.fromJson(json);
-    case 'CClientWantsToLogin':
+    case 'ClientWantsToLogin':
       return ClientWantsToLogin.fromJson(json);
     case 'ClientWantsToRetrieveEventFeed':
       return ClientWantsToRetrieveEventFeed.fromJson(json);
@@ -43,7 +43,7 @@ mixin _$ClientEvent {
             int userType_id)
         clientWantsToSignup,
     required TResult Function(String email, String password, int userType_id)
-        cClientWantsToLogin,
+        ClientWantsToLogin,
     required TResult Function(
             int Event_Id,
             String Name,
@@ -63,7 +63,7 @@ mixin _$ClientEvent {
             String password, String email, int phone, int userType_id)?
         clientWantsToSignup,
     TResult? Function(String email, String password, int userType_id)?
-        cClientWantsToLogin,
+        ClientWantsToLogin,
     TResult? Function(
             int Event_Id,
             String Name,
@@ -83,7 +83,7 @@ mixin _$ClientEvent {
             String password, String email, int phone, int userType_id)?
         clientWantsToSignup,
     TResult Function(String email, String password, int userType_id)?
-        cClientWantsToLogin,
+        ClientWantsToLogin,
     TResult Function(
             int Event_Id,
             String Name,
@@ -101,7 +101,7 @@ mixin _$ClientEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ClientWantsToSignup value) clientWantsToSignup,
-    required TResult Function(ClientWantsToLogin value) cClientWantsToLogin,
+    required TResult Function(ClientWantsToLogin value) ClientWantsToLogin,
     required TResult Function(ClientWantsToRetrieveEventFeed value)
         clientWantsToRetrieveEventFeed,
   }) =>
@@ -109,7 +109,7 @@ mixin _$ClientEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ClientWantsToSignup value)? clientWantsToSignup,
-    TResult? Function(ClientWantsToLogin value)? cClientWantsToLogin,
+    TResult? Function(ClientWantsToLogin value)? ClientWantsToLogin,
     TResult? Function(ClientWantsToRetrieveEventFeed value)?
         clientWantsToRetrieveEventFeed,
   }) =>
@@ -117,7 +117,7 @@ mixin _$ClientEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ClientWantsToSignup value)? clientWantsToSignup,
-    TResult Function(ClientWantsToLogin value)? cClientWantsToLogin,
+    TResult Function(ClientWantsToLogin value)? ClientWantsToLogin,
     TResult Function(ClientWantsToRetrieveEventFeed value)?
         clientWantsToRetrieveEventFeed,
     required TResult orElse(),
@@ -312,7 +312,7 @@ class _$ClientWantsToSignupImpl
             int userType_id)
         clientWantsToSignup,
     required TResult Function(String email, String password, int userType_id)
-        cClientWantsToLogin,
+        ClientWantsToLogin,
     required TResult Function(
             int Event_Id,
             String Name,
@@ -336,7 +336,7 @@ class _$ClientWantsToSignupImpl
             String password, String email, int phone, int userType_id)?
         clientWantsToSignup,
     TResult? Function(String email, String password, int userType_id)?
-        cClientWantsToLogin,
+        ClientWantsToLogin,
     TResult? Function(
             int Event_Id,
             String Name,
@@ -360,7 +360,7 @@ class _$ClientWantsToSignupImpl
             String password, String email, int phone, int userType_id)?
         clientWantsToSignup,
     TResult Function(String email, String password, int userType_id)?
-        cClientWantsToLogin,
+        ClientWantsToLogin,
     TResult Function(
             int Event_Id,
             String Name,
@@ -385,7 +385,7 @@ class _$ClientWantsToSignupImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ClientWantsToSignup value) clientWantsToSignup,
-    required TResult Function(ClientWantsToLogin value) cClientWantsToLogin,
+    required TResult Function(ClientWantsToLogin value) ClientWantsToLogin,
     required TResult Function(ClientWantsToRetrieveEventFeed value)
         clientWantsToRetrieveEventFeed,
   }) {
@@ -396,7 +396,7 @@ class _$ClientWantsToSignupImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ClientWantsToSignup value)? clientWantsToSignup,
-    TResult? Function(ClientWantsToLogin value)? cClientWantsToLogin,
+    TResult? Function(ClientWantsToLogin value)? ClientWantsToLogin,
     TResult? Function(ClientWantsToRetrieveEventFeed value)?
         clientWantsToRetrieveEventFeed,
   }) {
@@ -407,7 +407,7 @@ class _$ClientWantsToSignupImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ClientWantsToSignup value)? clientWantsToSignup,
-    TResult Function(ClientWantsToLogin value)? cClientWantsToLogin,
+    TResult Function(ClientWantsToLogin value)? ClientWantsToLogin,
     TResult Function(ClientWantsToRetrieveEventFeed value)?
         clientWantsToRetrieveEventFeed,
     required TResult orElse(),
@@ -502,7 +502,7 @@ class _$ClientWantsToLoginImpl
       required this.password,
       required this.userType_id,
       final String? $type})
-      : $type = $type ?? 'CClientWantsToLogin';
+      : $type = $type ?? 'ClientWantsToLogin';
 
   factory _$ClientWantsToLoginImpl.fromJson(Map<String, dynamic> json) =>
       _$$ClientWantsToLoginImplFromJson(json);
@@ -519,14 +519,14 @@ class _$ClientWantsToLoginImpl
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ClientEvent.cClientWantsToLogin(email: $email, password: $password, userType_id: $userType_id)';
+    return 'ClientEvent.ClientWantsToLogin(email: $email, password: $password, userType_id: $userType_id)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'ClientEvent.cClientWantsToLogin'))
+      ..add(DiagnosticsProperty('type', 'ClientEvent.ClientWantsToLogin'))
       ..add(DiagnosticsProperty('email', email))
       ..add(DiagnosticsProperty('password', password))
       ..add(DiagnosticsProperty('userType_id', userType_id));
@@ -568,7 +568,7 @@ class _$ClientWantsToLoginImpl
             int userType_id)
         clientWantsToSignup,
     required TResult Function(String email, String password, int userType_id)
-        cClientWantsToLogin,
+        ClientWantsToLogin,
     required TResult Function(
             int Event_Id,
             String Name,
@@ -581,7 +581,7 @@ class _$ClientWantsToLoginImpl
             int Booking_Id)
         clientWantsToRetrieveEventFeed,
   }) {
-    return cClientWantsToLogin(email, password, userType_id);
+    return ClientWantsToLogin(email, password, userType_id);
   }
 
   @override
@@ -591,7 +591,7 @@ class _$ClientWantsToLoginImpl
             String password, String email, int phone, int userType_id)?
         clientWantsToSignup,
     TResult? Function(String email, String password, int userType_id)?
-        cClientWantsToLogin,
+        ClientWantsToLogin,
     TResult? Function(
             int Event_Id,
             String Name,
@@ -604,7 +604,7 @@ class _$ClientWantsToLoginImpl
             int Booking_Id)?
         clientWantsToRetrieveEventFeed,
   }) {
-    return cClientWantsToLogin?.call(email, password, userType_id);
+    return ClientWantsToLogin?.call(email, password, userType_id);
   }
 
   @override
@@ -614,7 +614,7 @@ class _$ClientWantsToLoginImpl
             String password, String email, int phone, int userType_id)?
         clientWantsToSignup,
     TResult Function(String email, String password, int userType_id)?
-        cClientWantsToLogin,
+        ClientWantsToLogin,
     TResult Function(
             int Event_Id,
             String Name,
@@ -628,8 +628,8 @@ class _$ClientWantsToLoginImpl
         clientWantsToRetrieveEventFeed,
     required TResult orElse(),
   }) {
-    if (cClientWantsToLogin != null) {
-      return cClientWantsToLogin(email, password, userType_id);
+    if (ClientWantsToLogin != null) {
+      return ClientWantsToLogin(email, password, userType_id);
     }
     return orElse();
   }
@@ -638,35 +638,35 @@ class _$ClientWantsToLoginImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ClientWantsToSignup value) clientWantsToSignup,
-    required TResult Function(ClientWantsToLogin value) cClientWantsToLogin,
+    required TResult Function(ClientWantsToLogin value) ClientWantsToLogin,
     required TResult Function(ClientWantsToRetrieveEventFeed value)
         clientWantsToRetrieveEventFeed,
   }) {
-    return cClientWantsToLogin(this);
+    return ClientWantsToLogin(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ClientWantsToSignup value)? clientWantsToSignup,
-    TResult? Function(ClientWantsToLogin value)? cClientWantsToLogin,
+    TResult? Function(ClientWantsToLogin value)? ClientWantsToLogin,
     TResult? Function(ClientWantsToRetrieveEventFeed value)?
         clientWantsToRetrieveEventFeed,
   }) {
-    return cClientWantsToLogin?.call(this);
+    return ClientWantsToLogin?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ClientWantsToSignup value)? clientWantsToSignup,
-    TResult Function(ClientWantsToLogin value)? cClientWantsToLogin,
+    TResult Function(ClientWantsToLogin value)? ClientWantsToLogin,
     TResult Function(ClientWantsToRetrieveEventFeed value)?
         clientWantsToRetrieveEventFeed,
     required TResult orElse(),
   }) {
-    if (cClientWantsToLogin != null) {
-      return cClientWantsToLogin(this);
+    if (ClientWantsToLogin != null) {
+      return ClientWantsToLogin(this);
     }
     return orElse();
   }
@@ -893,7 +893,7 @@ class _$ClientWantsToRetrieveEventFeedImpl
             int userType_id)
         clientWantsToSignup,
     required TResult Function(String email, String password, int userType_id)
-        cClientWantsToLogin,
+        ClientWantsToLogin,
     required TResult Function(
             int Event_Id,
             String Name,
@@ -917,7 +917,7 @@ class _$ClientWantsToRetrieveEventFeedImpl
             String password, String email, int phone, int userType_id)?
         clientWantsToSignup,
     TResult? Function(String email, String password, int userType_id)?
-        cClientWantsToLogin,
+        ClientWantsToLogin,
     TResult? Function(
             int Event_Id,
             String Name,
@@ -941,7 +941,7 @@ class _$ClientWantsToRetrieveEventFeedImpl
             String password, String email, int phone, int userType_id)?
         clientWantsToSignup,
     TResult Function(String email, String password, int userType_id)?
-        cClientWantsToLogin,
+        ClientWantsToLogin,
     TResult Function(
             int Event_Id,
             String Name,
@@ -966,7 +966,7 @@ class _$ClientWantsToRetrieveEventFeedImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ClientWantsToSignup value) clientWantsToSignup,
-    required TResult Function(ClientWantsToLogin value) cClientWantsToLogin,
+    required TResult Function(ClientWantsToLogin value) ClientWantsToLogin,
     required TResult Function(ClientWantsToRetrieveEventFeed value)
         clientWantsToRetrieveEventFeed,
   }) {
@@ -977,7 +977,7 @@ class _$ClientWantsToRetrieveEventFeedImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ClientWantsToSignup value)? clientWantsToSignup,
-    TResult? Function(ClientWantsToLogin value)? cClientWantsToLogin,
+    TResult? Function(ClientWantsToLogin value)? ClientWantsToLogin,
     TResult? Function(ClientWantsToRetrieveEventFeed value)?
         clientWantsToRetrieveEventFeed,
   }) {
@@ -988,7 +988,7 @@ class _$ClientWantsToRetrieveEventFeedImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ClientWantsToSignup value)? clientWantsToSignup,
-    TResult Function(ClientWantsToLogin value)? cClientWantsToLogin,
+    TResult Function(ClientWantsToLogin value)? ClientWantsToLogin,
     TResult Function(ClientWantsToRetrieveEventFeed value)?
         clientWantsToRetrieveEventFeed,
     required TResult orElse(),

@@ -19,7 +19,7 @@ sealed class ClientEvent with _$ClientEvent implements BaseEvent {
     required int userType_id
   }) = ClientWantsToSignup;
 
-  factory ClientEvent.cClientWantsToLogin({
+  factory ClientEvent.ClientWantsToLogin({
     required String email,
     required String password,
     required int userType_id

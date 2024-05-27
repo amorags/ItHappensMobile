@@ -19,9 +19,9 @@ class EventCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(event.Name, style: Theme.of(context).textTheme.headline6),
+                Text(event.Name, style: Theme.of(context).textTheme.titleLarge),
                 const SizedBox(height: 4.0),
-                Text(event.Location, style: Theme.of(context).textTheme.subtitle1),
+                Text(event.Location, style: Theme.of(context).textTheme.titleMedium),
                 const SizedBox(height: 4.0),
                 Text(event.Description),
                 const SizedBox(height: 4.0),

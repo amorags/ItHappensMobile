@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 import '../models/entities.dart';
@@ -53,6 +54,22 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
         email: email,
         password: password,
         userType_id: userType_id
+    ));
+  }
+
+  void getEventFeed({required int Event_Id, required String Name, required String Location,
+  required String ImageUrl,required String Description, required DateTime Date, required int Amount, required int Association_Id,
+  required int Booking_Id}) {
+    add(ClientEvent.clientWantsToRetrieveEventFeed(
+        Event_Id: Event_Id,
+        Name: Name,
+        Location: Location,
+        ImageUrl: ImageUrl,
+        Description: Description,
+        Date: Date,
+        Amount: Amount,
+        Association_Id: Association_Id,
+        Booking_Id: Booking_Id
     ));
   }
 

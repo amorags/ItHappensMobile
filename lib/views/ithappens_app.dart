@@ -20,7 +20,7 @@ class ItHappensApp extends StatelessWidget {
     final channel = WebSocketChannel.connect(Uri.parse('ws://localhost:8181'));
 
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner:false,
       title: 'It Happens',
       theme: ThemeData(
         primarySwatch: Colors.blue,
