@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:it_happens/models/entities.dart';
 import 'package:it_happens/views/login_view.dart';
 import 'package:it_happens/bLoC/ithappens_bloc.dart';
-import 'package:it_happens/views/singup_view.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
+import '../bLoC/ithappens_state.dart';
+import '../models/events.dart';
+import 'event_list_page.dart';
+import 'singup_view.dart';
+
 
 void main() {
   runApp(ItHappensApp());
@@ -12,7 +17,7 @@ void main() {
 class ItHappensApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final channel = WebSocketChannel.connect(Uri.parse('ws://localhost:8181')); // Use HtmlWebSocketChannel for web
+    final channel = WebSocketChannel.connect(Uri.parse('ws://localhost:8181'));
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -27,13 +32,13 @@ class ItHappensApp extends StatelessWidget {
           child: MainScreen(),
         ),
         '/signup': (context) => BlocProvider.value(
-          value: BlocProvider.of<ItHappensBloc>(context), // Provide the existing bloc
+          value: BlocProvider.of<ItHappensBloc>(context),
           child: SignupView(),
         ),
         '/login': (context) => BlocProvider.value(
-        value: BlocProvider.of<ItHappensBloc>(context), // Provide the existing bloc
-        child: LoginView(),
-    ),
+          value: BlocProvider.of<ItHappensBloc>(context),
+          child: LoginView(),
+        ),
       },
     );
   }
@@ -46,6 +51,28 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchEvents();
+  }
+
+  void _fetchEvents() {
+    context.read<ItHappensBloc>().add(ClientEvent.clientWantsToRetrieveEventFeed(
+      Event_Id: 0, // Dummy values, since actual fetching logic will be on the server
+      Name: '',
+      Location: '',
+      ImageUrl: '',
+      Description: '',
+      Date: DateTime.now(),
+      Amount: 0,
+      Association_Id: 0,
+      Booking_Id: 0,
+    ));
+    print('Sending event to retrieve events: $Event'); // Log the event details
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +97,6 @@ class _MainScreenState extends State<MainScreen> {
                   // Perform logout action
                 }
               },
-
               itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
                 PopupMenuItem<String>(
                   value: 'signup',
@@ -89,9 +115,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ],
       ),
-      body: Center(
-        child: _buildPage(_selectedIndex),
-      ),
+      body: _buildPage(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -102,7 +126,6 @@ class _MainScreenState extends State<MainScreen> {
             icon: Icon(Icons.event),
             label: 'Events',
           ),
-
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.blue,
@@ -114,51 +137,35 @@ class _MainScreenState extends State<MainScreen> {
   Widget _buildPage(int index) {
     switch (index) {
       case 0:
-        return Container(
-          color: Colors.grey[200],
-          child: Center(
-            child: Text(
-              'Association Page',
-              style: TextStyle(fontSize: 24.0),
-            ),
+        return Center(
+          child: Text(
+            'Association Page',
+            style: TextStyle(fontSize: 24.0),
           ),
         );
       case 1:
-        return Container(
-          color: Colors.grey[200],
-          child: Center(
-            child: Text(
-              'Events Page',
-              style: TextStyle(fontSize: 24.0),
-            ),
-          ),
-        );
-
-      case 2:
-        return Container(
-          color: Colors.grey[200],
-          child: Center(
-            child: ElevatedButton(
-              onPressed: () {
-                // Navigate to signup screen
-                Navigator.of(context).pushNamed('/login');
-              },
-              child: Text('Login'),
-            ),
-          ),
+        return BlocBuilder<ItHappensBloc, ItHappensState>(
+          builder: (context, state) {
+            if (state is ItHappensStateLoggedIn) {
+              return EventListPage(events: state.events);
+            } else if (state is ItHappensStateError) {
+              return Center(child: Text('Error: ${state.message}'));
+            } else {
+              return Center(child: CircularProgressIndicator());
+            }
+          },
         );
       default:
         return Container();
     }
   }
 
-
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      if (_selectedIndex == 1) {
+        _fetchEvents();
+      }
     });
   }
 }
-
-
-

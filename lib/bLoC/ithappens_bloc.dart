@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
+import '../models/entities.dart';
 import 'ithappens_state.dart'; // Import your state file
 import 'package:it_happens/models/events.dart'; // Import your events file
 import 'package:shared_preferences/shared_preferences.dart';
@@ -20,9 +21,9 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
 
     //Handlers for Server Events
     on<ServerSendsEventFeed>(_onServerSendsEventFeed);
-
     // Listen to WebSocket messages
     _channelSubscription = _channel.stream.listen(_onServerMessage);
+    
     // Feed deserialized events from server into this bloc
 
   }
@@ -82,7 +83,13 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
       print('Token and user type stored locally');
 
       // Update the state
-      emit(ItHappensState.loggedIn(token: token, userType: userType));
+      emit(ItHappensState.loggedIn(token: token, userType: userType, events: []));
+    } else if (decodedMessage.containsKey('EventsFeedQueries')) {
+      final events = (decodedMessage['EventsFeedQueries'] as List)
+          .map((e) => Event.fromJson(e))
+          .toList();
+      add(ServerSendsEventFeed(EventsFeedQueries: events));
+      print('Events received from server: $events'); // Log the received events
     } else {
       print('Error in message: ${decodedMessage.toString()}');
       emit(ItHappensState.error(message: decodedMessage.toString()));
@@ -134,6 +141,21 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
   }
 
   FutureOr<void> _onServerSendsEventFeed(ServerSendsEventFeed event, Emitter<ItHappensState> emit) {
+    print('Received ServerSendsEventFeed: $event'); // Log the received message
+    // Extract the list of events from the ServerSendsEventFeed object
+    final List<Event> events = event.EventsFeedQueries;
+
+
+    if (events.isEmpty) {
+      // Log that no events were received
+      print('No events received.');
+    } else {
+      // Log the events
+      print('Events received: $events');
+    }
+    // Logic for processing and storing the list of events
+    // For example, you can update the state with the received events
+    emit(ItHappensState.loggedIn(token: _jwt!, userType: _userType!, events: events));
 
   }
 }
