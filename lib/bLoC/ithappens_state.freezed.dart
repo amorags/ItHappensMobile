@@ -17,49 +17,55 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ItHappensState {
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String? headsUp, String? token, String? userType)
-        $default, {
-    required TResult Function(String token, String userType) loggedIn,
+  TResult when<TResult extends Object?>({
+    required TResult Function() empty,
+    required TResult Function() loading,
+    required TResult Function(String token, String userType, List<Event> events)
+        loggedIn,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? headsUp, String? token, String? userType)?
-        $default, {
-    TResult? Function(String token, String userType)? loggedIn,
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? empty,
+    TResult? Function()? loading,
+    TResult? Function(String token, String userType, List<Event> events)?
+        loggedIn,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? headsUp, String? token, String? userType)?
-        $default, {
-    TResult Function(String token, String userType)? loggedIn,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function()? loading,
+    TResult Function(String token, String userType, List<Event> events)?
+        loggedIn,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(ItHappensStateData value) $default, {
-    required TResult Function(ItHappensLoggedInState value) loggedIn,
-    required TResult Function(ItHappensErrorState value) error,
+  TResult map<TResult extends Object?>({
+    required TResult Function(ItHappensStateEmpty value) empty,
+    required TResult Function(ItHappensStateLoading value) loading,
+    required TResult Function(ItHappensStateLoggedIn value) loggedIn,
+    required TResult Function(ItHappensStateError value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(ItHappensStateData value)? $default, {
-    TResult? Function(ItHappensLoggedInState value)? loggedIn,
-    TResult? Function(ItHappensErrorState value)? error,
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ItHappensStateEmpty value)? empty,
+    TResult? Function(ItHappensStateLoading value)? loading,
+    TResult? Function(ItHappensStateLoggedIn value)? loggedIn,
+    TResult? Function(ItHappensStateError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(ItHappensStateData value)? $default, {
-    TResult Function(ItHappensLoggedInState value)? loggedIn,
-    TResult Function(ItHappensErrorState value)? error,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ItHappensStateEmpty value)? empty,
+    TResult Function(ItHappensStateLoading value)? loading,
+    TResult Function(ItHappensStateLoggedIn value)? loggedIn,
+    TResult Function(ItHappensStateError value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -84,200 +90,259 @@ class _$ItHappensStateCopyWithImpl<$Res, $Val extends ItHappensState>
 }
 
 /// @nodoc
-abstract class _$$ItHappensStateDataImplCopyWith<$Res> {
-  factory _$$ItHappensStateDataImplCopyWith(_$ItHappensStateDataImpl value,
-          $Res Function(_$ItHappensStateDataImpl) then) =
-      __$$ItHappensStateDataImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String? headsUp, String? token, String? userType});
+abstract class _$$ItHappensStateEmptyImplCopyWith<$Res> {
+  factory _$$ItHappensStateEmptyImplCopyWith(_$ItHappensStateEmptyImpl value,
+          $Res Function(_$ItHappensStateEmptyImpl) then) =
+      __$$ItHappensStateEmptyImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ItHappensStateDataImplCopyWithImpl<$Res>
-    extends _$ItHappensStateCopyWithImpl<$Res, _$ItHappensStateDataImpl>
-    implements _$$ItHappensStateDataImplCopyWith<$Res> {
-  __$$ItHappensStateDataImplCopyWithImpl(_$ItHappensStateDataImpl _value,
-      $Res Function(_$ItHappensStateDataImpl) _then)
+class __$$ItHappensStateEmptyImplCopyWithImpl<$Res>
+    extends _$ItHappensStateCopyWithImpl<$Res, _$ItHappensStateEmptyImpl>
+    implements _$$ItHappensStateEmptyImplCopyWith<$Res> {
+  __$$ItHappensStateEmptyImplCopyWithImpl(_$ItHappensStateEmptyImpl _value,
+      $Res Function(_$ItHappensStateEmptyImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? headsUp = freezed,
-    Object? token = freezed,
-    Object? userType = freezed,
-  }) {
-    return _then(_$ItHappensStateDataImpl(
-      headsUp: freezed == headsUp
-          ? _value.headsUp
-          : headsUp // ignore: cast_nullable_to_non_nullable
-              as String?,
-      token: freezed == token
-          ? _value.token
-          : token // ignore: cast_nullable_to_non_nullable
-              as String?,
-      userType: freezed == userType
-          ? _value.userType
-          : userType // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$ItHappensStateDataImpl
-    with DiagnosticableTreeMixin
-    implements ItHappensStateData {
-  const _$ItHappensStateDataImpl(
-      {required this.headsUp, this.token, this.userType});
+class _$ItHappensStateEmptyImpl implements ItHappensStateEmpty {
+  const _$ItHappensStateEmptyImpl();
 
   @override
-  final String? headsUp;
-  @override
-  final String? token;
-  @override
-  final String? userType;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ItHappensState(headsUp: $headsUp, token: $token, userType: $userType)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'ItHappensState'))
-      ..add(DiagnosticsProperty('headsUp', headsUp))
-      ..add(DiagnosticsProperty('token', token))
-      ..add(DiagnosticsProperty('userType', userType));
+  String toString() {
+    return 'ItHappensState.empty()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ItHappensStateDataImpl &&
-            (identical(other.headsUp, headsUp) || other.headsUp == headsUp) &&
-            (identical(other.token, token) || other.token == token) &&
-            (identical(other.userType, userType) ||
-                other.userType == userType));
+            other is _$ItHappensStateEmptyImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, headsUp, token, userType);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ItHappensStateDataImplCopyWith<_$ItHappensStateDataImpl> get copyWith =>
-      __$$ItHappensStateDataImplCopyWithImpl<_$ItHappensStateDataImpl>(
-          this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String? headsUp, String? token, String? userType)
-        $default, {
-    required TResult Function(String token, String userType) loggedIn,
+  TResult when<TResult extends Object?>({
+    required TResult Function() empty,
+    required TResult Function() loading,
+    required TResult Function(String token, String userType, List<Event> events)
+        loggedIn,
     required TResult Function(String message) error,
   }) {
-    return $default(headsUp, token, userType);
+    return empty();
   }
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? headsUp, String? token, String? userType)?
-        $default, {
-    TResult? Function(String token, String userType)? loggedIn,
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? empty,
+    TResult? Function()? loading,
+    TResult? Function(String token, String userType, List<Event> events)?
+        loggedIn,
     TResult? Function(String message)? error,
   }) {
-    return $default?.call(headsUp, token, userType);
+    return empty?.call();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? headsUp, String? token, String? userType)?
-        $default, {
-    TResult Function(String token, String userType)? loggedIn,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function()? loading,
+    TResult Function(String token, String userType, List<Event> events)?
+        loggedIn,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
-    if ($default != null) {
-      return $default(headsUp, token, userType);
+    if (empty != null) {
+      return empty();
     }
     return orElse();
   }
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(ItHappensStateData value) $default, {
-    required TResult Function(ItHappensLoggedInState value) loggedIn,
-    required TResult Function(ItHappensErrorState value) error,
+  TResult map<TResult extends Object?>({
+    required TResult Function(ItHappensStateEmpty value) empty,
+    required TResult Function(ItHappensStateLoading value) loading,
+    required TResult Function(ItHappensStateLoggedIn value) loggedIn,
+    required TResult Function(ItHappensStateError value) error,
   }) {
-    return $default(this);
+    return empty(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(ItHappensStateData value)? $default, {
-    TResult? Function(ItHappensLoggedInState value)? loggedIn,
-    TResult? Function(ItHappensErrorState value)? error,
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ItHappensStateEmpty value)? empty,
+    TResult? Function(ItHappensStateLoading value)? loading,
+    TResult? Function(ItHappensStateLoggedIn value)? loggedIn,
+    TResult? Function(ItHappensStateError value)? error,
   }) {
-    return $default?.call(this);
+    return empty?.call(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(ItHappensStateData value)? $default, {
-    TResult Function(ItHappensLoggedInState value)? loggedIn,
-    TResult Function(ItHappensErrorState value)? error,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ItHappensStateEmpty value)? empty,
+    TResult Function(ItHappensStateLoading value)? loading,
+    TResult Function(ItHappensStateLoggedIn value)? loggedIn,
+    TResult Function(ItHappensStateError value)? error,
     required TResult orElse(),
   }) {
-    if ($default != null) {
-      return $default(this);
+    if (empty != null) {
+      return empty(this);
     }
     return orElse();
   }
 }
 
-abstract class ItHappensStateData implements ItHappensState {
-  const factory ItHappensStateData(
-      {required final String? headsUp,
-      final String? token,
-      final String? userType}) = _$ItHappensStateDataImpl;
-
-  String? get headsUp;
-  String? get token;
-  String? get userType;
-  @JsonKey(ignore: true)
-  _$$ItHappensStateDataImplCopyWith<_$ItHappensStateDataImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+abstract class ItHappensStateEmpty implements ItHappensState {
+  const factory ItHappensStateEmpty() = _$ItHappensStateEmptyImpl;
 }
 
 /// @nodoc
-abstract class _$$ItHappensLoggedInStateImplCopyWith<$Res> {
-  factory _$$ItHappensLoggedInStateImplCopyWith(
-          _$ItHappensLoggedInStateImpl value,
-          $Res Function(_$ItHappensLoggedInStateImpl) then) =
-      __$$ItHappensLoggedInStateImplCopyWithImpl<$Res>;
+abstract class _$$ItHappensStateLoadingImplCopyWith<$Res> {
+  factory _$$ItHappensStateLoadingImplCopyWith(
+          _$ItHappensStateLoadingImpl value,
+          $Res Function(_$ItHappensStateLoadingImpl) then) =
+      __$$ItHappensStateLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ItHappensStateLoadingImplCopyWithImpl<$Res>
+    extends _$ItHappensStateCopyWithImpl<$Res, _$ItHappensStateLoadingImpl>
+    implements _$$ItHappensStateLoadingImplCopyWith<$Res> {
+  __$$ItHappensStateLoadingImplCopyWithImpl(_$ItHappensStateLoadingImpl _value,
+      $Res Function(_$ItHappensStateLoadingImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ItHappensStateLoadingImpl implements ItHappensStateLoading {
+  const _$ItHappensStateLoadingImpl();
+
+  @override
+  String toString() {
+    return 'ItHappensState.loading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ItHappensStateLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() empty,
+    required TResult Function() loading,
+    required TResult Function(String token, String userType, List<Event> events)
+        loggedIn,
+    required TResult Function(String message) error,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? empty,
+    TResult? Function()? loading,
+    TResult? Function(String token, String userType, List<Event> events)?
+        loggedIn,
+    TResult? Function(String message)? error,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function()? loading,
+    TResult Function(String token, String userType, List<Event> events)?
+        loggedIn,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ItHappensStateEmpty value) empty,
+    required TResult Function(ItHappensStateLoading value) loading,
+    required TResult Function(ItHappensStateLoggedIn value) loggedIn,
+    required TResult Function(ItHappensStateError value) error,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ItHappensStateEmpty value)? empty,
+    TResult? Function(ItHappensStateLoading value)? loading,
+    TResult? Function(ItHappensStateLoggedIn value)? loggedIn,
+    TResult? Function(ItHappensStateError value)? error,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ItHappensStateEmpty value)? empty,
+    TResult Function(ItHappensStateLoading value)? loading,
+    TResult Function(ItHappensStateLoggedIn value)? loggedIn,
+    TResult Function(ItHappensStateError value)? error,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ItHappensStateLoading implements ItHappensState {
+  const factory ItHappensStateLoading() = _$ItHappensStateLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$ItHappensStateLoggedInImplCopyWith<$Res> {
+  factory _$$ItHappensStateLoggedInImplCopyWith(
+          _$ItHappensStateLoggedInImpl value,
+          $Res Function(_$ItHappensStateLoggedInImpl) then) =
+      __$$ItHappensStateLoggedInImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String token, String userType});
+  $Res call({String token, String userType, List<Event> events});
 }
 
 /// @nodoc
-class __$$ItHappensLoggedInStateImplCopyWithImpl<$Res>
-    extends _$ItHappensStateCopyWithImpl<$Res, _$ItHappensLoggedInStateImpl>
-    implements _$$ItHappensLoggedInStateImplCopyWith<$Res> {
-  __$$ItHappensLoggedInStateImplCopyWithImpl(
-      _$ItHappensLoggedInStateImpl _value,
-      $Res Function(_$ItHappensLoggedInStateImpl) _then)
+class __$$ItHappensStateLoggedInImplCopyWithImpl<$Res>
+    extends _$ItHappensStateCopyWithImpl<$Res, _$ItHappensStateLoggedInImpl>
+    implements _$$ItHappensStateLoggedInImplCopyWith<$Res> {
+  __$$ItHappensStateLoggedInImplCopyWithImpl(
+      _$ItHappensStateLoggedInImpl _value,
+      $Res Function(_$ItHappensStateLoggedInImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -285,8 +350,9 @@ class __$$ItHappensLoggedInStateImplCopyWithImpl<$Res>
   $Res call({
     Object? token = null,
     Object? userType = null,
+    Object? events = null,
   }) {
-    return _then(_$ItHappensLoggedInStateImpl(
+    return _then(_$ItHappensStateLoggedInImpl(
       token: null == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
@@ -295,120 +361,131 @@ class __$$ItHappensLoggedInStateImplCopyWithImpl<$Res>
           ? _value.userType
           : userType // ignore: cast_nullable_to_non_nullable
               as String,
+      events: null == events
+          ? _value._events
+          : events // ignore: cast_nullable_to_non_nullable
+              as List<Event>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$ItHappensLoggedInStateImpl
-    with DiagnosticableTreeMixin
-    implements ItHappensLoggedInState {
-  const _$ItHappensLoggedInStateImpl(
-      {required this.token, required this.userType});
+class _$ItHappensStateLoggedInImpl implements ItHappensStateLoggedIn {
+  const _$ItHappensStateLoggedInImpl(
+      {required this.token,
+      required this.userType,
+      required final List<Event> events})
+      : _events = events;
 
   @override
   final String token;
   @override
   final String userType;
-
+  final List<Event> _events;
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ItHappensState.loggedIn(token: $token, userType: $userType)';
+  List<Event> get events {
+    if (_events is EqualUnmodifiableListView) return _events;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_events);
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'ItHappensState.loggedIn'))
-      ..add(DiagnosticsProperty('token', token))
-      ..add(DiagnosticsProperty('userType', userType));
+  String toString() {
+    return 'ItHappensState.loggedIn(token: $token, userType: $userType, events: $events)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ItHappensLoggedInStateImpl &&
+            other is _$ItHappensStateLoggedInImpl &&
             (identical(other.token, token) || other.token == token) &&
             (identical(other.userType, userType) ||
-                other.userType == userType));
+                other.userType == userType) &&
+            const DeepCollectionEquality().equals(other._events, _events));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, token, userType);
+  int get hashCode => Object.hash(runtimeType, token, userType,
+      const DeepCollectionEquality().hash(_events));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ItHappensLoggedInStateImplCopyWith<_$ItHappensLoggedInStateImpl>
-      get copyWith => __$$ItHappensLoggedInStateImplCopyWithImpl<
-          _$ItHappensLoggedInStateImpl>(this, _$identity);
+  _$$ItHappensStateLoggedInImplCopyWith<_$ItHappensStateLoggedInImpl>
+      get copyWith => __$$ItHappensStateLoggedInImplCopyWithImpl<
+          _$ItHappensStateLoggedInImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String? headsUp, String? token, String? userType)
-        $default, {
-    required TResult Function(String token, String userType) loggedIn,
+  TResult when<TResult extends Object?>({
+    required TResult Function() empty,
+    required TResult Function() loading,
+    required TResult Function(String token, String userType, List<Event> events)
+        loggedIn,
     required TResult Function(String message) error,
   }) {
-    return loggedIn(token, userType);
+    return loggedIn(token, userType, events);
   }
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? headsUp, String? token, String? userType)?
-        $default, {
-    TResult? Function(String token, String userType)? loggedIn,
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? empty,
+    TResult? Function()? loading,
+    TResult? Function(String token, String userType, List<Event> events)?
+        loggedIn,
     TResult? Function(String message)? error,
   }) {
-    return loggedIn?.call(token, userType);
+    return loggedIn?.call(token, userType, events);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? headsUp, String? token, String? userType)?
-        $default, {
-    TResult Function(String token, String userType)? loggedIn,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function()? loading,
+    TResult Function(String token, String userType, List<Event> events)?
+        loggedIn,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (loggedIn != null) {
-      return loggedIn(token, userType);
+      return loggedIn(token, userType, events);
     }
     return orElse();
   }
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(ItHappensStateData value) $default, {
-    required TResult Function(ItHappensLoggedInState value) loggedIn,
-    required TResult Function(ItHappensErrorState value) error,
+  TResult map<TResult extends Object?>({
+    required TResult Function(ItHappensStateEmpty value) empty,
+    required TResult Function(ItHappensStateLoading value) loading,
+    required TResult Function(ItHappensStateLoggedIn value) loggedIn,
+    required TResult Function(ItHappensStateError value) error,
   }) {
     return loggedIn(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(ItHappensStateData value)? $default, {
-    TResult? Function(ItHappensLoggedInState value)? loggedIn,
-    TResult? Function(ItHappensErrorState value)? error,
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ItHappensStateEmpty value)? empty,
+    TResult? Function(ItHappensStateLoading value)? loading,
+    TResult? Function(ItHappensStateLoggedIn value)? loggedIn,
+    TResult? Function(ItHappensStateError value)? error,
   }) {
     return loggedIn?.call(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(ItHappensStateData value)? $default, {
-    TResult Function(ItHappensLoggedInState value)? loggedIn,
-    TResult Function(ItHappensErrorState value)? error,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ItHappensStateEmpty value)? empty,
+    TResult Function(ItHappensStateLoading value)? loading,
+    TResult Function(ItHappensStateLoggedIn value)? loggedIn,
+    TResult Function(ItHappensStateError value)? error,
     required TResult orElse(),
   }) {
     if (loggedIn != null) {
@@ -418,33 +495,35 @@ class _$ItHappensLoggedInStateImpl
   }
 }
 
-abstract class ItHappensLoggedInState implements ItHappensState {
-  const factory ItHappensLoggedInState(
+abstract class ItHappensStateLoggedIn implements ItHappensState {
+  const factory ItHappensStateLoggedIn(
       {required final String token,
-      required final String userType}) = _$ItHappensLoggedInStateImpl;
+      required final String userType,
+      required final List<Event> events}) = _$ItHappensStateLoggedInImpl;
 
   String get token;
   String get userType;
+  List<Event> get events;
   @JsonKey(ignore: true)
-  _$$ItHappensLoggedInStateImplCopyWith<_$ItHappensLoggedInStateImpl>
+  _$$ItHappensStateLoggedInImplCopyWith<_$ItHappensStateLoggedInImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ItHappensErrorStateImplCopyWith<$Res> {
-  factory _$$ItHappensErrorStateImplCopyWith(_$ItHappensErrorStateImpl value,
-          $Res Function(_$ItHappensErrorStateImpl) then) =
-      __$$ItHappensErrorStateImplCopyWithImpl<$Res>;
+abstract class _$$ItHappensStateErrorImplCopyWith<$Res> {
+  factory _$$ItHappensStateErrorImplCopyWith(_$ItHappensStateErrorImpl value,
+          $Res Function(_$ItHappensStateErrorImpl) then) =
+      __$$ItHappensStateErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$ItHappensErrorStateImplCopyWithImpl<$Res>
-    extends _$ItHappensStateCopyWithImpl<$Res, _$ItHappensErrorStateImpl>
-    implements _$$ItHappensErrorStateImplCopyWith<$Res> {
-  __$$ItHappensErrorStateImplCopyWithImpl(_$ItHappensErrorStateImpl _value,
-      $Res Function(_$ItHappensErrorStateImpl) _then)
+class __$$ItHappensStateErrorImplCopyWithImpl<$Res>
+    extends _$ItHappensStateCopyWithImpl<$Res, _$ItHappensStateErrorImpl>
+    implements _$$ItHappensStateErrorImplCopyWith<$Res> {
+  __$$ItHappensStateErrorImplCopyWithImpl(_$ItHappensStateErrorImpl _value,
+      $Res Function(_$ItHappensStateErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -452,7 +531,7 @@ class __$$ItHappensErrorStateImplCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$ItHappensErrorStateImpl(
+    return _then(_$ItHappensStateErrorImpl(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -463,32 +542,22 @@ class __$$ItHappensErrorStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ItHappensErrorStateImpl
-    with DiagnosticableTreeMixin
-    implements ItHappensErrorState {
-  const _$ItHappensErrorStateImpl({required this.message});
+class _$ItHappensStateErrorImpl implements ItHappensStateError {
+  const _$ItHappensStateErrorImpl({required this.message});
 
   @override
   final String message;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'ItHappensState.error(message: $message)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'ItHappensState.error'))
-      ..add(DiagnosticsProperty('message', message));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ItHappensErrorStateImpl &&
+            other is _$ItHappensStateErrorImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -498,16 +567,17 @@ class _$ItHappensErrorStateImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ItHappensErrorStateImplCopyWith<_$ItHappensErrorStateImpl> get copyWith =>
-      __$$ItHappensErrorStateImplCopyWithImpl<_$ItHappensErrorStateImpl>(
+  _$$ItHappensStateErrorImplCopyWith<_$ItHappensStateErrorImpl> get copyWith =>
+      __$$ItHappensStateErrorImplCopyWithImpl<_$ItHappensStateErrorImpl>(
           this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String? headsUp, String? token, String? userType)
-        $default, {
-    required TResult Function(String token, String userType) loggedIn,
+  TResult when<TResult extends Object?>({
+    required TResult Function() empty,
+    required TResult Function() loading,
+    required TResult Function(String token, String userType, List<Event> events)
+        loggedIn,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -515,10 +585,11 @@ class _$ItHappensErrorStateImpl
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? headsUp, String? token, String? userType)?
-        $default, {
-    TResult? Function(String token, String userType)? loggedIn,
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? empty,
+    TResult? Function()? loading,
+    TResult? Function(String token, String userType, List<Event> events)?
+        loggedIn,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -526,10 +597,11 @@ class _$ItHappensErrorStateImpl
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? headsUp, String? token, String? userType)?
-        $default, {
-    TResult Function(String token, String userType)? loggedIn,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function()? loading,
+    TResult Function(String token, String userType, List<Event> events)?
+        loggedIn,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -541,30 +613,33 @@ class _$ItHappensErrorStateImpl
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(ItHappensStateData value) $default, {
-    required TResult Function(ItHappensLoggedInState value) loggedIn,
-    required TResult Function(ItHappensErrorState value) error,
+  TResult map<TResult extends Object?>({
+    required TResult Function(ItHappensStateEmpty value) empty,
+    required TResult Function(ItHappensStateLoading value) loading,
+    required TResult Function(ItHappensStateLoggedIn value) loggedIn,
+    required TResult Function(ItHappensStateError value) error,
   }) {
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(ItHappensStateData value)? $default, {
-    TResult? Function(ItHappensLoggedInState value)? loggedIn,
-    TResult? Function(ItHappensErrorState value)? error,
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ItHappensStateEmpty value)? empty,
+    TResult? Function(ItHappensStateLoading value)? loading,
+    TResult? Function(ItHappensStateLoggedIn value)? loggedIn,
+    TResult? Function(ItHappensStateError value)? error,
   }) {
     return error?.call(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(ItHappensStateData value)? $default, {
-    TResult Function(ItHappensLoggedInState value)? loggedIn,
-    TResult Function(ItHappensErrorState value)? error,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ItHappensStateEmpty value)? empty,
+    TResult Function(ItHappensStateLoading value)? loading,
+    TResult Function(ItHappensStateLoggedIn value)? loggedIn,
+    TResult Function(ItHappensStateError value)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -574,12 +649,12 @@ class _$ItHappensErrorStateImpl
   }
 }
 
-abstract class ItHappensErrorState implements ItHappensState {
-  const factory ItHappensErrorState({required final String message}) =
-      _$ItHappensErrorStateImpl;
+abstract class ItHappensStateError implements ItHappensState {
+  const factory ItHappensStateError({required final String message}) =
+      _$ItHappensStateErrorImpl;
 
   String get message;
   @JsonKey(ignore: true)
-  _$$ItHappensErrorStateImplCopyWith<_$ItHappensErrorStateImpl> get copyWith =>
+  _$$ItHappensStateErrorImplCopyWith<_$ItHappensStateErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

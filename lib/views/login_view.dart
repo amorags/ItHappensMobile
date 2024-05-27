@@ -96,7 +96,6 @@ class _LoginFormState extends State<LoginForm> {
                   'email=$email, password=$password,');
 
                   context.read<ItHappensBloc>().add(ClientWantsToLogin(
-                      eventType: ClientWantsToLogin.name,
                       email: email,
                       password: password,
                       userType_id: userTyper_id,
