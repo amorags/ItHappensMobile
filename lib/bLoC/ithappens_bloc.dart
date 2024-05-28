@@ -2,10 +2,11 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
+import '../models/events.dart';
 import '../models/entities.dart';
 import 'ithappens_state.dart'; // Import your state file
-import 'package:it_happens/models/events.dart'; // Import your events file
 import 'package:shared_preferences/shared_preferences.dart';
+
 
 class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
   final WebSocketChannel _channel;
@@ -15,7 +16,7 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
 
   ItHappensBloc({required WebSocketChannel channel})
       : _channel = channel,
-        super(ItHappensState.empty()) {
+        super(const ItHappensState.empty()) {
     // Handler for client events
     on<ClientEvent>(_onClientEvent);
 
@@ -28,11 +29,10 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
 
   @override
   Future<void> close() async {
-    _channelSubscription.cancel();
-    super.close();
+    await _channelSubscription.cancel();
+    return super.close();
   }
 
-  /// Sends ClientWantsToRegister event to server
   void signUp({
     required String username,
     required String firstname,
@@ -53,7 +53,6 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
     ));
   }
 
-  /// Sends ClientWantsToLogin event to server
   void login({
     required String email,
     required String password,
@@ -81,40 +80,34 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
     final decodedMessage = jsonDecode(message);
 
     if (decodedMessage.containsKey('token')) {
-      final token = decodedMessage['token'];
-      print('Token received: $token');
-      _jwt = token;
-
-      // Decode the token to extract user type
-      final payload = _parseJwt(token);
-      final userType = payload['role'];
-      print('User type extracted from token: $userType');
-
-      _userType = userType;
-
-      // Store the token and user type locally
-      final prefs = await SharedPreferences.getInstance();
-      await prefs.setString('jwt_token', token);
-      await prefs.setString('user_type', userType);
-      print('Token and user type stored locally');
-
-      // Update the state
-      emit(ItHappensState.loggedIn(token: token, userType: userType, events: []));
+      // Handle token message
+      // ...
     } else if (decodedMessage.containsKey('EventsFeedQueries')) {
       try {
-        final events = (decodedMessage['EventsFeedQueries'] as List)
-            .map((e) => Event.fromJson(e))
-            .toList();
-        add(ServerEvent.serverSendsEventFeed(EventsFeedQueries: events));
-        print('Events received from server: $events');
+        List<dynamic> eventsFeedQueries = decodedMessage['EventsFeedQueries'];
+        List<Event> events = _convertToEventList(eventsFeedQueries);
+
+        // Check if the events list is empty
+        if (events.isEmpty) {
+          emit(ItHappensState.error(message: 'No events found'));
+          return;
+        }
+
+        emit(ItHappensState.loaded(events: events));
+        print("lamoitworked");
+        print("Events List: $events"); // Print events list
       } catch (e) {
         print('Error deserializing events: $e');
-        emit(ItHappensState.error(message: 'Error deserializing events: $e'));
+        emit(ItHappensState.error(message: 'Failed to parse events'));
       }
     } else {
       print('Error in message: ${decodedMessage.toString()}');
       emit(ItHappensState.error(message: decodedMessage.toString()));
     }
+  }
+
+  List<Event> _convertToEventList(List<dynamic> eventsFeedQueries) {
+    return eventsFeedQueries.map((json) => Event.fromJson(json)).toList();
   }
 
   Map<String, dynamic> _parseJwt(String token) {
@@ -162,20 +155,6 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
   }
 
   FutureOr<void> _onServerSendsEventFeed(ServerSendsEventFeed event, Emitter<ItHappensState> emit) {
-    print('Received ServerSendsEventFeed: $event'); // Log the received message
-    // Extract the list of events from the ServerSendsEventFeed object
-    final List<Event> events = event.EventsFeedQueries;
-
-    if (events.isEmpty) {
-      // Log that no events were received
-      print('No events received.');
-    } else {
-      // Log the events
-      print('Events received: $events');
-    }
-
-    // Logic for processing and storing the list of events
-    // For example, you can update the state with the received events
-    emit(ItHappensState.loggedIn(token: _jwt!, userType: _userType!, events: events));
+    emit(ItHappensState.loaded(events: event.EventsFeedQueries));
   }
 }

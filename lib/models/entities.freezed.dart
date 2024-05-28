@@ -20,18 +20,19 @@ Event _$EventFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Event {
-  int get eventId => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  String get location => throw _privateConstructorUsedError;
-  String get imageUrl => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
-  DateTime get date => throw _privateConstructorUsedError;
-  int get amount => throw _privateConstructorUsedError;
-  double get price =>
-      throw _privateConstructorUsedError; // Assuming price should be double
-  int get associationId => throw _privateConstructorUsedError;
-  int get categoryId => throw _privateConstructorUsedError;
-  int get bookingId => throw _privateConstructorUsedError;
+  int get EventId => throw _privateConstructorUsedError;
+  String? get Name => throw _privateConstructorUsedError;
+  String? get Location => throw _privateConstructorUsedError;
+  String? get ImageUrl => throw _privateConstructorUsedError;
+  String? get Description => throw _privateConstructorUsedError;
+  DateTime get Date => throw _privateConstructorUsedError;
+  int get Amount =>
+      throw _privateConstructorUsedError; // Default value if not provided
+  int get Price =>
+      throw _privateConstructorUsedError; // Default value if not provided
+  int get AssociationId => throw _privateConstructorUsedError;
+  int get CategoryId => throw _privateConstructorUsedError;
+  int get BookingId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,17 +45,17 @@ abstract class $EventCopyWith<$Res> {
       _$EventCopyWithImpl<$Res, Event>;
   @useResult
   $Res call(
-      {int eventId,
-      String name,
-      String location,
-      String imageUrl,
-      String description,
-      DateTime date,
-      int amount,
-      double price,
-      int associationId,
-      int categoryId,
-      int bookingId});
+      {int EventId,
+      String? Name,
+      String? Location,
+      String? ImageUrl,
+      String? Description,
+      DateTime Date,
+      int Amount,
+      int Price,
+      int AssociationId,
+      int CategoryId,
+      int BookingId});
 }
 
 /// @nodoc
@@ -70,62 +71,62 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? eventId = null,
-    Object? name = null,
-    Object? location = null,
-    Object? imageUrl = null,
-    Object? description = null,
-    Object? date = null,
-    Object? amount = null,
-    Object? price = null,
-    Object? associationId = null,
-    Object? categoryId = null,
-    Object? bookingId = null,
+    Object? EventId = null,
+    Object? Name = freezed,
+    Object? Location = freezed,
+    Object? ImageUrl = freezed,
+    Object? Description = freezed,
+    Object? Date = null,
+    Object? Amount = null,
+    Object? Price = null,
+    Object? AssociationId = null,
+    Object? CategoryId = null,
+    Object? BookingId = null,
   }) {
     return _then(_value.copyWith(
-      eventId: null == eventId
-          ? _value.eventId
-          : eventId // ignore: cast_nullable_to_non_nullable
+      EventId: null == EventId
+          ? _value.EventId
+          : EventId // ignore: cast_nullable_to_non_nullable
               as int,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      location: null == location
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as String,
-      imageUrl: null == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
+      Name: freezed == Name
+          ? _value.Name
+          : Name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      Location: freezed == Location
+          ? _value.Location
+          : Location // ignore: cast_nullable_to_non_nullable
+              as String?,
+      ImageUrl: freezed == ImageUrl
+          ? _value.ImageUrl
+          : ImageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      Description: freezed == Description
+          ? _value.Description
+          : Description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      Date: null == Date
+          ? _value.Date
+          : Date // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      amount: null == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
+      Amount: null == Amount
+          ? _value.Amount
+          : Amount // ignore: cast_nullable_to_non_nullable
               as int,
-      price: null == price
-          ? _value.price
-          : price // ignore: cast_nullable_to_non_nullable
-              as double,
-      associationId: null == associationId
-          ? _value.associationId
-          : associationId // ignore: cast_nullable_to_non_nullable
+      Price: null == Price
+          ? _value.Price
+          : Price // ignore: cast_nullable_to_non_nullable
               as int,
-      categoryId: null == categoryId
-          ? _value.categoryId
-          : categoryId // ignore: cast_nullable_to_non_nullable
+      AssociationId: null == AssociationId
+          ? _value.AssociationId
+          : AssociationId // ignore: cast_nullable_to_non_nullable
               as int,
-      bookingId: null == bookingId
-          ? _value.bookingId
-          : bookingId // ignore: cast_nullable_to_non_nullable
+      CategoryId: null == CategoryId
+          ? _value.CategoryId
+          : CategoryId // ignore: cast_nullable_to_non_nullable
+              as int,
+      BookingId: null == BookingId
+          ? _value.BookingId
+          : BookingId // ignore: cast_nullable_to_non_nullable
               as int,
     ) as $Val);
   }
@@ -139,17 +140,17 @@ abstract class _$$EventImplCopyWith<$Res> implements $EventCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int eventId,
-      String name,
-      String location,
-      String imageUrl,
-      String description,
-      DateTime date,
-      int amount,
-      double price,
-      int associationId,
-      int categoryId,
-      int bookingId});
+      {int EventId,
+      String? Name,
+      String? Location,
+      String? ImageUrl,
+      String? Description,
+      DateTime Date,
+      int Amount,
+      int Price,
+      int AssociationId,
+      int CategoryId,
+      int BookingId});
 }
 
 /// @nodoc
@@ -163,62 +164,62 @@ class __$$EventImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? eventId = null,
-    Object? name = null,
-    Object? location = null,
-    Object? imageUrl = null,
-    Object? description = null,
-    Object? date = null,
-    Object? amount = null,
-    Object? price = null,
-    Object? associationId = null,
-    Object? categoryId = null,
-    Object? bookingId = null,
+    Object? EventId = null,
+    Object? Name = freezed,
+    Object? Location = freezed,
+    Object? ImageUrl = freezed,
+    Object? Description = freezed,
+    Object? Date = null,
+    Object? Amount = null,
+    Object? Price = null,
+    Object? AssociationId = null,
+    Object? CategoryId = null,
+    Object? BookingId = null,
   }) {
     return _then(_$EventImpl(
-      eventId: null == eventId
-          ? _value.eventId
-          : eventId // ignore: cast_nullable_to_non_nullable
+      EventId: null == EventId
+          ? _value.EventId
+          : EventId // ignore: cast_nullable_to_non_nullable
               as int,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      location: null == location
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as String,
-      imageUrl: null == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
+      Name: freezed == Name
+          ? _value.Name
+          : Name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      Location: freezed == Location
+          ? _value.Location
+          : Location // ignore: cast_nullable_to_non_nullable
+              as String?,
+      ImageUrl: freezed == ImageUrl
+          ? _value.ImageUrl
+          : ImageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      Description: freezed == Description
+          ? _value.Description
+          : Description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      Date: null == Date
+          ? _value.Date
+          : Date // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      amount: null == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
+      Amount: null == Amount
+          ? _value.Amount
+          : Amount // ignore: cast_nullable_to_non_nullable
               as int,
-      price: null == price
-          ? _value.price
-          : price // ignore: cast_nullable_to_non_nullable
-              as double,
-      associationId: null == associationId
-          ? _value.associationId
-          : associationId // ignore: cast_nullable_to_non_nullable
+      Price: null == Price
+          ? _value.Price
+          : Price // ignore: cast_nullable_to_non_nullable
               as int,
-      categoryId: null == categoryId
-          ? _value.categoryId
-          : categoryId // ignore: cast_nullable_to_non_nullable
+      AssociationId: null == AssociationId
+          ? _value.AssociationId
+          : AssociationId // ignore: cast_nullable_to_non_nullable
               as int,
-      bookingId: null == bookingId
-          ? _value.bookingId
-          : bookingId // ignore: cast_nullable_to_non_nullable
+      CategoryId: null == CategoryId
+          ? _value.CategoryId
+          : CategoryId // ignore: cast_nullable_to_non_nullable
+              as int,
+      BookingId: null == BookingId
+          ? _value.BookingId
+          : BookingId // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -226,68 +227,53 @@ class __$$EventImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$EventImpl with DiagnosticableTreeMixin implements _Event {
+class _$EventImpl implements _Event {
   const _$EventImpl(
-      {required this.eventId,
-      required this.name,
-      required this.location,
-      required this.imageUrl,
-      required this.description,
-      required this.date,
-      required this.amount,
-      required this.price,
-      required this.associationId,
-      required this.categoryId,
-      required this.bookingId});
+      {required this.EventId,
+      this.Name,
+      this.Location,
+      this.ImageUrl,
+      this.Description,
+      required this.Date,
+      this.Amount = 0,
+      this.Price = 0,
+      required this.AssociationId,
+      required this.CategoryId,
+      required this.BookingId});
 
   factory _$EventImpl.fromJson(Map<String, dynamic> json) =>
       _$$EventImplFromJson(json);
 
   @override
-  final int eventId;
+  final int EventId;
   @override
-  final String name;
+  final String? Name;
   @override
-  final String location;
+  final String? Location;
   @override
-  final String imageUrl;
+  final String? ImageUrl;
   @override
-  final String description;
+  final String? Description;
   @override
-  final DateTime date;
+  final DateTime Date;
   @override
-  final int amount;
+  @JsonKey()
+  final int Amount;
+// Default value if not provided
   @override
-  final double price;
-// Assuming price should be double
+  @JsonKey()
+  final int Price;
+// Default value if not provided
   @override
-  final int associationId;
+  final int AssociationId;
   @override
-  final int categoryId;
+  final int CategoryId;
   @override
-  final int bookingId;
+  final int BookingId;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Event(eventId: $eventId, name: $name, location: $location, imageUrl: $imageUrl, description: $description, date: $date, amount: $amount, price: $price, associationId: $associationId, categoryId: $categoryId, bookingId: $bookingId)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'Event'))
-      ..add(DiagnosticsProperty('eventId', eventId))
-      ..add(DiagnosticsProperty('name', name))
-      ..add(DiagnosticsProperty('location', location))
-      ..add(DiagnosticsProperty('imageUrl', imageUrl))
-      ..add(DiagnosticsProperty('description', description))
-      ..add(DiagnosticsProperty('date', date))
-      ..add(DiagnosticsProperty('amount', amount))
-      ..add(DiagnosticsProperty('price', price))
-      ..add(DiagnosticsProperty('associationId', associationId))
-      ..add(DiagnosticsProperty('categoryId', categoryId))
-      ..add(DiagnosticsProperty('bookingId', bookingId));
+  String toString() {
+    return 'Event(EventId: $EventId, Name: $Name, Location: $Location, ImageUrl: $ImageUrl, Description: $Description, Date: $Date, Amount: $Amount, Price: $Price, AssociationId: $AssociationId, CategoryId: $CategoryId, BookingId: $BookingId)';
   }
 
   @override
@@ -295,40 +281,40 @@ class _$EventImpl with DiagnosticableTreeMixin implements _Event {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EventImpl &&
-            (identical(other.eventId, eventId) || other.eventId == eventId) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.location, location) ||
-                other.location == location) &&
-            (identical(other.imageUrl, imageUrl) ||
-                other.imageUrl == imageUrl) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
-            (identical(other.date, date) || other.date == date) &&
-            (identical(other.amount, amount) || other.amount == amount) &&
-            (identical(other.price, price) || other.price == price) &&
-            (identical(other.associationId, associationId) ||
-                other.associationId == associationId) &&
-            (identical(other.categoryId, categoryId) ||
-                other.categoryId == categoryId) &&
-            (identical(other.bookingId, bookingId) ||
-                other.bookingId == bookingId));
+            (identical(other.EventId, EventId) || other.EventId == EventId) &&
+            (identical(other.Name, Name) || other.Name == Name) &&
+            (identical(other.Location, Location) ||
+                other.Location == Location) &&
+            (identical(other.ImageUrl, ImageUrl) ||
+                other.ImageUrl == ImageUrl) &&
+            (identical(other.Description, Description) ||
+                other.Description == Description) &&
+            (identical(other.Date, Date) || other.Date == Date) &&
+            (identical(other.Amount, Amount) || other.Amount == Amount) &&
+            (identical(other.Price, Price) || other.Price == Price) &&
+            (identical(other.AssociationId, AssociationId) ||
+                other.AssociationId == AssociationId) &&
+            (identical(other.CategoryId, CategoryId) ||
+                other.CategoryId == CategoryId) &&
+            (identical(other.BookingId, BookingId) ||
+                other.BookingId == BookingId));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      eventId,
-      name,
-      location,
-      imageUrl,
-      description,
-      date,
-      amount,
-      price,
-      associationId,
-      categoryId,
-      bookingId);
+      EventId,
+      Name,
+      Location,
+      ImageUrl,
+      Description,
+      Date,
+      Amount,
+      Price,
+      AssociationId,
+      CategoryId,
+      BookingId);
 
   @JsonKey(ignore: true)
   @override
@@ -346,42 +332,42 @@ class _$EventImpl with DiagnosticableTreeMixin implements _Event {
 
 abstract class _Event implements Event {
   const factory _Event(
-      {required final int eventId,
-      required final String name,
-      required final String location,
-      required final String imageUrl,
-      required final String description,
-      required final DateTime date,
-      required final int amount,
-      required final double price,
-      required final int associationId,
-      required final int categoryId,
-      required final int bookingId}) = _$EventImpl;
+      {required final int EventId,
+      final String? Name,
+      final String? Location,
+      final String? ImageUrl,
+      final String? Description,
+      required final DateTime Date,
+      final int Amount,
+      final int Price,
+      required final int AssociationId,
+      required final int CategoryId,
+      required final int BookingId}) = _$EventImpl;
 
   factory _Event.fromJson(Map<String, dynamic> json) = _$EventImpl.fromJson;
 
   @override
-  int get eventId;
+  int get EventId;
   @override
-  String get name;
+  String? get Name;
   @override
-  String get location;
+  String? get Location;
   @override
-  String get imageUrl;
+  String? get ImageUrl;
   @override
-  String get description;
+  String? get Description;
   @override
-  DateTime get date;
+  DateTime get Date;
   @override
-  int get amount;
+  int get Amount;
+  @override // Default value if not provided
+  int get Price;
+  @override // Default value if not provided
+  int get AssociationId;
   @override
-  double get price;
-  @override // Assuming price should be double
-  int get associationId;
+  int get CategoryId;
   @override
-  int get categoryId;
-  @override
-  int get bookingId;
+  int get BookingId;
   @override
   @JsonKey(ignore: true)
   _$$EventImplCopyWith<_$EventImpl> get copyWith =>

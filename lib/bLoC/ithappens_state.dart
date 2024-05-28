@@ -12,5 +12,7 @@ class ItHappensState with _$ItHappensState {
     required String userType,
     required List<Event> events,
   }) = ItHappensStateLoggedIn;
+  const factory ItHappensState.loaded({required List<Event> events}) = ItHappensStateLoaded;
   const factory ItHappensState.error({required String message}) = ItHappensStateError;
+
 }

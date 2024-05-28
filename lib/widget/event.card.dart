@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../models/entities.dart'; // Ensure correct path
+import '../models/entities.dart';
 
 class EventCard extends StatelessWidget {
   final Event event;
@@ -9,29 +9,37 @@ class EventCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: const EdgeInsets.all(8.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Image.network(event.imageUrl, fit: BoxFit.cover), // Updated to match new entity field names
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(event.name, style: Theme.of(context).textTheme.headline6), // Updated to match new entity field names
-                const SizedBox(height: 4.0),
-                Text(event.location, style: Theme.of(context).textTheme.subtitle1), // Updated to match new entity field names
-                const SizedBox(height: 4.0),
-                Text(event.description),
-                const SizedBox(height: 4.0),
-                Text('Date: ${event.date.toLocal()}'), // Updated to match new entity field names
-                const SizedBox(height: 4.0),
-                Text('Amount: ${event.amount}'), // Updated to match new entity field names
-              ],
+      elevation: 3,
+      margin: EdgeInsets.all(8),
+      child: Padding(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              event.Name ?? '',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          ),
-        ],
+            SizedBox(height: 8),
+            Text(
+              event.Description ?? '',
+              style: TextStyle(fontSize: 16),
+            ),
+            SizedBox(height: 8),
+            Text(
+              'Location: ${event.Location ?? ''}',
+              style: TextStyle(fontSize: 14),
+            ),
+            Text(
+              'Date: ${event.Date.toString()}',
+              style: TextStyle(fontSize: 14),
+            ),
+            // Add more fields as needed
+          ],
+        ),
       ),
     );
   }

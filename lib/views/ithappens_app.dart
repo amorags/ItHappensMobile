@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:it_happens/models/entities.dart';
-import 'package:it_happens/views/login_view.dart';
 import 'package:it_happens/bLoC/ithappens_bloc.dart';
+import 'package:it_happens/models/events.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 import '../bLoC/ithappens_state.dart';
-import '../models/events.dart';
 import 'event_list_page.dart';
-import 'singup_view.dart';
-
 
 void main() {
   runApp(ItHappensApp());
@@ -20,7 +16,7 @@ class ItHappensApp extends StatelessWidget {
     final channel = WebSocketChannel.connect(Uri.parse('ws://localhost:8181'));
 
     return MaterialApp(
-      debugShowCheckedModeBanner:false,
+      debugShowCheckedModeBanner: false,
       title: 'It Happens',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -30,14 +26,6 @@ class ItHappensApp extends StatelessWidget {
         '/': (context) => BlocProvider(
           create: (context) => ItHappensBloc(channel: channel),
           child: MainScreen(),
-        ),
-        '/signup': (context) => BlocProvider.value(
-          value: BlocProvider.of<ItHappensBloc>(context),
-          child: SignupView(),
-        ),
-        '/login': (context) => BlocProvider.value(
-          value: BlocProvider.of<ItHappensBloc>(context),
-          child: LoginView(),
         ),
       },
     );
@@ -59,10 +47,8 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   void _fetchEvents() {
-    context.read<ItHappensBloc>().add(ClientEvent.ClientWantsToGetEventFeed()
-    );
-    print('Sending event to retrieve events: $Event'); // Log the event details
-
+    context.read<ItHappensBloc>().add(ClientEvent.ClientWantsToGetEventFeed());
+    print('Sending event to retrieve events: ClientWantsToGetEventFeed'); // Log the event details
   }
 
   @override
@@ -70,41 +56,6 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('It Happens'),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: PopupMenuButton<String>(
-              icon: Image.network(
-                'https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png',
-                width: 40,
-                height: 40,
-              ),
-              onSelected: (value) {
-                if (value == 'signup') {
-                  Navigator.of(context).pushNamed('/signup');
-                } else if (value == 'login') {
-                  Navigator.of(context).pushNamed('/login');
-                } else if (value == 'logout') {
-                  // Perform logout action
-                }
-              },
-              itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-                PopupMenuItem<String>(
-                  value: 'signup',
-                  child: Text('Signup'),
-                ),
-                PopupMenuItem<String>(
-                  value: 'login',
-                  child: Text('Login'),
-                ),
-                PopupMenuItem<String>(
-                  value: 'logout',
-                  child: Text('Logout'),
-                ),
-              ],
-            ),
-          ),
-        ],
       ),
       body: _buildPage(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
@@ -137,7 +88,7 @@ class _MainScreenState extends State<MainScreen> {
       case 1:
         return BlocBuilder<ItHappensBloc, ItHappensState>(
           builder: (context, state) {
-            if (state is ItHappensStateLoggedIn) {
+            if (state is ItHappensStateLoaded) {
               return EventListPage(events: state.events);
             } else if (state is ItHappensStateError) {
               return Center(child: Text('Error: ${state.message}'));
@@ -155,7 +106,6 @@ class _MainScreenState extends State<MainScreen> {
     setState(() {
       _selectedIndex = index;
       if (_selectedIndex == 1) {
-        _fetchEvents();
       }
     });
   }
