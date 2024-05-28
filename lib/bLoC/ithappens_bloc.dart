@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 import '../models/events.dart' as events;
 import '../models/events.dart';
+import '../models/entities.dart' as happens;
 import 'ithappens_state.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -159,7 +160,8 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
     return prefs.getString('user_type');
   }
 
-  FutureOr<void> _onServerSendsEventFeed(events.ServerSendsEventFeed event,
+  FutureOr<void> _onServerSendsEventFeed(
+      events.ServerSendsEventFeed event,
       Emitter<ItHappensState> emit) {
     print('Received ServerSendsEventFeed: $event');
     final eventsList = event.EventsFeedQueries;
@@ -170,7 +172,16 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
       print('Events received: $eventsList');
     }
 
-    emit(ItHappensState.loggedIn(
-        token: _jwt!, userType: _userType!, events: eventsList));
+    try {
+      final List<happens.Event> mappedEvents = eventsList.map((e) => happens.Event.fromJson(e.toJson())).toList();
+      emit(ItHappensState.loggedIn(
+        token: _jwt!,
+        userType: _userType!,
+        events: mappedEvents, // Use mappedEvents of type List<happens.Event>
+      ));
+    } catch (e) {
+      print('Error deserializing events: $e');
+      emit(ItHappensState.error(message: 'Error deserializing events: $e'));
+    }
   }
 }
