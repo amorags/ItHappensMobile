@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:convert';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 import '../models/entities.dart';
@@ -20,13 +19,11 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
     // Handler for client events
     on<ClientEvent>(_onClientEvent);
 
-    //Handlers for Server Events
+    // Handler for server events
     on<ServerSendsEventFeed>(_onServerSendsEventFeed);
+
     // Listen to WebSocket messages
     _channelSubscription = _channel.stream.listen(_onServerMessage);
-    
-    // Feed deserialized events from server into this bloc
-
   }
 
   @override
@@ -36,48 +33,50 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
   }
 
   /// Sends ClientWantsToRegister event to server
-  void signUp({required String username, required String firstname, required String lastname, required String password, required String email, required int phone, required int userType_id}) {
-    add(ClientWantsToSignup(
-        username: username,
-        firstname: firstname,
-        lastname: lastname,
-        password: password,
-        email: email,
-        phone: phone,
-        userType_id: userType_id
+  void signUp({
+    required String username,
+    required String firstname,
+    required String lastname,
+    required String password,
+    required String email,
+    required int phone,
+    required int userType_id,
+  }) {
+    add(ClientEvent.clientWantsToSignup(
+      username: username,
+      firstname: firstname,
+      lastname: lastname,
+      password: password,
+      email: email,
+      phone: phone,
+      userType_id: userType_id,
     ));
   }
 
   /// Sends ClientWantsToLogin event to server
-  void login({required String email, required String password, required int userType_id}) {
-    add(ClientWantsToLogin(
-        email: email,
-        password: password,
-        userType_id: userType_id
+  void login({
+    required String email,
+    required String password,
+    required int userType_id,
+  }) {
+    add(ClientEvent.ClientWantsToLogin(
+      email: email,
+      password: password,
+      userType_id: userType_id,
     ));
   }
 
-  void getEventFeed({required int Event_Id, required String Name, required String Location,
-  required String ImageUrl,required String Description, required DateTime Date, required int Amount, required int Association_Id,
-  required int Booking_Id}) {
-    add(ClientEvent.clientWantsToRetrieveEventFeed(
-        Event_Id: Event_Id,
-        Name: Name,
-        Location: Location,
-        ImageUrl: ImageUrl,
-        Description: Description,
-        Date: Date,
-        Amount: Amount,
-        Association_Id: Association_Id,
-        Booking_Id: Booking_Id
-    ));
+  void getEventFeed() {
+    add(ClientEvent.ClientWantsToGetEventFeed());
+    print("Request to retrieve events sent");
   }
 
   FutureOr<void> _onClientEvent(ClientEvent event, Emitter<ItHappensState> emit) {
     _channel.sink.add(jsonEncode(event.toJson()));
+    print("Sent event to server: ${event.toJson()}");
   }
 
-  void _onServerMessage(message) async {
+  void _onServerMessage(dynamic message) async {
     print('Received message from server: $message');
     final decodedMessage = jsonDecode(message);
 
@@ -102,11 +101,16 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
       // Update the state
       emit(ItHappensState.loggedIn(token: token, userType: userType, events: []));
     } else if (decodedMessage.containsKey('EventsFeedQueries')) {
-      final events = (decodedMessage['EventsFeedQueries'] as List)
-          .map((e) => Event.fromJson(e))
-          .toList();
-      add(ServerSendsEventFeed(EventsFeedQueries: events));
-      print('Events received from server: $events'); // Log the received events
+      try {
+        final events = (decodedMessage['EventsFeedQueries'] as List)
+            .map((e) => Event.fromJson(e))
+            .toList();
+        add(ServerEvent.serverSendsEventFeed(EventsFeedQueries: events));
+        print('Events received from server: $events');
+      } catch (e) {
+        print('Error deserializing events: $e');
+        emit(ItHappensState.error(message: 'Error deserializing events: $e'));
+      }
     } else {
       print('Error in message: ${decodedMessage.toString()}');
       emit(ItHappensState.error(message: decodedMessage.toString()));
@@ -162,7 +166,6 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
     // Extract the list of events from the ServerSendsEventFeed object
     final List<Event> events = event.EventsFeedQueries;
 
-
     if (events.isEmpty) {
       // Log that no events were received
       print('No events received.');
@@ -170,9 +173,9 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
       // Log the events
       print('Events received: $events');
     }
+
     // Logic for processing and storing the list of events
     // For example, you can update the state with the received events
     emit(ItHappensState.loggedIn(token: _jwt!, userType: _userType!, events: events));
-
   }
 }

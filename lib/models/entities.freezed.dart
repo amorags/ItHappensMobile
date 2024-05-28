@@ -15,20 +15,23 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Event _$EventFromJson(Map<String, dynamic> json) {
-  return _CardEvent.fromJson(json);
+  return _Event.fromJson(json);
 }
 
 /// @nodoc
 mixin _$Event {
-  int get Event_Id => throw _privateConstructorUsedError;
-  String get Name => throw _privateConstructorUsedError;
-  String get Location => throw _privateConstructorUsedError;
-  String get ImageUrl => throw _privateConstructorUsedError;
-  String get Description => throw _privateConstructorUsedError;
-  DateTime get Date => throw _privateConstructorUsedError;
-  int get Amount => throw _privateConstructorUsedError;
-  int get Association_Id => throw _privateConstructorUsedError;
-  int get Booking_Id => throw _privateConstructorUsedError;
+  int get eventId => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get location => throw _privateConstructorUsedError;
+  String get imageUrl => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
+  DateTime get date => throw _privateConstructorUsedError;
+  int get amount => throw _privateConstructorUsedError;
+  double get price =>
+      throw _privateConstructorUsedError; // Assuming price should be double
+  int get associationId => throw _privateConstructorUsedError;
+  int get categoryId => throw _privateConstructorUsedError;
+  int get bookingId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,15 +44,17 @@ abstract class $EventCopyWith<$Res> {
       _$EventCopyWithImpl<$Res, Event>;
   @useResult
   $Res call(
-      {int Event_Id,
-      String Name,
-      String Location,
-      String ImageUrl,
-      String Description,
-      DateTime Date,
-      int Amount,
-      int Association_Id,
-      int Booking_Id});
+      {int eventId,
+      String name,
+      String location,
+      String imageUrl,
+      String description,
+      DateTime date,
+      int amount,
+      double price,
+      int associationId,
+      int categoryId,
+      int bookingId});
 }
 
 /// @nodoc
@@ -65,133 +70,155 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? Event_Id = null,
-    Object? Name = null,
-    Object? Location = null,
-    Object? ImageUrl = null,
-    Object? Description = null,
-    Object? Date = null,
-    Object? Amount = null,
-    Object? Association_Id = null,
-    Object? Booking_Id = null,
+    Object? eventId = null,
+    Object? name = null,
+    Object? location = null,
+    Object? imageUrl = null,
+    Object? description = null,
+    Object? date = null,
+    Object? amount = null,
+    Object? price = null,
+    Object? associationId = null,
+    Object? categoryId = null,
+    Object? bookingId = null,
   }) {
     return _then(_value.copyWith(
-      Event_Id: null == Event_Id
-          ? _value.Event_Id
-          : Event_Id // ignore: cast_nullable_to_non_nullable
+      eventId: null == eventId
+          ? _value.eventId
+          : eventId // ignore: cast_nullable_to_non_nullable
               as int,
-      Name: null == Name
-          ? _value.Name
-          : Name // ignore: cast_nullable_to_non_nullable
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
-      Location: null == Location
-          ? _value.Location
-          : Location // ignore: cast_nullable_to_non_nullable
+      location: null == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
               as String,
-      ImageUrl: null == ImageUrl
-          ? _value.ImageUrl
-          : ImageUrl // ignore: cast_nullable_to_non_nullable
+      imageUrl: null == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      Description: null == Description
-          ? _value.Description
-          : Description // ignore: cast_nullable_to_non_nullable
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
-      Date: null == Date
-          ? _value.Date
-          : Date // ignore: cast_nullable_to_non_nullable
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      Amount: null == Amount
-          ? _value.Amount
-          : Amount // ignore: cast_nullable_to_non_nullable
+      amount: null == amount
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
               as int,
-      Association_Id: null == Association_Id
-          ? _value.Association_Id
-          : Association_Id // ignore: cast_nullable_to_non_nullable
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as double,
+      associationId: null == associationId
+          ? _value.associationId
+          : associationId // ignore: cast_nullable_to_non_nullable
               as int,
-      Booking_Id: null == Booking_Id
-          ? _value.Booking_Id
-          : Booking_Id // ignore: cast_nullable_to_non_nullable
+      categoryId: null == categoryId
+          ? _value.categoryId
+          : categoryId // ignore: cast_nullable_to_non_nullable
+              as int,
+      bookingId: null == bookingId
+          ? _value.bookingId
+          : bookingId // ignore: cast_nullable_to_non_nullable
               as int,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$CardEventImplCopyWith<$Res> implements $EventCopyWith<$Res> {
-  factory _$$CardEventImplCopyWith(
-          _$CardEventImpl value, $Res Function(_$CardEventImpl) then) =
-      __$$CardEventImplCopyWithImpl<$Res>;
+abstract class _$$EventImplCopyWith<$Res> implements $EventCopyWith<$Res> {
+  factory _$$EventImplCopyWith(
+          _$EventImpl value, $Res Function(_$EventImpl) then) =
+      __$$EventImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {int Event_Id,
-      String Name,
-      String Location,
-      String ImageUrl,
-      String Description,
-      DateTime Date,
-      int Amount,
-      int Association_Id,
-      int Booking_Id});
+      {int eventId,
+      String name,
+      String location,
+      String imageUrl,
+      String description,
+      DateTime date,
+      int amount,
+      double price,
+      int associationId,
+      int categoryId,
+      int bookingId});
 }
 
 /// @nodoc
-class __$$CardEventImplCopyWithImpl<$Res>
-    extends _$EventCopyWithImpl<$Res, _$CardEventImpl>
-    implements _$$CardEventImplCopyWith<$Res> {
-  __$$CardEventImplCopyWithImpl(
-      _$CardEventImpl _value, $Res Function(_$CardEventImpl) _then)
+class __$$EventImplCopyWithImpl<$Res>
+    extends _$EventCopyWithImpl<$Res, _$EventImpl>
+    implements _$$EventImplCopyWith<$Res> {
+  __$$EventImplCopyWithImpl(
+      _$EventImpl _value, $Res Function(_$EventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? Event_Id = null,
-    Object? Name = null,
-    Object? Location = null,
-    Object? ImageUrl = null,
-    Object? Description = null,
-    Object? Date = null,
-    Object? Amount = null,
-    Object? Association_Id = null,
-    Object? Booking_Id = null,
+    Object? eventId = null,
+    Object? name = null,
+    Object? location = null,
+    Object? imageUrl = null,
+    Object? description = null,
+    Object? date = null,
+    Object? amount = null,
+    Object? price = null,
+    Object? associationId = null,
+    Object? categoryId = null,
+    Object? bookingId = null,
   }) {
-    return _then(_$CardEventImpl(
-      Event_Id: null == Event_Id
-          ? _value.Event_Id
-          : Event_Id // ignore: cast_nullable_to_non_nullable
+    return _then(_$EventImpl(
+      eventId: null == eventId
+          ? _value.eventId
+          : eventId // ignore: cast_nullable_to_non_nullable
               as int,
-      Name: null == Name
-          ? _value.Name
-          : Name // ignore: cast_nullable_to_non_nullable
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
-      Location: null == Location
-          ? _value.Location
-          : Location // ignore: cast_nullable_to_non_nullable
+      location: null == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
               as String,
-      ImageUrl: null == ImageUrl
-          ? _value.ImageUrl
-          : ImageUrl // ignore: cast_nullable_to_non_nullable
+      imageUrl: null == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      Description: null == Description
-          ? _value.Description
-          : Description // ignore: cast_nullable_to_non_nullable
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
-      Date: null == Date
-          ? _value.Date
-          : Date // ignore: cast_nullable_to_non_nullable
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      Amount: null == Amount
-          ? _value.Amount
-          : Amount // ignore: cast_nullable_to_non_nullable
+      amount: null == amount
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
               as int,
-      Association_Id: null == Association_Id
-          ? _value.Association_Id
-          : Association_Id // ignore: cast_nullable_to_non_nullable
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as double,
+      associationId: null == associationId
+          ? _value.associationId
+          : associationId // ignore: cast_nullable_to_non_nullable
               as int,
-      Booking_Id: null == Booking_Id
-          ? _value.Booking_Id
-          : Booking_Id // ignore: cast_nullable_to_non_nullable
+      categoryId: null == categoryId
+          ? _value.categoryId
+          : categoryId // ignore: cast_nullable_to_non_nullable
+              as int,
+      bookingId: null == bookingId
+          ? _value.bookingId
+          : bookingId // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -199,43 +226,50 @@ class __$$CardEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$CardEventImpl with DiagnosticableTreeMixin implements _CardEvent {
-  const _$CardEventImpl(
-      {required this.Event_Id,
-      required this.Name,
-      required this.Location,
-      required this.ImageUrl,
-      required this.Description,
-      required this.Date,
-      required this.Amount,
-      required this.Association_Id,
-      required this.Booking_Id});
+class _$EventImpl with DiagnosticableTreeMixin implements _Event {
+  const _$EventImpl(
+      {required this.eventId,
+      required this.name,
+      required this.location,
+      required this.imageUrl,
+      required this.description,
+      required this.date,
+      required this.amount,
+      required this.price,
+      required this.associationId,
+      required this.categoryId,
+      required this.bookingId});
 
-  factory _$CardEventImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CardEventImplFromJson(json);
+  factory _$EventImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EventImplFromJson(json);
 
   @override
-  final int Event_Id;
+  final int eventId;
   @override
-  final String Name;
+  final String name;
   @override
-  final String Location;
+  final String location;
   @override
-  final String ImageUrl;
+  final String imageUrl;
   @override
-  final String Description;
+  final String description;
   @override
-  final DateTime Date;
+  final DateTime date;
   @override
-  final int Amount;
+  final int amount;
   @override
-  final int Association_Id;
+  final double price;
+// Assuming price should be double
   @override
-  final int Booking_Id;
+  final int associationId;
+  @override
+  final int categoryId;
+  @override
+  final int bookingId;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Event(Event_Id: $Event_Id, Name: $Name, Location: $Location, ImageUrl: $ImageUrl, Description: $Description, Date: $Date, Amount: $Amount, Association_Id: $Association_Id, Booking_Id: $Booking_Id)';
+    return 'Event(eventId: $eventId, name: $name, location: $location, imageUrl: $imageUrl, description: $description, date: $date, amount: $amount, price: $price, associationId: $associationId, categoryId: $categoryId, bookingId: $bookingId)';
   }
 
   @override
@@ -243,93 +277,113 @@ class _$CardEventImpl with DiagnosticableTreeMixin implements _CardEvent {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'Event'))
-      ..add(DiagnosticsProperty('Event_Id', Event_Id))
-      ..add(DiagnosticsProperty('Name', Name))
-      ..add(DiagnosticsProperty('Location', Location))
-      ..add(DiagnosticsProperty('ImageUrl', ImageUrl))
-      ..add(DiagnosticsProperty('Description', Description))
-      ..add(DiagnosticsProperty('Date', Date))
-      ..add(DiagnosticsProperty('Amount', Amount))
-      ..add(DiagnosticsProperty('Association_Id', Association_Id))
-      ..add(DiagnosticsProperty('Booking_Id', Booking_Id));
+      ..add(DiagnosticsProperty('eventId', eventId))
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('location', location))
+      ..add(DiagnosticsProperty('imageUrl', imageUrl))
+      ..add(DiagnosticsProperty('description', description))
+      ..add(DiagnosticsProperty('date', date))
+      ..add(DiagnosticsProperty('amount', amount))
+      ..add(DiagnosticsProperty('price', price))
+      ..add(DiagnosticsProperty('associationId', associationId))
+      ..add(DiagnosticsProperty('categoryId', categoryId))
+      ..add(DiagnosticsProperty('bookingId', bookingId));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CardEventImpl &&
-            (identical(other.Event_Id, Event_Id) ||
-                other.Event_Id == Event_Id) &&
-            (identical(other.Name, Name) || other.Name == Name) &&
-            (identical(other.Location, Location) ||
-                other.Location == Location) &&
-            (identical(other.ImageUrl, ImageUrl) ||
-                other.ImageUrl == ImageUrl) &&
-            (identical(other.Description, Description) ||
-                other.Description == Description) &&
-            (identical(other.Date, Date) || other.Date == Date) &&
-            (identical(other.Amount, Amount) || other.Amount == Amount) &&
-            (identical(other.Association_Id, Association_Id) ||
-                other.Association_Id == Association_Id) &&
-            (identical(other.Booking_Id, Booking_Id) ||
-                other.Booking_Id == Booking_Id));
+            other is _$EventImpl &&
+            (identical(other.eventId, eventId) || other.eventId == eventId) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.location, location) ||
+                other.location == location) &&
+            (identical(other.imageUrl, imageUrl) ||
+                other.imageUrl == imageUrl) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.amount, amount) || other.amount == amount) &&
+            (identical(other.price, price) || other.price == price) &&
+            (identical(other.associationId, associationId) ||
+                other.associationId == associationId) &&
+            (identical(other.categoryId, categoryId) ||
+                other.categoryId == categoryId) &&
+            (identical(other.bookingId, bookingId) ||
+                other.bookingId == bookingId));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, Event_Id, Name, Location,
-      ImageUrl, Description, Date, Amount, Association_Id, Booking_Id);
+  int get hashCode => Object.hash(
+      runtimeType,
+      eventId,
+      name,
+      location,
+      imageUrl,
+      description,
+      date,
+      amount,
+      price,
+      associationId,
+      categoryId,
+      bookingId);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CardEventImplCopyWith<_$CardEventImpl> get copyWith =>
-      __$$CardEventImplCopyWithImpl<_$CardEventImpl>(this, _$identity);
+  _$$EventImplCopyWith<_$EventImpl> get copyWith =>
+      __$$EventImplCopyWithImpl<_$EventImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CardEventImplToJson(
+    return _$$EventImplToJson(
       this,
     );
   }
 }
 
-abstract class _CardEvent implements Event {
-  const factory _CardEvent(
-      {required final int Event_Id,
-      required final String Name,
-      required final String Location,
-      required final String ImageUrl,
-      required final String Description,
-      required final DateTime Date,
-      required final int Amount,
-      required final int Association_Id,
-      required final int Booking_Id}) = _$CardEventImpl;
+abstract class _Event implements Event {
+  const factory _Event(
+      {required final int eventId,
+      required final String name,
+      required final String location,
+      required final String imageUrl,
+      required final String description,
+      required final DateTime date,
+      required final int amount,
+      required final double price,
+      required final int associationId,
+      required final int categoryId,
+      required final int bookingId}) = _$EventImpl;
 
-  factory _CardEvent.fromJson(Map<String, dynamic> json) =
-      _$CardEventImpl.fromJson;
+  factory _Event.fromJson(Map<String, dynamic> json) = _$EventImpl.fromJson;
 
   @override
-  int get Event_Id;
+  int get eventId;
   @override
-  String get Name;
+  String get name;
   @override
-  String get Location;
+  String get location;
   @override
-  String get ImageUrl;
+  String get imageUrl;
   @override
-  String get Description;
+  String get description;
   @override
-  DateTime get Date;
+  DateTime get date;
   @override
-  int get Amount;
+  int get amount;
   @override
-  int get Association_Id;
+  double get price;
+  @override // Assuming price should be double
+  int get associationId;
   @override
-  int get Booking_Id;
+  int get categoryId;
+  @override
+  int get bookingId;
   @override
   @JsonKey(ignore: true)
-  _$$CardEventImplCopyWith<_$CardEventImpl> get copyWith =>
+  _$$EventImplCopyWith<_$EventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -50,33 +50,15 @@ Map<String, dynamic> _$$ClientWantsToLoginImplToJson(
       'eventType': instance.$type,
     };
 
-_$ClientWantsToRetrieveEventFeedImpl
-    _$$ClientWantsToRetrieveEventFeedImplFromJson(Map<String, dynamic> json) =>
-        _$ClientWantsToRetrieveEventFeedImpl(
-          Event_Id: (json['Event_Id'] as num).toInt(),
-          Name: json['Name'] as String,
-          Location: json['Location'] as String,
-          ImageUrl: json['ImageUrl'] as String,
-          Description: json['Description'] as String,
-          Date: DateTime.parse(json['Date'] as String),
-          Amount: (json['Amount'] as num).toInt(),
-          Association_Id: (json['Association_Id'] as num).toInt(),
-          Booking_Id: (json['Booking_Id'] as num).toInt(),
-          $type: json['eventType'] as String?,
-        );
+_$ClientWantsToGetEventFeedImpl _$$ClientWantsToGetEventFeedImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ClientWantsToGetEventFeedImpl(
+      $type: json['eventType'] as String?,
+    );
 
-Map<String, dynamic> _$$ClientWantsToRetrieveEventFeedImplToJson(
-        _$ClientWantsToRetrieveEventFeedImpl instance) =>
+Map<String, dynamic> _$$ClientWantsToGetEventFeedImplToJson(
+        _$ClientWantsToGetEventFeedImpl instance) =>
     <String, dynamic>{
-      'Event_Id': instance.Event_Id,
-      'Name': instance.Name,
-      'Location': instance.Location,
-      'ImageUrl': instance.ImageUrl,
-      'Description': instance.Description,
-      'Date': instance.Date.toIso8601String(),
-      'Amount': instance.Amount,
-      'Association_Id': instance.Association_Id,
-      'Booking_Id': instance.Booking_Id,
       'eventType': instance.$type,
     };
 

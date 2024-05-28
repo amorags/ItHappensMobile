@@ -13,21 +13,21 @@ class EventCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.network(event.ImageUrl, fit: BoxFit.cover),
+          Image.network(event.imageUrl, fit: BoxFit.cover), // Updated to match new entity field names
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(event.Name, style: Theme.of(context).textTheme.titleLarge),
+                Text(event.name, style: Theme.of(context).textTheme.headline6), // Updated to match new entity field names
                 const SizedBox(height: 4.0),
-                Text(event.Location, style: Theme.of(context).textTheme.titleMedium),
+                Text(event.location, style: Theme.of(context).textTheme.subtitle1), // Updated to match new entity field names
                 const SizedBox(height: 4.0),
-                Text(event.Description),
+                Text(event.description),
                 const SizedBox(height: 4.0),
-                Text('Date: ${event.Date.toLocal()}'),
+                Text('Date: ${event.date.toLocal()}'), // Updated to match new entity field names
                 const SizedBox(height: 4.0),
-                Text('Amount: ${event.Amount}'),
+                Text('Amount: ${event.amount}'), // Updated to match new entity field names
               ],
             ),
           ),

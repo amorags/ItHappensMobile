@@ -59,17 +59,8 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   void _fetchEvents() {
-    context.read<ItHappensBloc>().add(ClientEvent.clientWantsToRetrieveEventFeed(
-      Event_Id: 0, // Dummy values, since actual fetching logic will be on the server
-      Name: '',
-      Location: '',
-      ImageUrl: '',
-      Description: '',
-      Date: DateTime.now(),
-      Amount: 0,
-      Association_Id: 0,
-      Booking_Id: 0,
-    ));
+    context.read<ItHappensBloc>().add(ClientEvent.ClientWantsToGetEventFeed()
+    );
     print('Sending event to retrieve events: $Event'); // Log the event details
 
   }

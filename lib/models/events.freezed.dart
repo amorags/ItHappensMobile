@@ -20,8 +20,8 @@ ClientEvent _$ClientEventFromJson(Map<String, dynamic> json) {
       return ClientWantsToSignup.fromJson(json);
     case 'ClientWantsToLogin':
       return ClientWantsToLogin.fromJson(json);
-    case 'ClientWantsToRetrieveEventFeed':
-      return ClientWantsToRetrieveEventFeed.fromJson(json);
+    case 'ClientWantsToGetEventFeed':
+      return ClientWantsToGetEventFeed.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'eventType', 'ClientEvent',
@@ -44,17 +44,7 @@ mixin _$ClientEvent {
         clientWantsToSignup,
     required TResult Function(String email, String password, int userType_id)
         ClientWantsToLogin,
-    required TResult Function(
-            int Event_Id,
-            String Name,
-            String Location,
-            String ImageUrl,
-            String Description,
-            DateTime Date,
-            int Amount,
-            int Association_Id,
-            int Booking_Id)
-        clientWantsToRetrieveEventFeed,
+    required TResult Function() ClientWantsToGetEventFeed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,17 +54,7 @@ mixin _$ClientEvent {
         clientWantsToSignup,
     TResult? Function(String email, String password, int userType_id)?
         ClientWantsToLogin,
-    TResult? Function(
-            int Event_Id,
-            String Name,
-            String Location,
-            String ImageUrl,
-            String Description,
-            DateTime Date,
-            int Amount,
-            int Association_Id,
-            int Booking_Id)?
-        clientWantsToRetrieveEventFeed,
+    TResult? Function()? ClientWantsToGetEventFeed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -84,17 +64,7 @@ mixin _$ClientEvent {
         clientWantsToSignup,
     TResult Function(String email, String password, int userType_id)?
         ClientWantsToLogin,
-    TResult Function(
-            int Event_Id,
-            String Name,
-            String Location,
-            String ImageUrl,
-            String Description,
-            DateTime Date,
-            int Amount,
-            int Association_Id,
-            int Booking_Id)?
-        clientWantsToRetrieveEventFeed,
+    TResult Function()? ClientWantsToGetEventFeed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -102,24 +72,24 @@ mixin _$ClientEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(ClientWantsToSignup value) clientWantsToSignup,
     required TResult Function(ClientWantsToLogin value) ClientWantsToLogin,
-    required TResult Function(ClientWantsToRetrieveEventFeed value)
-        clientWantsToRetrieveEventFeed,
+    required TResult Function(ClientWantsToGetEventFeed value)
+        ClientWantsToGetEventFeed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ClientWantsToSignup value)? clientWantsToSignup,
     TResult? Function(ClientWantsToLogin value)? ClientWantsToLogin,
-    TResult? Function(ClientWantsToRetrieveEventFeed value)?
-        clientWantsToRetrieveEventFeed,
+    TResult? Function(ClientWantsToGetEventFeed value)?
+        ClientWantsToGetEventFeed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ClientWantsToSignup value)? clientWantsToSignup,
     TResult Function(ClientWantsToLogin value)? ClientWantsToLogin,
-    TResult Function(ClientWantsToRetrieveEventFeed value)?
-        clientWantsToRetrieveEventFeed,
+    TResult Function(ClientWantsToGetEventFeed value)?
+        ClientWantsToGetEventFeed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -313,17 +283,7 @@ class _$ClientWantsToSignupImpl
         clientWantsToSignup,
     required TResult Function(String email, String password, int userType_id)
         ClientWantsToLogin,
-    required TResult Function(
-            int Event_Id,
-            String Name,
-            String Location,
-            String ImageUrl,
-            String Description,
-            DateTime Date,
-            int Amount,
-            int Association_Id,
-            int Booking_Id)
-        clientWantsToRetrieveEventFeed,
+    required TResult Function() ClientWantsToGetEventFeed,
   }) {
     return clientWantsToSignup(
         username, firstname, lastname, password, email, phone, userType_id);
@@ -337,17 +297,7 @@ class _$ClientWantsToSignupImpl
         clientWantsToSignup,
     TResult? Function(String email, String password, int userType_id)?
         ClientWantsToLogin,
-    TResult? Function(
-            int Event_Id,
-            String Name,
-            String Location,
-            String ImageUrl,
-            String Description,
-            DateTime Date,
-            int Amount,
-            int Association_Id,
-            int Booking_Id)?
-        clientWantsToRetrieveEventFeed,
+    TResult? Function()? ClientWantsToGetEventFeed,
   }) {
     return clientWantsToSignup?.call(
         username, firstname, lastname, password, email, phone, userType_id);
@@ -361,17 +311,7 @@ class _$ClientWantsToSignupImpl
         clientWantsToSignup,
     TResult Function(String email, String password, int userType_id)?
         ClientWantsToLogin,
-    TResult Function(
-            int Event_Id,
-            String Name,
-            String Location,
-            String ImageUrl,
-            String Description,
-            DateTime Date,
-            int Amount,
-            int Association_Id,
-            int Booking_Id)?
-        clientWantsToRetrieveEventFeed,
+    TResult Function()? ClientWantsToGetEventFeed,
     required TResult orElse(),
   }) {
     if (clientWantsToSignup != null) {
@@ -386,8 +326,8 @@ class _$ClientWantsToSignupImpl
   TResult map<TResult extends Object?>({
     required TResult Function(ClientWantsToSignup value) clientWantsToSignup,
     required TResult Function(ClientWantsToLogin value) ClientWantsToLogin,
-    required TResult Function(ClientWantsToRetrieveEventFeed value)
-        clientWantsToRetrieveEventFeed,
+    required TResult Function(ClientWantsToGetEventFeed value)
+        ClientWantsToGetEventFeed,
   }) {
     return clientWantsToSignup(this);
   }
@@ -397,8 +337,8 @@ class _$ClientWantsToSignupImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ClientWantsToSignup value)? clientWantsToSignup,
     TResult? Function(ClientWantsToLogin value)? ClientWantsToLogin,
-    TResult? Function(ClientWantsToRetrieveEventFeed value)?
-        clientWantsToRetrieveEventFeed,
+    TResult? Function(ClientWantsToGetEventFeed value)?
+        ClientWantsToGetEventFeed,
   }) {
     return clientWantsToSignup?.call(this);
   }
@@ -408,8 +348,8 @@ class _$ClientWantsToSignupImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ClientWantsToSignup value)? clientWantsToSignup,
     TResult Function(ClientWantsToLogin value)? ClientWantsToLogin,
-    TResult Function(ClientWantsToRetrieveEventFeed value)?
-        clientWantsToRetrieveEventFeed,
+    TResult Function(ClientWantsToGetEventFeed value)?
+        ClientWantsToGetEventFeed,
     required TResult orElse(),
   }) {
     if (clientWantsToSignup != null) {
@@ -569,17 +509,7 @@ class _$ClientWantsToLoginImpl
         clientWantsToSignup,
     required TResult Function(String email, String password, int userType_id)
         ClientWantsToLogin,
-    required TResult Function(
-            int Event_Id,
-            String Name,
-            String Location,
-            String ImageUrl,
-            String Description,
-            DateTime Date,
-            int Amount,
-            int Association_Id,
-            int Booking_Id)
-        clientWantsToRetrieveEventFeed,
+    required TResult Function() ClientWantsToGetEventFeed,
   }) {
     return ClientWantsToLogin(email, password, userType_id);
   }
@@ -592,17 +522,7 @@ class _$ClientWantsToLoginImpl
         clientWantsToSignup,
     TResult? Function(String email, String password, int userType_id)?
         ClientWantsToLogin,
-    TResult? Function(
-            int Event_Id,
-            String Name,
-            String Location,
-            String ImageUrl,
-            String Description,
-            DateTime Date,
-            int Amount,
-            int Association_Id,
-            int Booking_Id)?
-        clientWantsToRetrieveEventFeed,
+    TResult? Function()? ClientWantsToGetEventFeed,
   }) {
     return ClientWantsToLogin?.call(email, password, userType_id);
   }
@@ -615,17 +535,7 @@ class _$ClientWantsToLoginImpl
         clientWantsToSignup,
     TResult Function(String email, String password, int userType_id)?
         ClientWantsToLogin,
-    TResult Function(
-            int Event_Id,
-            String Name,
-            String Location,
-            String ImageUrl,
-            String Description,
-            DateTime Date,
-            int Amount,
-            int Association_Id,
-            int Booking_Id)?
-        clientWantsToRetrieveEventFeed,
+    TResult Function()? ClientWantsToGetEventFeed,
     required TResult orElse(),
   }) {
     if (ClientWantsToLogin != null) {
@@ -639,8 +549,8 @@ class _$ClientWantsToLoginImpl
   TResult map<TResult extends Object?>({
     required TResult Function(ClientWantsToSignup value) clientWantsToSignup,
     required TResult Function(ClientWantsToLogin value) ClientWantsToLogin,
-    required TResult Function(ClientWantsToRetrieveEventFeed value)
-        clientWantsToRetrieveEventFeed,
+    required TResult Function(ClientWantsToGetEventFeed value)
+        ClientWantsToGetEventFeed,
   }) {
     return ClientWantsToLogin(this);
   }
@@ -650,8 +560,8 @@ class _$ClientWantsToLoginImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ClientWantsToSignup value)? clientWantsToSignup,
     TResult? Function(ClientWantsToLogin value)? ClientWantsToLogin,
-    TResult? Function(ClientWantsToRetrieveEventFeed value)?
-        clientWantsToRetrieveEventFeed,
+    TResult? Function(ClientWantsToGetEventFeed value)?
+        ClientWantsToGetEventFeed,
   }) {
     return ClientWantsToLogin?.call(this);
   }
@@ -661,8 +571,8 @@ class _$ClientWantsToLoginImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ClientWantsToSignup value)? clientWantsToSignup,
     TResult Function(ClientWantsToLogin value)? ClientWantsToLogin,
-    TResult Function(ClientWantsToRetrieveEventFeed value)?
-        clientWantsToRetrieveEventFeed,
+    TResult Function(ClientWantsToGetEventFeed value)?
+        ClientWantsToGetEventFeed,
     required TResult orElse(),
   }) {
     if (ClientWantsToLogin != null) {
@@ -697,188 +607,59 @@ abstract class ClientWantsToLogin implements ClientEvent {
 }
 
 /// @nodoc
-abstract class _$$ClientWantsToRetrieveEventFeedImplCopyWith<$Res> {
-  factory _$$ClientWantsToRetrieveEventFeedImplCopyWith(
-          _$ClientWantsToRetrieveEventFeedImpl value,
-          $Res Function(_$ClientWantsToRetrieveEventFeedImpl) then) =
-      __$$ClientWantsToRetrieveEventFeedImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call(
-      {int Event_Id,
-      String Name,
-      String Location,
-      String ImageUrl,
-      String Description,
-      DateTime Date,
-      int Amount,
-      int Association_Id,
-      int Booking_Id});
+abstract class _$$ClientWantsToGetEventFeedImplCopyWith<$Res> {
+  factory _$$ClientWantsToGetEventFeedImplCopyWith(
+          _$ClientWantsToGetEventFeedImpl value,
+          $Res Function(_$ClientWantsToGetEventFeedImpl) then) =
+      __$$ClientWantsToGetEventFeedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ClientWantsToRetrieveEventFeedImplCopyWithImpl<$Res>
-    extends _$ClientEventCopyWithImpl<$Res,
-        _$ClientWantsToRetrieveEventFeedImpl>
-    implements _$$ClientWantsToRetrieveEventFeedImplCopyWith<$Res> {
-  __$$ClientWantsToRetrieveEventFeedImplCopyWithImpl(
-      _$ClientWantsToRetrieveEventFeedImpl _value,
-      $Res Function(_$ClientWantsToRetrieveEventFeedImpl) _then)
+class __$$ClientWantsToGetEventFeedImplCopyWithImpl<$Res>
+    extends _$ClientEventCopyWithImpl<$Res, _$ClientWantsToGetEventFeedImpl>
+    implements _$$ClientWantsToGetEventFeedImplCopyWith<$Res> {
+  __$$ClientWantsToGetEventFeedImplCopyWithImpl(
+      _$ClientWantsToGetEventFeedImpl _value,
+      $Res Function(_$ClientWantsToGetEventFeedImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? Event_Id = null,
-    Object? Name = null,
-    Object? Location = null,
-    Object? ImageUrl = null,
-    Object? Description = null,
-    Object? Date = null,
-    Object? Amount = null,
-    Object? Association_Id = null,
-    Object? Booking_Id = null,
-  }) {
-    return _then(_$ClientWantsToRetrieveEventFeedImpl(
-      Event_Id: null == Event_Id
-          ? _value.Event_Id
-          : Event_Id // ignore: cast_nullable_to_non_nullable
-              as int,
-      Name: null == Name
-          ? _value.Name
-          : Name // ignore: cast_nullable_to_non_nullable
-              as String,
-      Location: null == Location
-          ? _value.Location
-          : Location // ignore: cast_nullable_to_non_nullable
-              as String,
-      ImageUrl: null == ImageUrl
-          ? _value.ImageUrl
-          : ImageUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-      Description: null == Description
-          ? _value.Description
-          : Description // ignore: cast_nullable_to_non_nullable
-              as String,
-      Date: null == Date
-          ? _value.Date
-          : Date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      Amount: null == Amount
-          ? _value.Amount
-          : Amount // ignore: cast_nullable_to_non_nullable
-              as int,
-      Association_Id: null == Association_Id
-          ? _value.Association_Id
-          : Association_Id // ignore: cast_nullable_to_non_nullable
-              as int,
-      Booking_Id: null == Booking_Id
-          ? _value.Booking_Id
-          : Booking_Id // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ClientWantsToRetrieveEventFeedImpl
+class _$ClientWantsToGetEventFeedImpl
     with DiagnosticableTreeMixin
-    implements ClientWantsToRetrieveEventFeed {
-  _$ClientWantsToRetrieveEventFeedImpl(
-      {required this.Event_Id,
-      required this.Name,
-      required this.Location,
-      required this.ImageUrl,
-      required this.Description,
-      required this.Date,
-      required this.Amount,
-      required this.Association_Id,
-      required this.Booking_Id,
-      final String? $type})
-      : $type = $type ?? 'ClientWantsToRetrieveEventFeed';
+    implements ClientWantsToGetEventFeed {
+  _$ClientWantsToGetEventFeedImpl({final String? $type})
+      : $type = $type ?? 'ClientWantsToGetEventFeed';
 
-  factory _$ClientWantsToRetrieveEventFeedImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$ClientWantsToRetrieveEventFeedImplFromJson(json);
-
-  @override
-  final int Event_Id;
-  @override
-  final String Name;
-  @override
-  final String Location;
-  @override
-  final String ImageUrl;
-  @override
-  final String Description;
-  @override
-  final DateTime Date;
-  @override
-  final int Amount;
-  @override
-  final int Association_Id;
-  @override
-  final int Booking_Id;
+  factory _$ClientWantsToGetEventFeedImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ClientWantsToGetEventFeedImplFromJson(json);
 
   @JsonKey(name: 'eventType')
   final String $type;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ClientEvent.clientWantsToRetrieveEventFeed(Event_Id: $Event_Id, Name: $Name, Location: $Location, ImageUrl: $ImageUrl, Description: $Description, Date: $Date, Amount: $Amount, Association_Id: $Association_Id, Booking_Id: $Booking_Id)';
+    return 'ClientEvent.ClientWantsToGetEventFeed()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'ClientEvent.clientWantsToRetrieveEventFeed'))
-      ..add(DiagnosticsProperty('Event_Id', Event_Id))
-      ..add(DiagnosticsProperty('Name', Name))
-      ..add(DiagnosticsProperty('Location', Location))
-      ..add(DiagnosticsProperty('ImageUrl', ImageUrl))
-      ..add(DiagnosticsProperty('Description', Description))
-      ..add(DiagnosticsProperty('Date', Date))
-      ..add(DiagnosticsProperty('Amount', Amount))
-      ..add(DiagnosticsProperty('Association_Id', Association_Id))
-      ..add(DiagnosticsProperty('Booking_Id', Booking_Id));
+    properties.add(
+        DiagnosticsProperty('type', 'ClientEvent.ClientWantsToGetEventFeed'));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ClientWantsToRetrieveEventFeedImpl &&
-            (identical(other.Event_Id, Event_Id) ||
-                other.Event_Id == Event_Id) &&
-            (identical(other.Name, Name) || other.Name == Name) &&
-            (identical(other.Location, Location) ||
-                other.Location == Location) &&
-            (identical(other.ImageUrl, ImageUrl) ||
-                other.ImageUrl == ImageUrl) &&
-            (identical(other.Description, Description) ||
-                other.Description == Description) &&
-            (identical(other.Date, Date) || other.Date == Date) &&
-            (identical(other.Amount, Amount) || other.Amount == Amount) &&
-            (identical(other.Association_Id, Association_Id) ||
-                other.Association_Id == Association_Id) &&
-            (identical(other.Booking_Id, Booking_Id) ||
-                other.Booking_Id == Booking_Id));
+            other is _$ClientWantsToGetEventFeedImpl);
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, Event_Id, Name, Location,
-      ImageUrl, Description, Date, Amount, Association_Id, Booking_Id);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ClientWantsToRetrieveEventFeedImplCopyWith<
-          _$ClientWantsToRetrieveEventFeedImpl>
-      get copyWith => __$$ClientWantsToRetrieveEventFeedImplCopyWithImpl<
-          _$ClientWantsToRetrieveEventFeedImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
@@ -894,20 +675,9 @@ class _$ClientWantsToRetrieveEventFeedImpl
         clientWantsToSignup,
     required TResult Function(String email, String password, int userType_id)
         ClientWantsToLogin,
-    required TResult Function(
-            int Event_Id,
-            String Name,
-            String Location,
-            String ImageUrl,
-            String Description,
-            DateTime Date,
-            int Amount,
-            int Association_Id,
-            int Booking_Id)
-        clientWantsToRetrieveEventFeed,
+    required TResult Function() ClientWantsToGetEventFeed,
   }) {
-    return clientWantsToRetrieveEventFeed(Event_Id, Name, Location, ImageUrl,
-        Description, Date, Amount, Association_Id, Booking_Id);
+    return ClientWantsToGetEventFeed();
   }
 
   @override
@@ -918,20 +688,9 @@ class _$ClientWantsToRetrieveEventFeedImpl
         clientWantsToSignup,
     TResult? Function(String email, String password, int userType_id)?
         ClientWantsToLogin,
-    TResult? Function(
-            int Event_Id,
-            String Name,
-            String Location,
-            String ImageUrl,
-            String Description,
-            DateTime Date,
-            int Amount,
-            int Association_Id,
-            int Booking_Id)?
-        clientWantsToRetrieveEventFeed,
+    TResult? Function()? ClientWantsToGetEventFeed,
   }) {
-    return clientWantsToRetrieveEventFeed?.call(Event_Id, Name, Location,
-        ImageUrl, Description, Date, Amount, Association_Id, Booking_Id);
+    return ClientWantsToGetEventFeed?.call();
   }
 
   @override
@@ -942,22 +701,11 @@ class _$ClientWantsToRetrieveEventFeedImpl
         clientWantsToSignup,
     TResult Function(String email, String password, int userType_id)?
         ClientWantsToLogin,
-    TResult Function(
-            int Event_Id,
-            String Name,
-            String Location,
-            String ImageUrl,
-            String Description,
-            DateTime Date,
-            int Amount,
-            int Association_Id,
-            int Booking_Id)?
-        clientWantsToRetrieveEventFeed,
+    TResult Function()? ClientWantsToGetEventFeed,
     required TResult orElse(),
   }) {
-    if (clientWantsToRetrieveEventFeed != null) {
-      return clientWantsToRetrieveEventFeed(Event_Id, Name, Location, ImageUrl,
-          Description, Date, Amount, Association_Id, Booking_Id);
+    if (ClientWantsToGetEventFeed != null) {
+      return ClientWantsToGetEventFeed();
     }
     return orElse();
   }
@@ -967,10 +715,10 @@ class _$ClientWantsToRetrieveEventFeedImpl
   TResult map<TResult extends Object?>({
     required TResult Function(ClientWantsToSignup value) clientWantsToSignup,
     required TResult Function(ClientWantsToLogin value) ClientWantsToLogin,
-    required TResult Function(ClientWantsToRetrieveEventFeed value)
-        clientWantsToRetrieveEventFeed,
+    required TResult Function(ClientWantsToGetEventFeed value)
+        ClientWantsToGetEventFeed,
   }) {
-    return clientWantsToRetrieveEventFeed(this);
+    return ClientWantsToGetEventFeed(this);
   }
 
   @override
@@ -978,10 +726,10 @@ class _$ClientWantsToRetrieveEventFeedImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ClientWantsToSignup value)? clientWantsToSignup,
     TResult? Function(ClientWantsToLogin value)? ClientWantsToLogin,
-    TResult? Function(ClientWantsToRetrieveEventFeed value)?
-        clientWantsToRetrieveEventFeed,
+    TResult? Function(ClientWantsToGetEventFeed value)?
+        ClientWantsToGetEventFeed,
   }) {
-    return clientWantsToRetrieveEventFeed?.call(this);
+    return ClientWantsToGetEventFeed?.call(this);
   }
 
   @override
@@ -989,52 +737,29 @@ class _$ClientWantsToRetrieveEventFeedImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ClientWantsToSignup value)? clientWantsToSignup,
     TResult Function(ClientWantsToLogin value)? ClientWantsToLogin,
-    TResult Function(ClientWantsToRetrieveEventFeed value)?
-        clientWantsToRetrieveEventFeed,
+    TResult Function(ClientWantsToGetEventFeed value)?
+        ClientWantsToGetEventFeed,
     required TResult orElse(),
   }) {
-    if (clientWantsToRetrieveEventFeed != null) {
-      return clientWantsToRetrieveEventFeed(this);
+    if (ClientWantsToGetEventFeed != null) {
+      return ClientWantsToGetEventFeed(this);
     }
     return orElse();
   }
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ClientWantsToRetrieveEventFeedImplToJson(
+    return _$$ClientWantsToGetEventFeedImplToJson(
       this,
     );
   }
 }
 
-abstract class ClientWantsToRetrieveEventFeed implements ClientEvent {
-  factory ClientWantsToRetrieveEventFeed(
-      {required final int Event_Id,
-      required final String Name,
-      required final String Location,
-      required final String ImageUrl,
-      required final String Description,
-      required final DateTime Date,
-      required final int Amount,
-      required final int Association_Id,
-      required final int Booking_Id}) = _$ClientWantsToRetrieveEventFeedImpl;
+abstract class ClientWantsToGetEventFeed implements ClientEvent {
+  factory ClientWantsToGetEventFeed() = _$ClientWantsToGetEventFeedImpl;
 
-  factory ClientWantsToRetrieveEventFeed.fromJson(Map<String, dynamic> json) =
-      _$ClientWantsToRetrieveEventFeedImpl.fromJson;
-
-  int get Event_Id;
-  String get Name;
-  String get Location;
-  String get ImageUrl;
-  String get Description;
-  DateTime get Date;
-  int get Amount;
-  int get Association_Id;
-  int get Booking_Id;
-  @JsonKey(ignore: true)
-  _$$ClientWantsToRetrieveEventFeedImplCopyWith<
-          _$ClientWantsToRetrieveEventFeedImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  factory ClientWantsToGetEventFeed.fromJson(Map<String, dynamic> json) =
+      _$ClientWantsToGetEventFeedImpl.fromJson;
 }
 
 ServerEvent _$ServerEventFromJson(Map<String, dynamic> json) {
@@ -1154,7 +879,8 @@ class __$$ServerSendsEventFeedImplCopyWithImpl<$Res>
 class _$ServerSendsEventFeedImpl
     with DiagnosticableTreeMixin
     implements ServerSendsEventFeed {
-  _$ServerSendsEventFeedImpl({required final List<Event> EventsFeedQueries})
+  const _$ServerSendsEventFeedImpl(
+      {required final List<Event> EventsFeedQueries})
       : _EventsFeedQueries = EventsFeedQueries;
 
   factory _$ServerSendsEventFeedImpl.fromJson(Map<String, dynamic> json) =>
@@ -1270,7 +996,8 @@ class _$ServerSendsEventFeedImpl
 }
 
 abstract class ServerSendsEventFeed implements ServerEvent {
-  factory ServerSendsEventFeed({required final List<Event> EventsFeedQueries}) =
+  const factory ServerSendsEventFeed(
+          {required final List<Event> EventsFeedQueries}) =
       _$ServerSendsEventFeedImpl;
 
   factory ServerSendsEventFeed.fromJson(Map<String, dynamic> json) =

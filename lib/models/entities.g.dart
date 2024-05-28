@@ -6,28 +6,31 @@ part of 'entities.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CardEventImpl _$$CardEventImplFromJson(Map<String, dynamic> json) =>
-    _$CardEventImpl(
-      Event_Id: (json['Event_Id'] as num).toInt(),
-      Name: json['Name'] as String,
-      Location: json['Location'] as String,
-      ImageUrl: json['ImageUrl'] as String,
-      Description: json['Description'] as String,
-      Date: DateTime.parse(json['Date'] as String),
-      Amount: (json['Amount'] as num).toInt(),
-      Association_Id: (json['Association_Id'] as num).toInt(),
-      Booking_Id: (json['Booking_Id'] as num).toInt(),
+_$EventImpl _$$EventImplFromJson(Map<String, dynamic> json) => _$EventImpl(
+      eventId: (json['eventId'] as num).toInt(),
+      name: json['name'] as String,
+      location: json['location'] as String,
+      imageUrl: json['imageUrl'] as String,
+      description: json['description'] as String,
+      date: DateTime.parse(json['date'] as String),
+      amount: (json['amount'] as num).toInt(),
+      price: (json['price'] as num).toDouble(),
+      associationId: (json['associationId'] as num).toInt(),
+      categoryId: (json['categoryId'] as num).toInt(),
+      bookingId: (json['bookingId'] as num).toInt(),
     );
 
-Map<String, dynamic> _$$CardEventImplToJson(_$CardEventImpl instance) =>
+Map<String, dynamic> _$$EventImplToJson(_$EventImpl instance) =>
     <String, dynamic>{
-      'Event_Id': instance.Event_Id,
-      'Name': instance.Name,
-      'Location': instance.Location,
-      'ImageUrl': instance.ImageUrl,
-      'Description': instance.Description,
-      'Date': instance.Date.toIso8601String(),
-      'Amount': instance.Amount,
-      'Association_Id': instance.Association_Id,
-      'Booking_Id': instance.Booking_Id,
+      'eventId': instance.eventId,
+      'name': instance.name,
+      'location': instance.location,
+      'imageUrl': instance.imageUrl,
+      'description': instance.description,
+      'date': instance.date.toIso8601String(),
+      'amount': instance.amount,
+      'price': instance.price,
+      'associationId': instance.associationId,
+      'categoryId': instance.categoryId,
+      'bookingId': instance.bookingId,
     };

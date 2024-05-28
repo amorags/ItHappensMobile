@@ -25,17 +25,8 @@ sealed class ClientEvent with _$ClientEvent implements BaseEvent {
     required int userType_id
   }) = ClientWantsToLogin;
 
-   factory ClientEvent.clientWantsToRetrieveEventFeed({
-    required int Event_Id,
-    required String Name,
-    required String Location,
-    required String ImageUrl,
-    required String Description,
-    required DateTime Date,
-    required int Amount,
-    required int Association_Id,
-    required int Booking_Id
-  }) = ClientWantsToRetrieveEventFeed;
+
+  factory ClientEvent.ClientWantsToGetEventFeed() = ClientWantsToGetEventFeed;
 
   factory ClientEvent.fromJson(Map<String, dynamic> json) =>
       _$ClientEventFromJson(json);
@@ -44,12 +35,12 @@ sealed class ClientEvent with _$ClientEvent implements BaseEvent {
 
 @Freezed(unionKey: 'eventType', unionValueCase: FreezedUnionCase.pascal)
 sealed class ServerEvent with _$ServerEvent implements BaseEvent {
-factory ServerEvent.serverSendsEventFeed({
-  required List<Event> EventsFeedQueries,
-}) = ServerSendsEventFeed;
+  const factory ServerEvent.serverSendsEventFeed({
+    required List<Event> EventsFeedQueries,
+  }) = ServerSendsEventFeed;
 
-factory ServerEvent.fromJson(Map<String, dynamic> json) =>
-    _$ServerEventFromJson(json);
+  factory ServerEvent.fromJson(Map<String, dynamic> json) =>
+      _$ServerEventFromJson(json);
 }
 /*
 abstract class ClientEvent extends BaseEvent {
