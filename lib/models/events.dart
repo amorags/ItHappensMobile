@@ -1,11 +1,30 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 import 'entities.dart';
+
 part 'events.freezed.dart';
 part 'events.g.dart';
 
 sealed class BaseEvent {}
 
+// Add the Event class
+@freezed
+class Event with _$Event {
+  factory Event({
+    required int Event_Id,
+    required String Name,
+    required String Location,
+    required String ImageUrl,
+    required String Description,
+    required DateTime Date,
+    required int Amount,
+    required int Association_Id,
+    required int Booking_Id,
+  }) = _Event;
+
+  // Updated fromJson factory method
+  factory Event.fromJson(Map<String, dynamic> json) => _$EventFromJson(json);
+}
 
 @Freezed(unionKey: 'eventType', unionValueCase: FreezedUnionCase.pascal)
 sealed class ClientEvent with _$ClientEvent implements BaseEvent {
@@ -16,22 +35,20 @@ sealed class ClientEvent with _$ClientEvent implements BaseEvent {
     required String password,
     required String email,
     required int phone,
-    required int userType_id
+    required int userType_id,
   }) = ClientWantsToSignup;
 
   factory ClientEvent.ClientWantsToLogin({
     required String email,
     required String password,
-    required int userType_id
+    required int userType_id,
   }) = ClientWantsToLogin;
-
 
   factory ClientEvent.ClientWantsToGetEventFeed() = ClientWantsToGetEventFeed;
 
   factory ClientEvent.fromJson(Map<String, dynamic> json) =>
       _$ClientEventFromJson(json);
 }
-
 
 @Freezed(unionKey: 'eventType', unionValueCase: FreezedUnionCase.pascal)
 sealed class ServerEvent with _$ServerEvent implements BaseEvent {
@@ -42,11 +59,11 @@ sealed class ServerEvent with _$ServerEvent implements BaseEvent {
   factory ServerEvent.fromJson(Map<String, dynamic> json) =>
       _$ServerEventFromJson(json);
 }
+
 /*
 abstract class ClientEvent extends BaseEvent {
   Map<String, dynamic> toJson();
 }
-
 
 @freezed
 class ClientWantsToSignup extends ClientEvent with _$ClientWantsToSignup {
@@ -59,7 +76,7 @@ class ClientWantsToSignup extends ClientEvent with _$ClientWantsToSignup {
     required String password,
     required String email,
     required int phone,
-    required int userType_id
+    required int userType_id,
   }) = _ClientWantsToSignup;
 
   factory ClientWantsToSignup.fromJson(Map<String, Object?> json) =>
@@ -75,12 +92,10 @@ class ClientWantsToLogin extends ClientEvent with _$ClientWantsToLogin {
     required String email,
     required String password,
     required int userType_id,
-  }) =_ClientWantsToLogin;
+  }) = _ClientWantsToLogin;
 
   factory ClientWantsToLogin.fromJson(Map<String, Object?> json) =>
       _$ClientWantsToLoginFromJson(json);
-
-
 }
 
 @freezed
@@ -96,21 +111,20 @@ class ClientWantsToRetrieveEventFeed extends ClientEvent with _$ClientWantsToRet
     required DateTime Date,
     required int Amount,
     required int Association_Id,
-    required int Booking_Id
-}) = _ClientWantsToRetrieveEventFeed;
+    required int Booking_Id,
+  }) = _ClientWantsToRetrieveEventFeed;
 
- factory ClientWantsToRetrieveEventFeed.fromJson(Map<String, Object?> json) =>
-_$ClientWantsToRetrieveEventFeedFromJson(json);
+  factory ClientWantsToRetrieveEventFeed.fromJson(Map<String, Object?> json) =>
+      _$ClientWantsToRetrieveEventFeedFromJson(json);
 }
-
 
 class ServerEvent extends BaseEvent {
   static ServerEvent fromJson(Map<String, Object?> json) {
     final type = json['eventType'];
-    return switch(type){
+    return switch (type) {
       ServerAddsEventFeedToClient.name => ServerAddsEventFeedToClient.fromJson(json),
-     _ => throw "Unknown event type $type in $json"
+      _ => throw "Unknown event type $type in $json",
     };
-    }
+  }
 }
 */

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:it_happens/models/entities.dart';
+import 'package:it_happens/models/events.dart';
 import 'package:it_happens/views/login_view.dart';
 import 'package:it_happens/bLoC/ithappens_bloc.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 import '../bLoC/ithappens_state.dart';
-import '../models/events.dart';
 import 'event_list_page.dart';
 import 'singup_view.dart';
 
@@ -61,7 +60,7 @@ class _MainScreenState extends State<MainScreen> {
   void _fetchEvents() {
     context.read<ItHappensBloc>().add(ClientEvent.ClientWantsToGetEventFeed()
     );
-    print('Sending event to retrieve events: $Event'); // Log the event details
+    //print('Sending event to retrieve events: $Event'); // Log the event details
 
   }
 
