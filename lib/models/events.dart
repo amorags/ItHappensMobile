@@ -28,6 +28,8 @@ sealed class ClientEvent with _$ClientEvent implements BaseEvent {
 
   factory ClientEvent.ClientWantsToGetEventFeed() = ClientWantsToGetEventFeed;
 
+  factory ClientEvent.ClientWantsToGetAssociationFeed() = ClientWantsToGetAssociationFeed;
+
   factory ClientEvent.fromJson(Map<String, dynamic> json) =>
       _$ClientEventFromJson(json);
 }
@@ -38,6 +40,10 @@ sealed class ServerEvent with _$ServerEvent implements BaseEvent {
   const factory ServerEvent.serverSendsEventFeed({
     required List<Event> EventsFeedQueries,
   }) = ServerSendsEventFeed;
+
+  factory ServerEvent.serverSendsAssociationFeed({
+    required List<Association> AssociationsFeedQueries,
+  }) = ServerSendsAssociationFeed;
 
   factory ServerEvent.fromJson(Map<String, dynamic> json) =>
       _$ServerEventFromJson(json);

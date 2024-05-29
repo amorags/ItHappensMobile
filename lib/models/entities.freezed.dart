@@ -373,3 +373,288 @@ abstract class _Event implements Event {
   _$$EventImplCopyWith<_$EventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+Association _$AssociationFromJson(Map<String, dynamic> json) {
+  return _Association.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Association {
+  int get AssociationId => throw _privateConstructorUsedError;
+  String? get Name => throw _privateConstructorUsedError;
+  String? get Email => throw _privateConstructorUsedError;
+  String? get Phone => throw _privateConstructorUsedError;
+  String? get Address => throw _privateConstructorUsedError;
+  String? get Description => throw _privateConstructorUsedError;
+  String? get BannerUrl => throw _privateConstructorUsedError;
+  String? get ProfileUrl => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AssociationCopyWith<Association> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AssociationCopyWith<$Res> {
+  factory $AssociationCopyWith(
+          Association value, $Res Function(Association) then) =
+      _$AssociationCopyWithImpl<$Res, Association>;
+  @useResult
+  $Res call(
+      {int AssociationId,
+      String? Name,
+      String? Email,
+      String? Phone,
+      String? Address,
+      String? Description,
+      String? BannerUrl,
+      String? ProfileUrl});
+}
+
+/// @nodoc
+class _$AssociationCopyWithImpl<$Res, $Val extends Association>
+    implements $AssociationCopyWith<$Res> {
+  _$AssociationCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? AssociationId = null,
+    Object? Name = freezed,
+    Object? Email = freezed,
+    Object? Phone = freezed,
+    Object? Address = freezed,
+    Object? Description = freezed,
+    Object? BannerUrl = freezed,
+    Object? ProfileUrl = freezed,
+  }) {
+    return _then(_value.copyWith(
+      AssociationId: null == AssociationId
+          ? _value.AssociationId
+          : AssociationId // ignore: cast_nullable_to_non_nullable
+              as int,
+      Name: freezed == Name
+          ? _value.Name
+          : Name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      Email: freezed == Email
+          ? _value.Email
+          : Email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      Phone: freezed == Phone
+          ? _value.Phone
+          : Phone // ignore: cast_nullable_to_non_nullable
+              as String?,
+      Address: freezed == Address
+          ? _value.Address
+          : Address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      Description: freezed == Description
+          ? _value.Description
+          : Description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      BannerUrl: freezed == BannerUrl
+          ? _value.BannerUrl
+          : BannerUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      ProfileUrl: freezed == ProfileUrl
+          ? _value.ProfileUrl
+          : ProfileUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$AssociationImplCopyWith<$Res>
+    implements $AssociationCopyWith<$Res> {
+  factory _$$AssociationImplCopyWith(
+          _$AssociationImpl value, $Res Function(_$AssociationImpl) then) =
+      __$$AssociationImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {int AssociationId,
+      String? Name,
+      String? Email,
+      String? Phone,
+      String? Address,
+      String? Description,
+      String? BannerUrl,
+      String? ProfileUrl});
+}
+
+/// @nodoc
+class __$$AssociationImplCopyWithImpl<$Res>
+    extends _$AssociationCopyWithImpl<$Res, _$AssociationImpl>
+    implements _$$AssociationImplCopyWith<$Res> {
+  __$$AssociationImplCopyWithImpl(
+      _$AssociationImpl _value, $Res Function(_$AssociationImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? AssociationId = null,
+    Object? Name = freezed,
+    Object? Email = freezed,
+    Object? Phone = freezed,
+    Object? Address = freezed,
+    Object? Description = freezed,
+    Object? BannerUrl = freezed,
+    Object? ProfileUrl = freezed,
+  }) {
+    return _then(_$AssociationImpl(
+      AssociationId: null == AssociationId
+          ? _value.AssociationId
+          : AssociationId // ignore: cast_nullable_to_non_nullable
+              as int,
+      Name: freezed == Name
+          ? _value.Name
+          : Name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      Email: freezed == Email
+          ? _value.Email
+          : Email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      Phone: freezed == Phone
+          ? _value.Phone
+          : Phone // ignore: cast_nullable_to_non_nullable
+              as String?,
+      Address: freezed == Address
+          ? _value.Address
+          : Address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      Description: freezed == Description
+          ? _value.Description
+          : Description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      BannerUrl: freezed == BannerUrl
+          ? _value.BannerUrl
+          : BannerUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      ProfileUrl: freezed == ProfileUrl
+          ? _value.ProfileUrl
+          : ProfileUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$AssociationImpl implements _Association {
+  const _$AssociationImpl(
+      {required this.AssociationId,
+      this.Name,
+      this.Email,
+      this.Phone,
+      this.Address,
+      this.Description,
+      this.BannerUrl,
+      this.ProfileUrl});
+
+  factory _$AssociationImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AssociationImplFromJson(json);
+
+  @override
+  final int AssociationId;
+  @override
+  final String? Name;
+  @override
+  final String? Email;
+  @override
+  final String? Phone;
+  @override
+  final String? Address;
+  @override
+  final String? Description;
+  @override
+  final String? BannerUrl;
+  @override
+  final String? ProfileUrl;
+
+  @override
+  String toString() {
+    return 'Association(AssociationId: $AssociationId, Name: $Name, Email: $Email, Phone: $Phone, Address: $Address, Description: $Description, BannerUrl: $BannerUrl, ProfileUrl: $ProfileUrl)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AssociationImpl &&
+            (identical(other.AssociationId, AssociationId) ||
+                other.AssociationId == AssociationId) &&
+            (identical(other.Name, Name) || other.Name == Name) &&
+            (identical(other.Email, Email) || other.Email == Email) &&
+            (identical(other.Phone, Phone) || other.Phone == Phone) &&
+            (identical(other.Address, Address) || other.Address == Address) &&
+            (identical(other.Description, Description) ||
+                other.Description == Description) &&
+            (identical(other.BannerUrl, BannerUrl) ||
+                other.BannerUrl == BannerUrl) &&
+            (identical(other.ProfileUrl, ProfileUrl) ||
+                other.ProfileUrl == ProfileUrl));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, AssociationId, Name, Email,
+      Phone, Address, Description, BannerUrl, ProfileUrl);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AssociationImplCopyWith<_$AssociationImpl> get copyWith =>
+      __$$AssociationImplCopyWithImpl<_$AssociationImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$AssociationImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Association implements Association {
+  const factory _Association(
+      {required final int AssociationId,
+      final String? Name,
+      final String? Email,
+      final String? Phone,
+      final String? Address,
+      final String? Description,
+      final String? BannerUrl,
+      final String? ProfileUrl}) = _$AssociationImpl;
+
+  factory _Association.fromJson(Map<String, dynamic> json) =
+      _$AssociationImpl.fromJson;
+
+  @override
+  int get AssociationId;
+  @override
+  String? get Name;
+  @override
+  String? get Email;
+  @override
+  String? get Phone;
+  @override
+  String? get Address;
+  @override
+  String? get Description;
+  @override
+  String? get BannerUrl;
+  @override
+  String? get ProfileUrl;
+  @override
+  @JsonKey(ignore: true)
+  _$$AssociationImplCopyWith<_$AssociationImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

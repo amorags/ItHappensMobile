@@ -7,6 +7,7 @@ import 'package:it_happens/models/events.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 import '../bLoC/ithappens_state.dart';
 import '../models/events.dart';
+import 'Association_list_page.dart';
 import 'event_list_page.dart';
 import 'singup_view.dart';
 
@@ -56,6 +57,7 @@ class _MainScreenState extends State<MainScreen> {
   void initState() {
     super.initState();
     _fetchEvents();
+    _fetchAssociations();
   }
 
   void _fetchEvents() {
@@ -63,6 +65,10 @@ class _MainScreenState extends State<MainScreen> {
     print('Sending event to retrieve events: ClientWantsToGetEventFeed'); // Log the event details
   }
 
+  void _fetchAssociations() {
+    context.read<ItHappensBloc>().add(ClientEvent.ClientWantsToGetAssociationFeed());
+    print('Sending event to retrieve events: ClientWantsToGetEventFeed'); // Log the event details
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -122,12 +128,18 @@ class _MainScreenState extends State<MainScreen> {
   Widget _buildPage(int index) {
     switch (index) {
       case 0:
-        return Center(
-          child: Text(
-            'Association Page',
-            style: TextStyle(fontSize: 24.0),
-          ),
+        return BlocBuilder<ItHappensBloc, ItHappensState>(
+          builder: (context, state) {
+            if (state is ItHappensStateLoadedAss) {
+              return AssociationListPage(associations: state.associations);
+            } else if (state is ItHappensStateError) {
+              return Center(child: Text('Error: ${state.message}'));
+            } else {
+              return Center(child: CircularProgressIndicator());
+            }
+          },
         );
+
       case 1:
         return BlocBuilder<ItHappensBloc, ItHappensState>(
           builder: (context, state) {

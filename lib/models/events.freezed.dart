@@ -22,6 +22,8 @@ ClientEvent _$ClientEventFromJson(Map<String, dynamic> json) {
       return ClientWantsToLogin.fromJson(json);
     case 'ClientWantsToGetEventFeed':
       return ClientWantsToGetEventFeed.fromJson(json);
+    case 'ClientWantsToGetAssociationFeed':
+      return ClientWantsToGetAssociationFeed.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'eventType', 'ClientEvent',
@@ -45,6 +47,7 @@ mixin _$ClientEvent {
     required TResult Function(String email, String password, int userType_id)
         ClientWantsToLogin,
     required TResult Function() ClientWantsToGetEventFeed,
+    required TResult Function() ClientWantsToGetAssociationFeed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +58,7 @@ mixin _$ClientEvent {
     TResult? Function(String email, String password, int userType_id)?
         ClientWantsToLogin,
     TResult? Function()? ClientWantsToGetEventFeed,
+    TResult? Function()? ClientWantsToGetAssociationFeed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +69,7 @@ mixin _$ClientEvent {
     TResult Function(String email, String password, int userType_id)?
         ClientWantsToLogin,
     TResult Function()? ClientWantsToGetEventFeed,
+    TResult Function()? ClientWantsToGetAssociationFeed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -74,6 +79,8 @@ mixin _$ClientEvent {
     required TResult Function(ClientWantsToLogin value) ClientWantsToLogin,
     required TResult Function(ClientWantsToGetEventFeed value)
         ClientWantsToGetEventFeed,
+    required TResult Function(ClientWantsToGetAssociationFeed value)
+        ClientWantsToGetAssociationFeed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -82,6 +89,8 @@ mixin _$ClientEvent {
     TResult? Function(ClientWantsToLogin value)? ClientWantsToLogin,
     TResult? Function(ClientWantsToGetEventFeed value)?
         ClientWantsToGetEventFeed,
+    TResult? Function(ClientWantsToGetAssociationFeed value)?
+        ClientWantsToGetAssociationFeed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -90,6 +99,8 @@ mixin _$ClientEvent {
     TResult Function(ClientWantsToLogin value)? ClientWantsToLogin,
     TResult Function(ClientWantsToGetEventFeed value)?
         ClientWantsToGetEventFeed,
+    TResult Function(ClientWantsToGetAssociationFeed value)?
+        ClientWantsToGetAssociationFeed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -284,6 +295,7 @@ class _$ClientWantsToSignupImpl
     required TResult Function(String email, String password, int userType_id)
         ClientWantsToLogin,
     required TResult Function() ClientWantsToGetEventFeed,
+    required TResult Function() ClientWantsToGetAssociationFeed,
   }) {
     return clientWantsToSignup(
         username, firstname, lastname, password, email, phone, userType_id);
@@ -298,6 +310,7 @@ class _$ClientWantsToSignupImpl
     TResult? Function(String email, String password, int userType_id)?
         ClientWantsToLogin,
     TResult? Function()? ClientWantsToGetEventFeed,
+    TResult? Function()? ClientWantsToGetAssociationFeed,
   }) {
     return clientWantsToSignup?.call(
         username, firstname, lastname, password, email, phone, userType_id);
@@ -312,6 +325,7 @@ class _$ClientWantsToSignupImpl
     TResult Function(String email, String password, int userType_id)?
         ClientWantsToLogin,
     TResult Function()? ClientWantsToGetEventFeed,
+    TResult Function()? ClientWantsToGetAssociationFeed,
     required TResult orElse(),
   }) {
     if (clientWantsToSignup != null) {
@@ -328,6 +342,8 @@ class _$ClientWantsToSignupImpl
     required TResult Function(ClientWantsToLogin value) ClientWantsToLogin,
     required TResult Function(ClientWantsToGetEventFeed value)
         ClientWantsToGetEventFeed,
+    required TResult Function(ClientWantsToGetAssociationFeed value)
+        ClientWantsToGetAssociationFeed,
   }) {
     return clientWantsToSignup(this);
   }
@@ -339,6 +355,8 @@ class _$ClientWantsToSignupImpl
     TResult? Function(ClientWantsToLogin value)? ClientWantsToLogin,
     TResult? Function(ClientWantsToGetEventFeed value)?
         ClientWantsToGetEventFeed,
+    TResult? Function(ClientWantsToGetAssociationFeed value)?
+        ClientWantsToGetAssociationFeed,
   }) {
     return clientWantsToSignup?.call(this);
   }
@@ -350,6 +368,8 @@ class _$ClientWantsToSignupImpl
     TResult Function(ClientWantsToLogin value)? ClientWantsToLogin,
     TResult Function(ClientWantsToGetEventFeed value)?
         ClientWantsToGetEventFeed,
+    TResult Function(ClientWantsToGetAssociationFeed value)?
+        ClientWantsToGetAssociationFeed,
     required TResult orElse(),
   }) {
     if (clientWantsToSignup != null) {
@@ -510,6 +530,7 @@ class _$ClientWantsToLoginImpl
     required TResult Function(String email, String password, int userType_id)
         ClientWantsToLogin,
     required TResult Function() ClientWantsToGetEventFeed,
+    required TResult Function() ClientWantsToGetAssociationFeed,
   }) {
     return ClientWantsToLogin(email, password, userType_id);
   }
@@ -523,6 +544,7 @@ class _$ClientWantsToLoginImpl
     TResult? Function(String email, String password, int userType_id)?
         ClientWantsToLogin,
     TResult? Function()? ClientWantsToGetEventFeed,
+    TResult? Function()? ClientWantsToGetAssociationFeed,
   }) {
     return ClientWantsToLogin?.call(email, password, userType_id);
   }
@@ -536,6 +558,7 @@ class _$ClientWantsToLoginImpl
     TResult Function(String email, String password, int userType_id)?
         ClientWantsToLogin,
     TResult Function()? ClientWantsToGetEventFeed,
+    TResult Function()? ClientWantsToGetAssociationFeed,
     required TResult orElse(),
   }) {
     if (ClientWantsToLogin != null) {
@@ -551,6 +574,8 @@ class _$ClientWantsToLoginImpl
     required TResult Function(ClientWantsToLogin value) ClientWantsToLogin,
     required TResult Function(ClientWantsToGetEventFeed value)
         ClientWantsToGetEventFeed,
+    required TResult Function(ClientWantsToGetAssociationFeed value)
+        ClientWantsToGetAssociationFeed,
   }) {
     return ClientWantsToLogin(this);
   }
@@ -562,6 +587,8 @@ class _$ClientWantsToLoginImpl
     TResult? Function(ClientWantsToLogin value)? ClientWantsToLogin,
     TResult? Function(ClientWantsToGetEventFeed value)?
         ClientWantsToGetEventFeed,
+    TResult? Function(ClientWantsToGetAssociationFeed value)?
+        ClientWantsToGetAssociationFeed,
   }) {
     return ClientWantsToLogin?.call(this);
   }
@@ -573,6 +600,8 @@ class _$ClientWantsToLoginImpl
     TResult Function(ClientWantsToLogin value)? ClientWantsToLogin,
     TResult Function(ClientWantsToGetEventFeed value)?
         ClientWantsToGetEventFeed,
+    TResult Function(ClientWantsToGetAssociationFeed value)?
+        ClientWantsToGetAssociationFeed,
     required TResult orElse(),
   }) {
     if (ClientWantsToLogin != null) {
@@ -676,6 +705,7 @@ class _$ClientWantsToGetEventFeedImpl
     required TResult Function(String email, String password, int userType_id)
         ClientWantsToLogin,
     required TResult Function() ClientWantsToGetEventFeed,
+    required TResult Function() ClientWantsToGetAssociationFeed,
   }) {
     return ClientWantsToGetEventFeed();
   }
@@ -689,6 +719,7 @@ class _$ClientWantsToGetEventFeedImpl
     TResult? Function(String email, String password, int userType_id)?
         ClientWantsToLogin,
     TResult? Function()? ClientWantsToGetEventFeed,
+    TResult? Function()? ClientWantsToGetAssociationFeed,
   }) {
     return ClientWantsToGetEventFeed?.call();
   }
@@ -702,6 +733,7 @@ class _$ClientWantsToGetEventFeedImpl
     TResult Function(String email, String password, int userType_id)?
         ClientWantsToLogin,
     TResult Function()? ClientWantsToGetEventFeed,
+    TResult Function()? ClientWantsToGetAssociationFeed,
     required TResult orElse(),
   }) {
     if (ClientWantsToGetEventFeed != null) {
@@ -717,6 +749,8 @@ class _$ClientWantsToGetEventFeedImpl
     required TResult Function(ClientWantsToLogin value) ClientWantsToLogin,
     required TResult Function(ClientWantsToGetEventFeed value)
         ClientWantsToGetEventFeed,
+    required TResult Function(ClientWantsToGetAssociationFeed value)
+        ClientWantsToGetAssociationFeed,
   }) {
     return ClientWantsToGetEventFeed(this);
   }
@@ -728,6 +762,8 @@ class _$ClientWantsToGetEventFeedImpl
     TResult? Function(ClientWantsToLogin value)? ClientWantsToLogin,
     TResult? Function(ClientWantsToGetEventFeed value)?
         ClientWantsToGetEventFeed,
+    TResult? Function(ClientWantsToGetAssociationFeed value)?
+        ClientWantsToGetAssociationFeed,
   }) {
     return ClientWantsToGetEventFeed?.call(this);
   }
@@ -739,6 +775,8 @@ class _$ClientWantsToGetEventFeedImpl
     TResult Function(ClientWantsToLogin value)? ClientWantsToLogin,
     TResult Function(ClientWantsToGetEventFeed value)?
         ClientWantsToGetEventFeed,
+    TResult Function(ClientWantsToGetAssociationFeed value)?
+        ClientWantsToGetAssociationFeed,
     required TResult orElse(),
   }) {
     if (ClientWantsToGetEventFeed != null) {
@@ -762,50 +800,235 @@ abstract class ClientWantsToGetEventFeed implements ClientEvent {
       _$ClientWantsToGetEventFeedImpl.fromJson;
 }
 
+/// @nodoc
+abstract class _$$ClientWantsToGetAssociationFeedImplCopyWith<$Res> {
+  factory _$$ClientWantsToGetAssociationFeedImplCopyWith(
+          _$ClientWantsToGetAssociationFeedImpl value,
+          $Res Function(_$ClientWantsToGetAssociationFeedImpl) then) =
+      __$$ClientWantsToGetAssociationFeedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ClientWantsToGetAssociationFeedImplCopyWithImpl<$Res>
+    extends _$ClientEventCopyWithImpl<$Res,
+        _$ClientWantsToGetAssociationFeedImpl>
+    implements _$$ClientWantsToGetAssociationFeedImplCopyWith<$Res> {
+  __$$ClientWantsToGetAssociationFeedImplCopyWithImpl(
+      _$ClientWantsToGetAssociationFeedImpl _value,
+      $Res Function(_$ClientWantsToGetAssociationFeedImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ClientWantsToGetAssociationFeedImpl
+    with DiagnosticableTreeMixin
+    implements ClientWantsToGetAssociationFeed {
+  _$ClientWantsToGetAssociationFeedImpl({final String? $type})
+      : $type = $type ?? 'ClientWantsToGetAssociationFeed';
+
+  factory _$ClientWantsToGetAssociationFeedImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$ClientWantsToGetAssociationFeedImplFromJson(json);
+
+  @JsonKey(name: 'eventType')
+  final String $type;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ClientEvent.ClientWantsToGetAssociationFeed()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty(
+        'type', 'ClientEvent.ClientWantsToGetAssociationFeed'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ClientWantsToGetAssociationFeedImpl);
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String username,
+            String firstname,
+            String lastname,
+            String password,
+            String email,
+            int phone,
+            int userType_id)
+        clientWantsToSignup,
+    required TResult Function(String email, String password, int userType_id)
+        ClientWantsToLogin,
+    required TResult Function() ClientWantsToGetEventFeed,
+    required TResult Function() ClientWantsToGetAssociationFeed,
+  }) {
+    return ClientWantsToGetAssociationFeed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String username, String firstname, String lastname,
+            String password, String email, int phone, int userType_id)?
+        clientWantsToSignup,
+    TResult? Function(String email, String password, int userType_id)?
+        ClientWantsToLogin,
+    TResult? Function()? ClientWantsToGetEventFeed,
+    TResult? Function()? ClientWantsToGetAssociationFeed,
+  }) {
+    return ClientWantsToGetAssociationFeed?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String username, String firstname, String lastname,
+            String password, String email, int phone, int userType_id)?
+        clientWantsToSignup,
+    TResult Function(String email, String password, int userType_id)?
+        ClientWantsToLogin,
+    TResult Function()? ClientWantsToGetEventFeed,
+    TResult Function()? ClientWantsToGetAssociationFeed,
+    required TResult orElse(),
+  }) {
+    if (ClientWantsToGetAssociationFeed != null) {
+      return ClientWantsToGetAssociationFeed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ClientWantsToSignup value) clientWantsToSignup,
+    required TResult Function(ClientWantsToLogin value) ClientWantsToLogin,
+    required TResult Function(ClientWantsToGetEventFeed value)
+        ClientWantsToGetEventFeed,
+    required TResult Function(ClientWantsToGetAssociationFeed value)
+        ClientWantsToGetAssociationFeed,
+  }) {
+    return ClientWantsToGetAssociationFeed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ClientWantsToSignup value)? clientWantsToSignup,
+    TResult? Function(ClientWantsToLogin value)? ClientWantsToLogin,
+    TResult? Function(ClientWantsToGetEventFeed value)?
+        ClientWantsToGetEventFeed,
+    TResult? Function(ClientWantsToGetAssociationFeed value)?
+        ClientWantsToGetAssociationFeed,
+  }) {
+    return ClientWantsToGetAssociationFeed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ClientWantsToSignup value)? clientWantsToSignup,
+    TResult Function(ClientWantsToLogin value)? ClientWantsToLogin,
+    TResult Function(ClientWantsToGetEventFeed value)?
+        ClientWantsToGetEventFeed,
+    TResult Function(ClientWantsToGetAssociationFeed value)?
+        ClientWantsToGetAssociationFeed,
+    required TResult orElse(),
+  }) {
+    if (ClientWantsToGetAssociationFeed != null) {
+      return ClientWantsToGetAssociationFeed(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ClientWantsToGetAssociationFeedImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class ClientWantsToGetAssociationFeed implements ClientEvent {
+  factory ClientWantsToGetAssociationFeed() =
+      _$ClientWantsToGetAssociationFeedImpl;
+
+  factory ClientWantsToGetAssociationFeed.fromJson(Map<String, dynamic> json) =
+      _$ClientWantsToGetAssociationFeedImpl.fromJson;
+}
+
 ServerEvent _$ServerEventFromJson(Map<String, dynamic> json) {
-  return ServerSendsEventFeed.fromJson(json);
+  switch (json['eventType']) {
+    case 'ServerSendsEventFeed':
+      return ServerSendsEventFeed.fromJson(json);
+    case 'ServerSendsAssociationFeed':
+      return ServerSendsAssociationFeed.fromJson(json);
+
+    default:
+      throw CheckedFromJsonException(json, 'eventType', 'ServerEvent',
+          'Invalid union type "${json['eventType']}"!');
+  }
 }
 
 /// @nodoc
 mixin _$ServerEvent {
-  List<Event> get EventsFeedQueries => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(List<Event> EventsFeedQueries)
         serverSendsEventFeed,
+    required TResult Function(List<Association> AssociationsFeedQueries)
+        serverSendsAssociationFeed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<Event> EventsFeedQueries)? serverSendsEventFeed,
+    TResult? Function(List<Association> AssociationsFeedQueries)?
+        serverSendsAssociationFeed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<Event> EventsFeedQueries)? serverSendsEventFeed,
+    TResult Function(List<Association> AssociationsFeedQueries)?
+        serverSendsAssociationFeed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ServerSendsEventFeed value) serverSendsEventFeed,
+    required TResult Function(ServerSendsAssociationFeed value)
+        serverSendsAssociationFeed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ServerSendsEventFeed value)? serverSendsEventFeed,
+    TResult? Function(ServerSendsAssociationFeed value)?
+        serverSendsAssociationFeed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ServerSendsEventFeed value)? serverSendsEventFeed,
+    TResult Function(ServerSendsAssociationFeed value)?
+        serverSendsAssociationFeed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ServerEventCopyWith<ServerEvent> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -813,8 +1036,6 @@ abstract class $ServerEventCopyWith<$Res> {
   factory $ServerEventCopyWith(
           ServerEvent value, $Res Function(ServerEvent) then) =
       _$ServerEventCopyWithImpl<$Res, ServerEvent>;
-  @useResult
-  $Res call({List<Event> EventsFeedQueries});
 }
 
 /// @nodoc
@@ -826,28 +1047,13 @@ class _$ServerEventCopyWithImpl<$Res, $Val extends ServerEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? EventsFeedQueries = null,
-  }) {
-    return _then(_value.copyWith(
-      EventsFeedQueries: null == EventsFeedQueries
-          ? _value.EventsFeedQueries
-          : EventsFeedQueries // ignore: cast_nullable_to_non_nullable
-              as List<Event>,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$ServerSendsEventFeedImplCopyWith<$Res>
-    implements $ServerEventCopyWith<$Res> {
+abstract class _$$ServerSendsEventFeedImplCopyWith<$Res> {
   factory _$$ServerSendsEventFeedImplCopyWith(_$ServerSendsEventFeedImpl value,
           $Res Function(_$ServerSendsEventFeedImpl) then) =
       __$$ServerSendsEventFeedImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({List<Event> EventsFeedQueries});
 }
@@ -880,8 +1086,9 @@ class _$ServerSendsEventFeedImpl
     with DiagnosticableTreeMixin
     implements ServerSendsEventFeed {
   const _$ServerSendsEventFeedImpl(
-      {required final List<Event> EventsFeedQueries})
-      : _EventsFeedQueries = EventsFeedQueries;
+      {required final List<Event> EventsFeedQueries, final String? $type})
+      : _EventsFeedQueries = EventsFeedQueries,
+        $type = $type ?? 'ServerSendsEventFeed';
 
   factory _$ServerSendsEventFeedImpl.fromJson(Map<String, dynamic> json) =>
       _$$ServerSendsEventFeedImplFromJson(json);
@@ -894,6 +1101,9 @@ class _$ServerSendsEventFeedImpl
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_EventsFeedQueries);
   }
+
+  @JsonKey(name: 'eventType')
+  final String $type;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -935,6 +1145,8 @@ class _$ServerSendsEventFeedImpl
   TResult when<TResult extends Object?>({
     required TResult Function(List<Event> EventsFeedQueries)
         serverSendsEventFeed,
+    required TResult Function(List<Association> AssociationsFeedQueries)
+        serverSendsAssociationFeed,
   }) {
     return serverSendsEventFeed(EventsFeedQueries);
   }
@@ -943,6 +1155,8 @@ class _$ServerSendsEventFeedImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<Event> EventsFeedQueries)? serverSendsEventFeed,
+    TResult? Function(List<Association> AssociationsFeedQueries)?
+        serverSendsAssociationFeed,
   }) {
     return serverSendsEventFeed?.call(EventsFeedQueries);
   }
@@ -951,6 +1165,8 @@ class _$ServerSendsEventFeedImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<Event> EventsFeedQueries)? serverSendsEventFeed,
+    TResult Function(List<Association> AssociationsFeedQueries)?
+        serverSendsAssociationFeed,
     required TResult orElse(),
   }) {
     if (serverSendsEventFeed != null) {
@@ -963,6 +1179,8 @@ class _$ServerSendsEventFeedImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ServerSendsEventFeed value) serverSendsEventFeed,
+    required TResult Function(ServerSendsAssociationFeed value)
+        serverSendsAssociationFeed,
   }) {
     return serverSendsEventFeed(this);
   }
@@ -971,6 +1189,8 @@ class _$ServerSendsEventFeedImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ServerSendsEventFeed value)? serverSendsEventFeed,
+    TResult? Function(ServerSendsAssociationFeed value)?
+        serverSendsAssociationFeed,
   }) {
     return serverSendsEventFeed?.call(this);
   }
@@ -979,6 +1199,8 @@ class _$ServerSendsEventFeedImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ServerSendsEventFeed value)? serverSendsEventFeed,
+    TResult Function(ServerSendsAssociationFeed value)?
+        serverSendsAssociationFeed,
     required TResult orElse(),
   }) {
     if (serverSendsEventFeed != null) {
@@ -1003,10 +1225,195 @@ abstract class ServerSendsEventFeed implements ServerEvent {
   factory ServerSendsEventFeed.fromJson(Map<String, dynamic> json) =
       _$ServerSendsEventFeedImpl.fromJson;
 
-  @override
   List<Event> get EventsFeedQueries;
-  @override
   @JsonKey(ignore: true)
   _$$ServerSendsEventFeedImplCopyWith<_$ServerSendsEventFeedImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ServerSendsAssociationFeedImplCopyWith<$Res> {
+  factory _$$ServerSendsAssociationFeedImplCopyWith(
+          _$ServerSendsAssociationFeedImpl value,
+          $Res Function(_$ServerSendsAssociationFeedImpl) then) =
+      __$$ServerSendsAssociationFeedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<Association> AssociationsFeedQueries});
+}
+
+/// @nodoc
+class __$$ServerSendsAssociationFeedImplCopyWithImpl<$Res>
+    extends _$ServerEventCopyWithImpl<$Res, _$ServerSendsAssociationFeedImpl>
+    implements _$$ServerSendsAssociationFeedImplCopyWith<$Res> {
+  __$$ServerSendsAssociationFeedImplCopyWithImpl(
+      _$ServerSendsAssociationFeedImpl _value,
+      $Res Function(_$ServerSendsAssociationFeedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? AssociationsFeedQueries = null,
+  }) {
+    return _then(_$ServerSendsAssociationFeedImpl(
+      AssociationsFeedQueries: null == AssociationsFeedQueries
+          ? _value._AssociationsFeedQueries
+          : AssociationsFeedQueries // ignore: cast_nullable_to_non_nullable
+              as List<Association>,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ServerSendsAssociationFeedImpl
+    with DiagnosticableTreeMixin
+    implements ServerSendsAssociationFeed {
+  _$ServerSendsAssociationFeedImpl(
+      {required final List<Association> AssociationsFeedQueries,
+      final String? $type})
+      : _AssociationsFeedQueries = AssociationsFeedQueries,
+        $type = $type ?? 'ServerSendsAssociationFeed';
+
+  factory _$ServerSendsAssociationFeedImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$ServerSendsAssociationFeedImplFromJson(json);
+
+  final List<Association> _AssociationsFeedQueries;
+  @override
+  List<Association> get AssociationsFeedQueries {
+    if (_AssociationsFeedQueries is EqualUnmodifiableListView)
+      return _AssociationsFeedQueries;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_AssociationsFeedQueries);
+  }
+
+  @JsonKey(name: 'eventType')
+  final String $type;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ServerEvent.serverSendsAssociationFeed(AssociationsFeedQueries: $AssociationsFeedQueries)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'ServerEvent.serverSendsAssociationFeed'))
+      ..add(DiagnosticsProperty(
+          'AssociationsFeedQueries', AssociationsFeedQueries));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ServerSendsAssociationFeedImpl &&
+            const DeepCollectionEquality().equals(
+                other._AssociationsFeedQueries, _AssociationsFeedQueries));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_AssociationsFeedQueries));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ServerSendsAssociationFeedImplCopyWith<_$ServerSendsAssociationFeedImpl>
+      get copyWith => __$$ServerSendsAssociationFeedImplCopyWithImpl<
+          _$ServerSendsAssociationFeedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<Event> EventsFeedQueries)
+        serverSendsEventFeed,
+    required TResult Function(List<Association> AssociationsFeedQueries)
+        serverSendsAssociationFeed,
+  }) {
+    return serverSendsAssociationFeed(AssociationsFeedQueries);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<Event> EventsFeedQueries)? serverSendsEventFeed,
+    TResult? Function(List<Association> AssociationsFeedQueries)?
+        serverSendsAssociationFeed,
+  }) {
+    return serverSendsAssociationFeed?.call(AssociationsFeedQueries);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<Event> EventsFeedQueries)? serverSendsEventFeed,
+    TResult Function(List<Association> AssociationsFeedQueries)?
+        serverSendsAssociationFeed,
+    required TResult orElse(),
+  }) {
+    if (serverSendsAssociationFeed != null) {
+      return serverSendsAssociationFeed(AssociationsFeedQueries);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerSendsEventFeed value) serverSendsEventFeed,
+    required TResult Function(ServerSendsAssociationFeed value)
+        serverSendsAssociationFeed,
+  }) {
+    return serverSendsAssociationFeed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ServerSendsEventFeed value)? serverSendsEventFeed,
+    TResult? Function(ServerSendsAssociationFeed value)?
+        serverSendsAssociationFeed,
+  }) {
+    return serverSendsAssociationFeed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerSendsEventFeed value)? serverSendsEventFeed,
+    TResult Function(ServerSendsAssociationFeed value)?
+        serverSendsAssociationFeed,
+    required TResult orElse(),
+  }) {
+    if (serverSendsAssociationFeed != null) {
+      return serverSendsAssociationFeed(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ServerSendsAssociationFeedImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class ServerSendsAssociationFeed implements ServerEvent {
+  factory ServerSendsAssociationFeed(
+          {required final List<Association> AssociationsFeedQueries}) =
+      _$ServerSendsAssociationFeedImpl;
+
+  factory ServerSendsAssociationFeed.fromJson(Map<String, dynamic> json) =
+      _$ServerSendsAssociationFeedImpl.fromJson;
+
+  List<Association> get AssociationsFeedQueries;
+  @JsonKey(ignore: true)
+  _$$ServerSendsAssociationFeedImplCopyWith<_$ServerSendsAssociationFeedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
