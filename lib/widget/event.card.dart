@@ -9,6 +9,7 @@ class EventCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Colors.white,
       elevation: 3,
       margin: EdgeInsets.all(8),
       child: Padding(
@@ -22,28 +23,34 @@ class EventCard extends StatelessWidget {
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
+                color: Colors.blue[800], // Flutter blue for text
               ),
             ),
             SizedBox(height: 8),
             Text(
               event.Description ?? '',
-              style: TextStyle(fontSize: 16),
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black87,
+              ),
             ),
             SizedBox(height: 8),
             Text(
               'Location: ${event.Location ?? ''}',
-              style: TextStyle(fontSize: 14),
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.blue[600], // Slightly lighter blue
+              ),
             ),
             Text(
               'Date: ${event.Date.toString()}',
-              style: TextStyle(fontSize: 14),
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.blue[600], // Slightly lighter blue
+              ),
             ),
             SizedBox(height: 16),
             // Row for images
-            TextButton(onPressed:() {
-              print( 'User attended Event');
-            },
-              child: Text('Attend')),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -62,7 +69,7 @@ class EventCard extends StatelessWidget {
                           return Center(
                             child: Text(
                               'Image not available\n${event.ImageUrl ?? ''}',
-                              style: TextStyle(fontSize: 10),
+                              style: TextStyle(fontSize: 10, color: Colors.redAccent),
                               textAlign: TextAlign.center,
                             ),
                           );
@@ -72,6 +79,19 @@ class EventCard extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+            SizedBox(height: 16),
+            Center(
+              child: TextButton(
+                onPressed: () {
+                  print('User attended Event');
+                },
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.blue[700], // Flutter blue for button
+                  foregroundColor: Colors.white,
+                ),
+                child: Text('Attend'),
+              ),
             ),
           ],
         ),

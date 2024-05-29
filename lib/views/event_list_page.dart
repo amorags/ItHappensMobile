@@ -11,7 +11,11 @@ class EventListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Events'),
+        title: Text('Events',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
+      ),
       ),
       body: _buildEventList(),
     );

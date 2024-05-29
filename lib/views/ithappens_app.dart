@@ -73,7 +73,11 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('It Happens'),
+        title: Text('It Happens',
+        style: TextStyle(
+        fontWeight: FontWeight.bold,
+        ),
+        ),
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
