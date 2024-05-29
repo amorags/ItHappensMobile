@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/entities.dart';
 import '../widget/association.card.dart';
-import '../widget/event.card.dart';
 
 class AssociationListPage extends StatelessWidget {
   final List<Association> associations;
@@ -10,6 +9,7 @@ class AssociationListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("Associations Count: ${associations.length}"); // Debugging
     return Scaffold(
       appBar: AppBar(
         title: Text('Associations'),
@@ -21,7 +21,7 @@ class AssociationListPage extends StatelessWidget {
   Widget _buildAssociationList() {
     return associations.isEmpty
         ? Center(
-      child: Text('No associationss available.'),
+      child: Text('No associations available.'),
     )
         : ListView.builder(
       itemCount: associations.length,

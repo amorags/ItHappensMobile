@@ -40,7 +40,7 @@ _$AssociationImpl _$$AssociationImplFromJson(Map<String, dynamic> json) =>
       AssociationId: (json['AssociationId'] as num).toInt(),
       Name: json['Name'] as String?,
       Email: json['Email'] as String?,
-      Phone: json['Phone'] as String?,
+      Phone: json['Phone'],
       Address: json['Address'] as String?,
       Description: json['Description'] as String?,
       BannerUrl: json['BannerUrl'] as String?,

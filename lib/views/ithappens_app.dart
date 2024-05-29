@@ -130,6 +130,7 @@ class _MainScreenState extends State<MainScreen> {
       case 0:
         return BlocBuilder<ItHappensBloc, ItHappensState>(
           builder: (context, state) {
+            _fetchAssociations();
             if (state is ItHappensStateLoadedAss) {
               return AssociationListPage(associations: state.associations);
             } else if (state is ItHappensStateError) {
@@ -143,6 +144,7 @@ class _MainScreenState extends State<MainScreen> {
       case 1:
         return BlocBuilder<ItHappensBloc, ItHappensState>(
           builder: (context, state) {
+            _fetchEvents();
             if (state is ItHappensStateLoaded) {
               return EventListPage(events: state.events);
             } else if (state is ItHappensStateError) {

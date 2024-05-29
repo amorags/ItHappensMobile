@@ -127,7 +127,7 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
         print('Error deserializing events: $e');
         emit(ItHappensState.error(message: 'Failed to parse events'));
       }}
-      else if (decodedMessage.containsKey('AssociationsFeedQueries')) {
+      else if (decodedMessage.containsKey('AssociationFeedQueries')) {
       try {
 
         List<dynamic> associationsFeedQueries = decodedMessage['AssociationFeedQueries'];

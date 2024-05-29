@@ -28,12 +28,11 @@ class Association with _$Association {
     required int AssociationId,
     String? Name,
     String? Email,
-    String? Phone,
+    dynamic Phone, // Accepts both String and int
     String? Address,
     String? Description,
     String? BannerUrl,
-    String? ProfileUrl
-
+    String? ProfileUrl,
   }) = _Association;
 
   factory Association.fromJson(Map<String, dynamic> json) => _$AssociationFromJson(json);

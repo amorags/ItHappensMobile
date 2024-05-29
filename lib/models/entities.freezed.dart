@@ -383,7 +383,8 @@ mixin _$Association {
   int get AssociationId => throw _privateConstructorUsedError;
   String? get Name => throw _privateConstructorUsedError;
   String? get Email => throw _privateConstructorUsedError;
-  String? get Phone => throw _privateConstructorUsedError;
+  dynamic get Phone =>
+      throw _privateConstructorUsedError; // Accepts both String and int
   String? get Address => throw _privateConstructorUsedError;
   String? get Description => throw _privateConstructorUsedError;
   String? get BannerUrl => throw _privateConstructorUsedError;
@@ -405,7 +406,7 @@ abstract class $AssociationCopyWith<$Res> {
       {int AssociationId,
       String? Name,
       String? Email,
-      String? Phone,
+      dynamic Phone,
       String? Address,
       String? Description,
       String? BannerUrl,
@@ -450,7 +451,7 @@ class _$AssociationCopyWithImpl<$Res, $Val extends Association>
       Phone: freezed == Phone
           ? _value.Phone
           : Phone // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as dynamic,
       Address: freezed == Address
           ? _value.Address
           : Address // ignore: cast_nullable_to_non_nullable
@@ -483,7 +484,7 @@ abstract class _$$AssociationImplCopyWith<$Res>
       {int AssociationId,
       String? Name,
       String? Email,
-      String? Phone,
+      dynamic Phone,
       String? Address,
       String? Description,
       String? BannerUrl,
@@ -526,7 +527,7 @@ class __$$AssociationImplCopyWithImpl<$Res>
       Phone: freezed == Phone
           ? _value.Phone
           : Phone // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as dynamic,
       Address: freezed == Address
           ? _value.Address
           : Address // ignore: cast_nullable_to_non_nullable
@@ -570,7 +571,8 @@ class _$AssociationImpl implements _Association {
   @override
   final String? Email;
   @override
-  final String? Phone;
+  final dynamic Phone;
+// Accepts both String and int
   @override
   final String? Address;
   @override
@@ -594,7 +596,7 @@ class _$AssociationImpl implements _Association {
                 other.AssociationId == AssociationId) &&
             (identical(other.Name, Name) || other.Name == Name) &&
             (identical(other.Email, Email) || other.Email == Email) &&
-            (identical(other.Phone, Phone) || other.Phone == Phone) &&
+            const DeepCollectionEquality().equals(other.Phone, Phone) &&
             (identical(other.Address, Address) || other.Address == Address) &&
             (identical(other.Description, Description) ||
                 other.Description == Description) &&
@@ -606,8 +608,16 @@ class _$AssociationImpl implements _Association {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, AssociationId, Name, Email,
-      Phone, Address, Description, BannerUrl, ProfileUrl);
+  int get hashCode => Object.hash(
+      runtimeType,
+      AssociationId,
+      Name,
+      Email,
+      const DeepCollectionEquality().hash(Phone),
+      Address,
+      Description,
+      BannerUrl,
+      ProfileUrl);
 
   @JsonKey(ignore: true)
   @override
@@ -628,7 +638,7 @@ abstract class _Association implements Association {
       {required final int AssociationId,
       final String? Name,
       final String? Email,
-      final String? Phone,
+      final dynamic Phone,
       final String? Address,
       final String? Description,
       final String? BannerUrl,
@@ -644,8 +654,8 @@ abstract class _Association implements Association {
   @override
   String? get Email;
   @override
-  String? get Phone;
-  @override
+  dynamic get Phone;
+  @override // Accepts both String and int
   String? get Address;
   @override
   String? get Description;
