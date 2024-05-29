@@ -34,3 +34,27 @@ Map<String, dynamic> _$$EventImplToJson(_$EventImpl instance) =>
       'CategoryId': instance.CategoryId,
       'BookingId': instance.BookingId,
     };
+
+_$AssociationImpl _$$AssociationImplFromJson(Map<String, dynamic> json) =>
+    _$AssociationImpl(
+      AssociationId: (json['AssociationId'] as num).toInt(),
+      Name: json['Name'] as String?,
+      Email: json['Email'] as String?,
+      Phone: json['Phone'] as String?,
+      Address: json['Address'] as String?,
+      Description: json['Description'] as String?,
+      BannerUrl: json['BannerUrl'] as String?,
+      ProfileUrl: json['ProfileUrl'] as String?,
+    );
+
+Map<String, dynamic> _$$AssociationImplToJson(_$AssociationImpl instance) =>
+    <String, dynamic>{
+      'AssociationId': instance.AssociationId,
+      'Name': instance.Name,
+      'Email': instance.Email,
+      'Phone': instance.Phone,
+      'Address': instance.Address,
+      'Description': instance.Description,
+      'BannerUrl': instance.BannerUrl,
+      'ProfileUrl': instance.ProfileUrl,
+    };

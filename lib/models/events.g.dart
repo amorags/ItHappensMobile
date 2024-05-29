@@ -62,16 +62,47 @@ Map<String, dynamic> _$$ClientWantsToGetEventFeedImplToJson(
       'eventType': instance.$type,
     };
 
+_$ClientWantsToGetAssociationFeedImpl
+    _$$ClientWantsToGetAssociationFeedImplFromJson(Map<String, dynamic> json) =>
+        _$ClientWantsToGetAssociationFeedImpl(
+          $type: json['eventType'] as String?,
+        );
+
+Map<String, dynamic> _$$ClientWantsToGetAssociationFeedImplToJson(
+        _$ClientWantsToGetAssociationFeedImpl instance) =>
+    <String, dynamic>{
+      'eventType': instance.$type,
+    };
+
 _$ServerSendsEventFeedImpl _$$ServerSendsEventFeedImplFromJson(
         Map<String, dynamic> json) =>
     _$ServerSendsEventFeedImpl(
       EventsFeedQueries: (json['EventsFeedQueries'] as List<dynamic>)
           .map((e) => Event.fromJson(e as Map<String, dynamic>))
           .toList(),
+      $type: json['eventType'] as String?,
     );
 
 Map<String, dynamic> _$$ServerSendsEventFeedImplToJson(
         _$ServerSendsEventFeedImpl instance) =>
     <String, dynamic>{
       'EventsFeedQueries': instance.EventsFeedQueries,
+      'eventType': instance.$type,
+    };
+
+_$ServerSendsAssociationFeedImpl _$$ServerSendsAssociationFeedImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ServerSendsAssociationFeedImpl(
+      AssociationsFeedQueries:
+          (json['AssociationsFeedQueries'] as List<dynamic>)
+              .map((e) => Association.fromJson(e as Map<String, dynamic>))
+              .toList(),
+      $type: json['eventType'] as String?,
+    );
+
+Map<String, dynamic> _$$ServerSendsAssociationFeedImplToJson(
+        _$ServerSendsAssociationFeedImpl instance) =>
+    <String, dynamic>{
+      'AssociationsFeedQueries': instance.AssociationsFeedQueries,
+      'eventType': instance.$type,
     };

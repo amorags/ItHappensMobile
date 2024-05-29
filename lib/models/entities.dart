@@ -21,3 +21,20 @@ class Event with _$Event {
 
   factory Event.fromJson(Map<String, dynamic> json) => _$EventFromJson(json);
 }
+
+@freezed
+class Association with _$Association {
+  const factory Association({
+    required int AssociationId,
+    String? Name,
+    String? Email,
+    String? Phone,
+    String? Address,
+    String? Description,
+    String? BannerUrl,
+    String? ProfileUrl
+
+  }) = _Association;
+
+  factory Association.fromJson(Map<String, dynamic> json) => _$AssociationFromJson(json);
+}

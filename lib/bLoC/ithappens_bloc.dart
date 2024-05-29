@@ -71,6 +71,11 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
     print("Request to retrieve events sent");
   }
 
+  void getAssociationFeed() {
+    add(ClientEvent.ClientWantsToGetAssociationFeed());
+    print("Request to retrieve associations sent");
+  }
+
   FutureOr<void> _onClientEvent(ClientEvent event, Emitter<ItHappensState> emit) {
     _channel.sink.add(jsonEncode(event.toJson()));
     print("Sent event to server: ${event.toJson()}");
@@ -108,6 +113,7 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
         List<dynamic> eventsFeedQueries = decodedMessage['EventsFeedQueries'];
         List<Event> events = _convertToEventList(eventsFeedQueries);
 
+
         // Check if the events list is empty
         if (events.isEmpty) {
           emit(ItHappensState.error(message: 'No events found'));
@@ -120,6 +126,24 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
       } catch (e) {
         print('Error deserializing events: $e');
         emit(ItHappensState.error(message: 'Failed to parse events'));
+      }}
+      else if (decodedMessage.containsKey('AssociationsFeedQueries')) {
+      try {
+
+        List<dynamic> associationsFeedQueries = decodedMessage['AssociationFeedQueries'];
+        List<Association> associations = _convertToAssociationList(associationsFeedQueries);
+
+        // Check if the events list is empty
+        if (associations.isEmpty){
+          emit(ItHappensState.error(message: 'No Associations found'));
+        }
+
+        emit(ItHappensState.loadedAss(associations: associations));
+        print("lamoitworked again");
+        print("Associations List: $associations"); // Print events list
+      } catch (e) {
+        print('Error deserializing events: $e');
+        emit(ItHappensState.error(message: 'Failed to parse events'));
       }
     } else {
       print('Error in message: ${decodedMessage.toString()}');
@@ -129,6 +153,10 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
 
   List<Event> _convertToEventList(List<dynamic> eventsFeedQueries) {
     return eventsFeedQueries.map((json) => Event.fromJson(json)).toList();
+  }
+
+  List<Association> _convertToAssociationList(List<dynamic> associationsFeedQueries) {
+    return associationsFeedQueries.map((json) => Association.fromJson(json)).toList();
   }
 
   Map<String, dynamic> _parseJwt(String token) {
@@ -183,4 +211,10 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
   FutureOr<void> _onServerSendsEventFeed(ServerSendsEventFeed event, Emitter<ItHappensState> emit) {
     emit(ItHappensState.loaded(events: event.EventsFeedQueries));
   }
+
+  FutureOr<void> _onServerSendsAssociationFeed(ServerSendsAssociationFeed association, Emitter<ItHappensState> emit) {
+    emit(ItHappensState.loadedAss(associations: association.AssociationsFeedQueries));
+  }
 }
+
+
