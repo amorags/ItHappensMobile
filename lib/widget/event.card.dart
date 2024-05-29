@@ -69,7 +69,8 @@ class EventCard extends StatelessWidget {
                           return Center(
                             child: Text(
                               'Image not available\n${event.ImageUrl ?? ''}',
-                              style: TextStyle(fontSize: 10, color: Colors.redAccent),
+                              style: TextStyle(
+                                  fontSize: 10, color: Colors.redAccent),
                               textAlign: TextAlign.center,
                             ),
                           );
@@ -80,17 +81,32 @@ class EventCard extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 16),
             Center(
-              child: TextButton(
-                onPressed: () {
-                  print('User attended Event');
-                },
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.blue[700], // Flutter blue for button
-                  foregroundColor: Colors.white,
-                ),
-                child: Text('Attend'),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  TextButton(
+                    onPressed: () {
+                      print('User attended Event');
+                    },
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.blue[700],
+                      foregroundColor: Colors.white,
+                    ),
+                    child: Text('Attend'),
+                  ),
+                  SizedBox(width: 16),
+                  TextButton(
+                    onPressed: () {
+                      print('Enter event details');
+                    },
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.blue[700],
+                      foregroundColor: Colors.white,
+                    ),
+                    child: Text('More Details'),
+                  ),
+                ],
               ),
             ),
           ],
