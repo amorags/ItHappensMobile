@@ -22,21 +22,28 @@ class AssociationCard extends StatelessWidget {
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
+                color: Colors.blue[800],
               ),
             ),
             SizedBox(height: 8),
             Text(
               'Description: ${association.Description ?? ''}',
-              style: TextStyle(fontSize: 16),
+              style: TextStyle(fontSize: 16,
+              color: Colors.black87,
+            ),
             ),
             SizedBox(height: 8),
             Text(
               'Email: ${association.Email ?? ''}',
-              style: TextStyle(fontSize: 14),
+              style: TextStyle(fontSize: 14,
+              color: Colors.blue[600],
+            ),
             ),
             Text(
               'Phone: ${association.Phone.toString()}',
-              style: TextStyle(fontSize: 14),
+              style: TextStyle(fontSize: 14,
+                color: Colors.blue[600],
+              ),
             ),
             SizedBox(height: 16),
             // Row for images

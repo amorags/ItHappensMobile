@@ -13,7 +13,6 @@ class EventListPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Events',
         style: TextStyle(
-          fontWeight: FontWeight.bold,
         ),
       ),
       ),
