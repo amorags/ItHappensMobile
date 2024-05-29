@@ -40,6 +40,10 @@ class EventCard extends StatelessWidget {
             ),
             SizedBox(height: 16),
             // Row for images
+            TextButton(onPressed:() {
+              print( 'User attended Event');
+            },
+              child: Text('Attend')),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
