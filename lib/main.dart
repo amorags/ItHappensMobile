@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
     final channel = WebSocketChannel.connect(wsUri);
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'It Happens',
       theme: ThemeData(
         primarySwatch: Colors.blue,
