@@ -13,6 +13,7 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
   late StreamSubscription _channelSubscription;
   String? _jwt;
   String? _userType;
+  String? _userId;
 
   ItHappensBloc({required WebSocketChannel channel})
       : _channel = channel,
@@ -79,9 +80,29 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
     print('Received message from server: $message');
     final decodedMessage = jsonDecode(message);
 
-    if (decodedMessage.containsKey('token')) {
-      // Handle token message
-      // ...
+    if (decodedMessage.containsKey('token')) {final token = decodedMessage['token'];
+    print('Token received: $token');
+    _jwt = token;
+
+    // Decode the token to extract user type
+    final payload = _parseJwt(token);
+    final userType = payload['role'];
+    final userId = payload['nameid'];
+    print('User type extracted from token: $userType');
+    print('UserId extracted from user: $userId');
+
+    _userType = userType;
+    _userId = userId;
+
+    // Store the token and user type locally
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('jwt_token', token);
+    await prefs.setString('user_type', userType);
+    await prefs.setString('user_id', userId);
+    print('Token and user type stored locally');
+
+    // Update the state
+    emit(ItHappensState.loggedIn(token: token, userType: userType, events: []));
     } else if (decodedMessage.containsKey('EventsFeedQueries')) {
       try {
         List<dynamic> eventsFeedQueries = decodedMessage['EventsFeedQueries'];
@@ -152,6 +173,11 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
   Future<String?> getUserType() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getString('user_type');
+  }
+
+  Future<String?> getUserId() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString('user_id');
   }
 
   FutureOr<void> _onServerSendsEventFeed(ServerSendsEventFeed event, Emitter<ItHappensState> emit) {

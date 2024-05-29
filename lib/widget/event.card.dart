@@ -16,6 +16,7 @@ class EventCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Text information about the event
             Text(
               event.Name ?? '',
               style: TextStyle(
@@ -37,7 +38,37 @@ class EventCard extends StatelessWidget {
               'Date: ${event.Date.toString()}',
               style: TextStyle(fontSize: 14),
             ),
-            // Add more fields as needed
+            SizedBox(height: 16),
+            // Row for images
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                // First image using Image.network
+                Flexible(
+                  flex: 1,
+                  child: AspectRatio(
+                    aspectRatio: 1,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: Image.network(
+                        event.ImageUrl ?? '',
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) {
+                          print('Error loading image: ${event.ImageUrl}');
+                          return Center(
+                            child: Text(
+                              'Image not available\n${event.ImageUrl ?? ''}',
+                              style: TextStyle(fontSize: 10),
+                              textAlign: TextAlign.center,
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
