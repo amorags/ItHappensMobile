@@ -149,7 +149,6 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
         if (associations.isEmpty){
           emit(ItHappensState.error(message: 'No Associations found'));
         }
-
         emit(ItHappensState.loadedAss(associations: associations));
         print("lamoitworked again");
         print("Associations List: $associations"); // Print events list
@@ -199,6 +198,17 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
     // Filter events for the user based on the received event IDs
     return allEvents.where((event) => eventIds.contains(event.EventId)).toList();
   }
+
+  List<Event> filterEventsForAssociation(int associationId, List<Event> allEvents) {
+    // Ensure _allEvents is not empty
+    if (allEvents.isEmpty) {
+      print('_allEvents is empty. Cannot filter events.');
+      return [];
+    }
+    // Filter the list of all events to only include events for the given association ID
+    return allEvents.where((event) => event.AssociationId == associationId).toList();
+  }
+
 
   Map<String, dynamic> _parseJwt(String token) {
     final parts = token.split('.');

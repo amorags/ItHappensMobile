@@ -4,7 +4,7 @@ import '../models/entities.dart';
 part 'ithappens_state.freezed.dart';
 
 @freezed
-class ItHappensState with _$ItHappensState {
+sealed class ItHappensState with _$ItHappensState {
   const factory ItHappensState.empty() = ItHappensStateEmpty;
   const factory ItHappensState.loading() = ItHappensStateLoading;
   const factory ItHappensState.loggedIn({
@@ -17,7 +17,5 @@ class ItHappensState with _$ItHappensState {
   const factory ItHappensState.loadedAss({required List<Association> associations}) = ItHappensStateLoadedAss;
   const factory ItHappensState.error({required String message}) = ItHappensStateError;
   const factory ItHappensState.loadedUserEvents({required List<Event> events}) = ItHappensStateLoadedUserEvents;
-
-
 }
 

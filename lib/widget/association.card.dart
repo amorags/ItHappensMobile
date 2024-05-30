@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../models/entities.dart';
 
 class AssociationCard extends StatelessWidget {
+
   final Association association;
 
   const AssociationCard({Key? key, required this.association}) : super(key: key);
