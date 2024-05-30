@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import '../bLoC/ithappens_bloc.dart';
 import '../models/entities.dart';
 
@@ -11,6 +12,11 @@ class EventCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final itHappensBloc = BlocProvider.of<ItHappensBloc>(context);
+
+    // Format the date
+    final DateFormat dateFormatter = DateFormat('yyyy-MM-dd');
+    final String formattedDate = dateFormatter.format(event.Date);
+
     return Card(
       color: Colors.white,
       elevation: 3,
@@ -46,7 +52,14 @@ class EventCard extends StatelessWidget {
               ),
             ),
             Text(
-              'Date: ${event.Date.toString()}',
+              'Date: $formattedDate',
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.blue[600], // Slightly lighter blue
+              ),
+            ),
+            Text(
+              'Attendees: ${event.Amount}',
               style: TextStyle(
                 fontSize: 14,
                 color: Colors.blue[600], // Slightly lighter blue
@@ -92,17 +105,16 @@ class EventCard extends StatelessWidget {
                     margin: const EdgeInsets.only(top: 10.0),
                     child: TextButton(
                       onPressed: () async {
-                      final userId = await itHappensBloc.getUserId(); // Retrieve userId from shared preferences or state
-                      if (userId != null) {
-                      itHappensBloc.attend(
-                      userId: int.parse(userId),
-                      eventId: event.EventId ?? 0,
-                      );
-                        print('User attended Event');
+                        final userId = await itHappensBloc.getUserId(); // Retrieve userId from shared preferences or state
+                        if (userId != null) {
+                          itHappensBloc.attend(
+                            userId: int.parse(userId),
+                            eventId: event.EventId ?? 0,
+                          );
+                          print('User attended Event');
                         } else {
-                      print('User ID not found');
+                          print('User ID not found');
                         }
-
                       },
                       style: TextButton.styleFrom(
                         backgroundColor: Colors.blue[700],
@@ -112,7 +124,6 @@ class EventCard extends StatelessWidget {
                     ),
                   ),
                   SizedBox(width: 16),
-
                 ],
               ),
             ),

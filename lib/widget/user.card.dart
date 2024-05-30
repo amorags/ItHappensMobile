@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import '../bLoC/ithappens_bloc.dart';
 import '../models/entities.dart';
 
@@ -11,6 +12,11 @@ class UserCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final itHappensBloc = BlocProvider.of<ItHappensBloc>(context);
+
+    // Format the date
+    final DateFormat dateFormatter = DateFormat('yyyy-MM-dd');
+    final String formattedDate = dateFormatter.format(event.Date);
+
     return Card(
       color: Colors.white,
       elevation: 3,
@@ -46,7 +52,14 @@ class UserCard extends StatelessWidget {
               ),
             ),
             Text(
-              'Date: ${event.Date.toString()}',
+              'Date: $formattedDate',
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.blue[600], // Slightly lighter blue
+              ),
+            ),
+            Text(
+              'Attendees: ${event.Amount}',
               style: TextStyle(
                 fontSize: 14,
                 color: Colors.blue[600], // Slightly lighter blue
@@ -88,8 +101,10 @@ class UserCard extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
+                  Container(
+                    margin: const EdgeInsets.only(top: 10.0),
+                  ),
                   SizedBox(width: 16),
-
                 ],
               ),
             ),

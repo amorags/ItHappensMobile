@@ -97,6 +97,7 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
     final decodedMessage = jsonDecode(message);
 
     if (decodedMessage.containsKey('token')) {final token = decodedMessage['token'];
+
     print('Token received: $token');
     _jwt = token;
 

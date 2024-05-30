@@ -5,6 +5,7 @@ import 'package:it_happens/views/login_view.dart';
 import 'package:it_happens/bLoC/ithappens_bloc.dart';
 import 'package:it_happens/models/events.dart';
 import 'package:it_happens/views/profile_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 import '../bLoC/ithappens_state.dart';
 import '../models/events.dart';
@@ -66,6 +67,11 @@ class _MainScreenState extends State<MainScreen> {
     print('Sending event to retrieve events: ClientWantsToGetEventFeed'); // Log the event details
   }
 
+  Future<void> _logout() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.clear(); // Clear all shared preferences
+  }
+
   void _fetchAssociations() {
     context.read<ItHappensBloc>().add(ClientEvent.ClientWantsToGetAssociationFeed());
     print('Sending event to retrieve events: ClientWantsToGetEventFeed'); // Log the event details
@@ -97,7 +103,7 @@ class _MainScreenState extends State<MainScreen> {
                 } else if (value == 'login') {
                   Navigator.of(context).pushNamed('/login');
                 } else if (value == 'logout') {
-                  // Perform logout action
+                  _logout();
                 }
               },
               itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[

@@ -18,12 +18,14 @@ class FilteredEventsPage extends StatefulWidget {
 
 class _FilteredEventsPageState extends State<FilteredEventsPage> {
   late int associationId;
+  late String? associationName;
   late List<Event> filteredEvents;
 
   @override
   void initState() {
     super.initState();
     associationId = widget.association.AssociationId;
+    associationName = widget.association.Name;
     _fetchEvents();
   }
 
@@ -37,7 +39,7 @@ class _FilteredEventsPageState extends State<FilteredEventsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Filtered Events'),
+        title: Text(associationName! + ' Events'),
       ),
       body: BlocBuilder<ItHappensBloc, ItHappensState>(
         builder: (context, state) {
