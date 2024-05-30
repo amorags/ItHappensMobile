@@ -4,6 +4,7 @@ import 'package:it_happens/models/entities.dart';
 import 'package:it_happens/views/login_view.dart';
 import 'package:it_happens/bLoC/ithappens_bloc.dart';
 import 'package:it_happens/models/events.dart';
+import 'package:it_happens/views/profile_page.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 import '../bLoC/ithappens_state.dart';
 import '../models/events.dart';
@@ -69,6 +70,13 @@ class _MainScreenState extends State<MainScreen> {
     context.read<ItHappensBloc>().add(ClientEvent.ClientWantsToGetAssociationFeed());
     print('Sending event to retrieve events: ClientWantsToGetEventFeed'); // Log the event details
   }
+
+  Future<void> _fetchUserEvents() async {
+    final userId = await context.read<ItHappensBloc>().getUserId();
+    if (userId != null) {
+      context.read<ItHappensBloc>().getUserEvents(int.parse(userId));
+  }}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -155,6 +163,20 @@ class _MainScreenState extends State<MainScreen> {
             _fetchEvents();
             if (state is ItHappensStateLoaded) {
               return EventListPage(events: state.events);
+            } else if (state is ItHappensStateError) {
+              return Center(child: Text('Error: ${state.message}'));
+            } else {
+              return Center(child: CircularProgressIndicator());
+            }
+          },
+        );
+
+      case 2:
+        return BlocBuilder<ItHappensBloc, ItHappensState>(
+          builder: (context, state) {
+            _fetchUserEvents();
+            if (state is ItHappensStateLoadedUserEvents) {
+              return ProfilePage(events: state.events);
             } else if (state is ItHappensStateError) {
               return Center(child: Text('Error: ${state.message}'));
             } else {

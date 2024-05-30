@@ -14,6 +14,7 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
   String? _jwt;
   String? _userType;
   String? _userId;
+  List<Event> _allEvents = [];
 
   ItHappensBloc({required WebSocketChannel channel})
       : _channel = channel,
@@ -122,6 +123,7 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
       try {
         List<dynamic> eventsFeedQueries = decodedMessage['EventsFeedQueries'];
         List<Event> events = _convertToEventList(eventsFeedQueries);
+        _allEvents = _convertToEventList(eventsFeedQueries); // Store all events
 
 
         // Check if the events list is empty
@@ -154,8 +156,28 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
       } catch (e) {
         print('Error deserializing events: $e');
         emit(ItHappensState.error(message: 'Failed to parse events'));
-      }
-    } else {
+      } }
+      else if (decodedMessage.containsKey('EventIdsQueries')) {
+      try {
+        List<int> eventIdsQueries = List<int>.from(decodedMessage['EventIdsQueries']);
+        List<Event> allEvents = _allEvents; // Assuming events is the list of all events
+
+        // Filter events for the user based on the received event IDs
+        final userEvents = _filterEventsForUser(eventIdsQueries, allEvents);
+
+        if (userEvents.isEmpty) {
+          emit(ItHappensState.error(message: 'No events found'));
+          return;
+        }
+
+        emit(ItHappensState.loadedUserEvents(events: userEvents));
+        print("lamoitworked");
+        print("Events List: $userEvents"); // Print events list
+      } catch (e) {
+        print('Error deserializing events: $e');
+        emit(ItHappensState.error(message: 'Failed to parse events'));
+      }}
+      else {
       print('Error in message: ${decodedMessage.toString()}');
       emit(ItHappensState.error(message: decodedMessage.toString()));
     }
@@ -165,8 +187,17 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
     return eventsFeedQueries.map((json) => Event.fromJson(json)).toList();
   }
 
+  List<Event> _filterEventListUser(List<dynamic> eventsFeedQueries) {
+    return eventsFeedQueries.map((json) => Event.fromJson(json)).toList();
+  }
+
   List<Association> _convertToAssociationList(List<dynamic> associationsFeedQueries) {
     return associationsFeedQueries.map((json) => Association.fromJson(json)).toList();
+  }
+
+  List<Event> _filterEventsForUser(List<int> eventIds, List<Event> allEvents) {
+    // Filter events for the user based on the received event IDs
+    return allEvents.where((event) => eventIds.contains(event.EventId)).toList();
   }
 
   Map<String, dynamic> _parseJwt(String token) {

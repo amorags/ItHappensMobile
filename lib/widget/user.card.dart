@@ -3,10 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bLoC/ithappens_bloc.dart';
 import '../models/entities.dart';
 
-class EventCard extends StatelessWidget {
+class UserCard extends StatelessWidget {
   final Event event;
 
-  const EventCard({Key? key, required this.event}) : super(key: key);
+  const UserCard({Key? key, required this.event}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -88,29 +88,6 @@ class EventCard extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
-                  Container(
-                    margin: const EdgeInsets.only(top: 10.0),
-                    child: TextButton(
-                      onPressed: () async {
-                      final userId = await itHappensBloc.getUserId(); // Retrieve userId from shared preferences or state
-                      if (userId != null) {
-                      itHappensBloc.attend(
-                      userId: int.parse(userId),
-                      eventId: event.EventId ?? 0,
-                      );
-                        print('User attended Event');
-                        } else {
-                      print('User ID not found');
-                        }
-
-                      },
-                      style: TextButton.styleFrom(
-                        backgroundColor: Colors.blue[700],
-                        foregroundColor: Colors.white,
-                      ),
-                      child: Text('Attend'),
-                    ),
-                  ),
                   SizedBox(width: 16),
 
                 ],

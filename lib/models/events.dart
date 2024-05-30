@@ -30,6 +30,7 @@ sealed class ClientEvent with _$ClientEvent implements BaseEvent {
     required int eventId
 }) = ClientWantsToAttendEvent;
 
+  factory ClientEvent.ClientWantsToGetEventIds({required int userId}) = ClientWantsToGetEventIds;
 
   factory ClientEvent.ClientWantsToGetEventFeed() = ClientWantsToGetEventFeed;
 
@@ -47,6 +48,8 @@ sealed class ServerEvent with _$ServerEvent implements BaseEvent {
   const factory ServerEvent.serverSendsEventFeed({
     required List<Event> EventsFeedQueries,
   }) = ServerSendsEventFeed;
+
+  factory ServerEvent.serverSendsEventIds({required List<int>? eventIdsQueries}) = ServerSendsEventIds;
 
   factory ServerEvent.serverSendsAssociationFeed({
     required List<Association> AssociationsFeedQueries,
