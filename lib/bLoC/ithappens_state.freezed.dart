@@ -25,6 +25,7 @@ mixin _$ItHappensState {
     required TResult Function(List<Event> events) loaded,
     required TResult Function(List<Association> associations) loadedAss,
     required TResult Function(String message) error,
+    required TResult Function(List<Event> events) loadedUserEvents,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +37,7 @@ mixin _$ItHappensState {
     TResult? Function(List<Event> events)? loaded,
     TResult? Function(List<Association> associations)? loadedAss,
     TResult? Function(String message)? error,
+    TResult? Function(List<Event> events)? loadedUserEvents,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,6 +49,7 @@ mixin _$ItHappensState {
     TResult Function(List<Event> events)? loaded,
     TResult Function(List<Association> associations)? loadedAss,
     TResult Function(String message)? error,
+    TResult Function(List<Event> events)? loadedUserEvents,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -58,6 +61,8 @@ mixin _$ItHappensState {
     required TResult Function(ItHappensStateLoaded value) loaded,
     required TResult Function(ItHappensStateLoadedAss value) loadedAss,
     required TResult Function(ItHappensStateError value) error,
+    required TResult Function(ItHappensStateLoadedUserEvents value)
+        loadedUserEvents,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -68,6 +73,7 @@ mixin _$ItHappensState {
     TResult? Function(ItHappensStateLoaded value)? loaded,
     TResult? Function(ItHappensStateLoadedAss value)? loadedAss,
     TResult? Function(ItHappensStateError value)? error,
+    TResult? Function(ItHappensStateLoadedUserEvents value)? loadedUserEvents,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,6 +84,7 @@ mixin _$ItHappensState {
     TResult Function(ItHappensStateLoaded value)? loaded,
     TResult Function(ItHappensStateLoadedAss value)? loadedAss,
     TResult Function(ItHappensStateError value)? error,
+    TResult Function(ItHappensStateLoadedUserEvents value)? loadedUserEvents,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -147,6 +154,7 @@ class _$ItHappensStateEmptyImpl implements ItHappensStateEmpty {
     required TResult Function(List<Event> events) loaded,
     required TResult Function(List<Association> associations) loadedAss,
     required TResult Function(String message) error,
+    required TResult Function(List<Event> events) loadedUserEvents,
   }) {
     return empty();
   }
@@ -161,6 +169,7 @@ class _$ItHappensStateEmptyImpl implements ItHappensStateEmpty {
     TResult? Function(List<Event> events)? loaded,
     TResult? Function(List<Association> associations)? loadedAss,
     TResult? Function(String message)? error,
+    TResult? Function(List<Event> events)? loadedUserEvents,
   }) {
     return empty?.call();
   }
@@ -175,6 +184,7 @@ class _$ItHappensStateEmptyImpl implements ItHappensStateEmpty {
     TResult Function(List<Event> events)? loaded,
     TResult Function(List<Association> associations)? loadedAss,
     TResult Function(String message)? error,
+    TResult Function(List<Event> events)? loadedUserEvents,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -192,6 +202,8 @@ class _$ItHappensStateEmptyImpl implements ItHappensStateEmpty {
     required TResult Function(ItHappensStateLoaded value) loaded,
     required TResult Function(ItHappensStateLoadedAss value) loadedAss,
     required TResult Function(ItHappensStateError value) error,
+    required TResult Function(ItHappensStateLoadedUserEvents value)
+        loadedUserEvents,
   }) {
     return empty(this);
   }
@@ -205,6 +217,7 @@ class _$ItHappensStateEmptyImpl implements ItHappensStateEmpty {
     TResult? Function(ItHappensStateLoaded value)? loaded,
     TResult? Function(ItHappensStateLoadedAss value)? loadedAss,
     TResult? Function(ItHappensStateError value)? error,
+    TResult? Function(ItHappensStateLoadedUserEvents value)? loadedUserEvents,
   }) {
     return empty?.call(this);
   }
@@ -218,6 +231,7 @@ class _$ItHappensStateEmptyImpl implements ItHappensStateEmpty {
     TResult Function(ItHappensStateLoaded value)? loaded,
     TResult Function(ItHappensStateLoadedAss value)? loadedAss,
     TResult Function(ItHappensStateError value)? error,
+    TResult Function(ItHappensStateLoadedUserEvents value)? loadedUserEvents,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -278,6 +292,7 @@ class _$ItHappensStateLoadingImpl implements ItHappensStateLoading {
     required TResult Function(List<Event> events) loaded,
     required TResult Function(List<Association> associations) loadedAss,
     required TResult Function(String message) error,
+    required TResult Function(List<Event> events) loadedUserEvents,
   }) {
     return loading();
   }
@@ -292,6 +307,7 @@ class _$ItHappensStateLoadingImpl implements ItHappensStateLoading {
     TResult? Function(List<Event> events)? loaded,
     TResult? Function(List<Association> associations)? loadedAss,
     TResult? Function(String message)? error,
+    TResult? Function(List<Event> events)? loadedUserEvents,
   }) {
     return loading?.call();
   }
@@ -306,6 +322,7 @@ class _$ItHappensStateLoadingImpl implements ItHappensStateLoading {
     TResult Function(List<Event> events)? loaded,
     TResult Function(List<Association> associations)? loadedAss,
     TResult Function(String message)? error,
+    TResult Function(List<Event> events)? loadedUserEvents,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -323,6 +340,8 @@ class _$ItHappensStateLoadingImpl implements ItHappensStateLoading {
     required TResult Function(ItHappensStateLoaded value) loaded,
     required TResult Function(ItHappensStateLoadedAss value) loadedAss,
     required TResult Function(ItHappensStateError value) error,
+    required TResult Function(ItHappensStateLoadedUserEvents value)
+        loadedUserEvents,
   }) {
     return loading(this);
   }
@@ -336,6 +355,7 @@ class _$ItHappensStateLoadingImpl implements ItHappensStateLoading {
     TResult? Function(ItHappensStateLoaded value)? loaded,
     TResult? Function(ItHappensStateLoadedAss value)? loadedAss,
     TResult? Function(ItHappensStateError value)? error,
+    TResult? Function(ItHappensStateLoadedUserEvents value)? loadedUserEvents,
   }) {
     return loading?.call(this);
   }
@@ -349,6 +369,7 @@ class _$ItHappensStateLoadingImpl implements ItHappensStateLoading {
     TResult Function(ItHappensStateLoaded value)? loaded,
     TResult Function(ItHappensStateLoadedAss value)? loadedAss,
     TResult Function(ItHappensStateError value)? error,
+    TResult Function(ItHappensStateLoadedUserEvents value)? loadedUserEvents,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -463,6 +484,7 @@ class _$ItHappensStateLoggedInImpl implements ItHappensStateLoggedIn {
     required TResult Function(List<Event> events) loaded,
     required TResult Function(List<Association> associations) loadedAss,
     required TResult Function(String message) error,
+    required TResult Function(List<Event> events) loadedUserEvents,
   }) {
     return loggedIn(token, userType, events);
   }
@@ -477,6 +499,7 @@ class _$ItHappensStateLoggedInImpl implements ItHappensStateLoggedIn {
     TResult? Function(List<Event> events)? loaded,
     TResult? Function(List<Association> associations)? loadedAss,
     TResult? Function(String message)? error,
+    TResult? Function(List<Event> events)? loadedUserEvents,
   }) {
     return loggedIn?.call(token, userType, events);
   }
@@ -491,6 +514,7 @@ class _$ItHappensStateLoggedInImpl implements ItHappensStateLoggedIn {
     TResult Function(List<Event> events)? loaded,
     TResult Function(List<Association> associations)? loadedAss,
     TResult Function(String message)? error,
+    TResult Function(List<Event> events)? loadedUserEvents,
     required TResult orElse(),
   }) {
     if (loggedIn != null) {
@@ -508,6 +532,8 @@ class _$ItHappensStateLoggedInImpl implements ItHappensStateLoggedIn {
     required TResult Function(ItHappensStateLoaded value) loaded,
     required TResult Function(ItHappensStateLoadedAss value) loadedAss,
     required TResult Function(ItHappensStateError value) error,
+    required TResult Function(ItHappensStateLoadedUserEvents value)
+        loadedUserEvents,
   }) {
     return loggedIn(this);
   }
@@ -521,6 +547,7 @@ class _$ItHappensStateLoggedInImpl implements ItHappensStateLoggedIn {
     TResult? Function(ItHappensStateLoaded value)? loaded,
     TResult? Function(ItHappensStateLoadedAss value)? loadedAss,
     TResult? Function(ItHappensStateError value)? error,
+    TResult? Function(ItHappensStateLoadedUserEvents value)? loadedUserEvents,
   }) {
     return loggedIn?.call(this);
   }
@@ -534,6 +561,7 @@ class _$ItHappensStateLoggedInImpl implements ItHappensStateLoggedIn {
     TResult Function(ItHappensStateLoaded value)? loaded,
     TResult Function(ItHappensStateLoadedAss value)? loadedAss,
     TResult Function(ItHappensStateError value)? error,
+    TResult Function(ItHappensStateLoadedUserEvents value)? loadedUserEvents,
     required TResult orElse(),
   }) {
     if (loggedIn != null) {
@@ -637,6 +665,7 @@ class _$ItHappensStateLoadedImpl implements ItHappensStateLoaded {
     required TResult Function(List<Event> events) loaded,
     required TResult Function(List<Association> associations) loadedAss,
     required TResult Function(String message) error,
+    required TResult Function(List<Event> events) loadedUserEvents,
   }) {
     return loaded(events);
   }
@@ -651,6 +680,7 @@ class _$ItHappensStateLoadedImpl implements ItHappensStateLoaded {
     TResult? Function(List<Event> events)? loaded,
     TResult? Function(List<Association> associations)? loadedAss,
     TResult? Function(String message)? error,
+    TResult? Function(List<Event> events)? loadedUserEvents,
   }) {
     return loaded?.call(events);
   }
@@ -665,6 +695,7 @@ class _$ItHappensStateLoadedImpl implements ItHappensStateLoaded {
     TResult Function(List<Event> events)? loaded,
     TResult Function(List<Association> associations)? loadedAss,
     TResult Function(String message)? error,
+    TResult Function(List<Event> events)? loadedUserEvents,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -682,6 +713,8 @@ class _$ItHappensStateLoadedImpl implements ItHappensStateLoaded {
     required TResult Function(ItHappensStateLoaded value) loaded,
     required TResult Function(ItHappensStateLoadedAss value) loadedAss,
     required TResult Function(ItHappensStateError value) error,
+    required TResult Function(ItHappensStateLoadedUserEvents value)
+        loadedUserEvents,
   }) {
     return loaded(this);
   }
@@ -695,6 +728,7 @@ class _$ItHappensStateLoadedImpl implements ItHappensStateLoaded {
     TResult? Function(ItHappensStateLoaded value)? loaded,
     TResult? Function(ItHappensStateLoadedAss value)? loadedAss,
     TResult? Function(ItHappensStateError value)? error,
+    TResult? Function(ItHappensStateLoadedUserEvents value)? loadedUserEvents,
   }) {
     return loaded?.call(this);
   }
@@ -708,6 +742,7 @@ class _$ItHappensStateLoadedImpl implements ItHappensStateLoaded {
     TResult Function(ItHappensStateLoaded value)? loaded,
     TResult Function(ItHappensStateLoadedAss value)? loadedAss,
     TResult Function(ItHappensStateError value)? error,
+    TResult Function(ItHappensStateLoadedUserEvents value)? loadedUserEvents,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -810,6 +845,7 @@ class _$ItHappensStateLoadedAssImpl implements ItHappensStateLoadedAss {
     required TResult Function(List<Event> events) loaded,
     required TResult Function(List<Association> associations) loadedAss,
     required TResult Function(String message) error,
+    required TResult Function(List<Event> events) loadedUserEvents,
   }) {
     return loadedAss(associations);
   }
@@ -824,6 +860,7 @@ class _$ItHappensStateLoadedAssImpl implements ItHappensStateLoadedAss {
     TResult? Function(List<Event> events)? loaded,
     TResult? Function(List<Association> associations)? loadedAss,
     TResult? Function(String message)? error,
+    TResult? Function(List<Event> events)? loadedUserEvents,
   }) {
     return loadedAss?.call(associations);
   }
@@ -838,6 +875,7 @@ class _$ItHappensStateLoadedAssImpl implements ItHappensStateLoadedAss {
     TResult Function(List<Event> events)? loaded,
     TResult Function(List<Association> associations)? loadedAss,
     TResult Function(String message)? error,
+    TResult Function(List<Event> events)? loadedUserEvents,
     required TResult orElse(),
   }) {
     if (loadedAss != null) {
@@ -855,6 +893,8 @@ class _$ItHappensStateLoadedAssImpl implements ItHappensStateLoadedAss {
     required TResult Function(ItHappensStateLoaded value) loaded,
     required TResult Function(ItHappensStateLoadedAss value) loadedAss,
     required TResult Function(ItHappensStateError value) error,
+    required TResult Function(ItHappensStateLoadedUserEvents value)
+        loadedUserEvents,
   }) {
     return loadedAss(this);
   }
@@ -868,6 +908,7 @@ class _$ItHappensStateLoadedAssImpl implements ItHappensStateLoadedAss {
     TResult? Function(ItHappensStateLoaded value)? loaded,
     TResult? Function(ItHappensStateLoadedAss value)? loadedAss,
     TResult? Function(ItHappensStateError value)? error,
+    TResult? Function(ItHappensStateLoadedUserEvents value)? loadedUserEvents,
   }) {
     return loadedAss?.call(this);
   }
@@ -881,6 +922,7 @@ class _$ItHappensStateLoadedAssImpl implements ItHappensStateLoadedAss {
     TResult Function(ItHappensStateLoaded value)? loaded,
     TResult Function(ItHappensStateLoadedAss value)? loadedAss,
     TResult Function(ItHappensStateError value)? error,
+    TResult Function(ItHappensStateLoadedUserEvents value)? loadedUserEvents,
     required TResult orElse(),
   }) {
     if (loadedAss != null) {
@@ -973,6 +1015,7 @@ class _$ItHappensStateErrorImpl implements ItHappensStateError {
     required TResult Function(List<Event> events) loaded,
     required TResult Function(List<Association> associations) loadedAss,
     required TResult Function(String message) error,
+    required TResult Function(List<Event> events) loadedUserEvents,
   }) {
     return error(message);
   }
@@ -987,6 +1030,7 @@ class _$ItHappensStateErrorImpl implements ItHappensStateError {
     TResult? Function(List<Event> events)? loaded,
     TResult? Function(List<Association> associations)? loadedAss,
     TResult? Function(String message)? error,
+    TResult? Function(List<Event> events)? loadedUserEvents,
   }) {
     return error?.call(message);
   }
@@ -1001,6 +1045,7 @@ class _$ItHappensStateErrorImpl implements ItHappensStateError {
     TResult Function(List<Event> events)? loaded,
     TResult Function(List<Association> associations)? loadedAss,
     TResult Function(String message)? error,
+    TResult Function(List<Event> events)? loadedUserEvents,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1018,6 +1063,8 @@ class _$ItHappensStateErrorImpl implements ItHappensStateError {
     required TResult Function(ItHappensStateLoaded value) loaded,
     required TResult Function(ItHappensStateLoadedAss value) loadedAss,
     required TResult Function(ItHappensStateError value) error,
+    required TResult Function(ItHappensStateLoadedUserEvents value)
+        loadedUserEvents,
   }) {
     return error(this);
   }
@@ -1031,6 +1078,7 @@ class _$ItHappensStateErrorImpl implements ItHappensStateError {
     TResult? Function(ItHappensStateLoaded value)? loaded,
     TResult? Function(ItHappensStateLoadedAss value)? loadedAss,
     TResult? Function(ItHappensStateError value)? error,
+    TResult? Function(ItHappensStateLoadedUserEvents value)? loadedUserEvents,
   }) {
     return error?.call(this);
   }
@@ -1044,6 +1092,7 @@ class _$ItHappensStateErrorImpl implements ItHappensStateError {
     TResult Function(ItHappensStateLoaded value)? loaded,
     TResult Function(ItHappensStateLoadedAss value)? loadedAss,
     TResult Function(ItHappensStateError value)? error,
+    TResult Function(ItHappensStateLoadedUserEvents value)? loadedUserEvents,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1061,4 +1110,188 @@ abstract class ItHappensStateError implements ItHappensState {
   @JsonKey(ignore: true)
   _$$ItHappensStateErrorImplCopyWith<_$ItHappensStateErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ItHappensStateLoadedUserEventsImplCopyWith<$Res> {
+  factory _$$ItHappensStateLoadedUserEventsImplCopyWith(
+          _$ItHappensStateLoadedUserEventsImpl value,
+          $Res Function(_$ItHappensStateLoadedUserEventsImpl) then) =
+      __$$ItHappensStateLoadedUserEventsImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<Event> events});
+}
+
+/// @nodoc
+class __$$ItHappensStateLoadedUserEventsImplCopyWithImpl<$Res>
+    extends _$ItHappensStateCopyWithImpl<$Res,
+        _$ItHappensStateLoadedUserEventsImpl>
+    implements _$$ItHappensStateLoadedUserEventsImplCopyWith<$Res> {
+  __$$ItHappensStateLoadedUserEventsImplCopyWithImpl(
+      _$ItHappensStateLoadedUserEventsImpl _value,
+      $Res Function(_$ItHappensStateLoadedUserEventsImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? events = null,
+  }) {
+    return _then(_$ItHappensStateLoadedUserEventsImpl(
+      events: null == events
+          ? _value._events
+          : events // ignore: cast_nullable_to_non_nullable
+              as List<Event>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ItHappensStateLoadedUserEventsImpl
+    implements ItHappensStateLoadedUserEvents {
+  const _$ItHappensStateLoadedUserEventsImpl(
+      {required final List<Event> events})
+      : _events = events;
+
+  final List<Event> _events;
+  @override
+  List<Event> get events {
+    if (_events is EqualUnmodifiableListView) return _events;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_events);
+  }
+
+  @override
+  String toString() {
+    return 'ItHappensState.loadedUserEvents(events: $events)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ItHappensStateLoadedUserEventsImpl &&
+            const DeepCollectionEquality().equals(other._events, _events));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_events));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ItHappensStateLoadedUserEventsImplCopyWith<
+          _$ItHappensStateLoadedUserEventsImpl>
+      get copyWith => __$$ItHappensStateLoadedUserEventsImplCopyWithImpl<
+          _$ItHappensStateLoadedUserEventsImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() empty,
+    required TResult Function() loading,
+    required TResult Function(String token, String userType, List<Event> events)
+        loggedIn,
+    required TResult Function(List<Event> events) loaded,
+    required TResult Function(List<Association> associations) loadedAss,
+    required TResult Function(String message) error,
+    required TResult Function(List<Event> events) loadedUserEvents,
+  }) {
+    return loadedUserEvents(events);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? empty,
+    TResult? Function()? loading,
+    TResult? Function(String token, String userType, List<Event> events)?
+        loggedIn,
+    TResult? Function(List<Event> events)? loaded,
+    TResult? Function(List<Association> associations)? loadedAss,
+    TResult? Function(String message)? error,
+    TResult? Function(List<Event> events)? loadedUserEvents,
+  }) {
+    return loadedUserEvents?.call(events);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function()? loading,
+    TResult Function(String token, String userType, List<Event> events)?
+        loggedIn,
+    TResult Function(List<Event> events)? loaded,
+    TResult Function(List<Association> associations)? loadedAss,
+    TResult Function(String message)? error,
+    TResult Function(List<Event> events)? loadedUserEvents,
+    required TResult orElse(),
+  }) {
+    if (loadedUserEvents != null) {
+      return loadedUserEvents(events);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ItHappensStateEmpty value) empty,
+    required TResult Function(ItHappensStateLoading value) loading,
+    required TResult Function(ItHappensStateLoggedIn value) loggedIn,
+    required TResult Function(ItHappensStateLoaded value) loaded,
+    required TResult Function(ItHappensStateLoadedAss value) loadedAss,
+    required TResult Function(ItHappensStateError value) error,
+    required TResult Function(ItHappensStateLoadedUserEvents value)
+        loadedUserEvents,
+  }) {
+    return loadedUserEvents(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ItHappensStateEmpty value)? empty,
+    TResult? Function(ItHappensStateLoading value)? loading,
+    TResult? Function(ItHappensStateLoggedIn value)? loggedIn,
+    TResult? Function(ItHappensStateLoaded value)? loaded,
+    TResult? Function(ItHappensStateLoadedAss value)? loadedAss,
+    TResult? Function(ItHappensStateError value)? error,
+    TResult? Function(ItHappensStateLoadedUserEvents value)? loadedUserEvents,
+  }) {
+    return loadedUserEvents?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ItHappensStateEmpty value)? empty,
+    TResult Function(ItHappensStateLoading value)? loading,
+    TResult Function(ItHappensStateLoggedIn value)? loggedIn,
+    TResult Function(ItHappensStateLoaded value)? loaded,
+    TResult Function(ItHappensStateLoadedAss value)? loadedAss,
+    TResult Function(ItHappensStateError value)? error,
+    TResult Function(ItHappensStateLoadedUserEvents value)? loadedUserEvents,
+    required TResult orElse(),
+  }) {
+    if (loadedUserEvents != null) {
+      return loadedUserEvents(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ItHappensStateLoadedUserEvents implements ItHappensState {
+  const factory ItHappensStateLoadedUserEvents(
+          {required final List<Event> events}) =
+      _$ItHappensStateLoadedUserEventsImpl;
+
+  List<Event> get events;
+  @JsonKey(ignore: true)
+  _$$ItHappensStateLoadedUserEventsImplCopyWith<
+          _$ItHappensStateLoadedUserEventsImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

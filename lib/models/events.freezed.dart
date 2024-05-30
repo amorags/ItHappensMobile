@@ -26,6 +26,8 @@ ClientEvent _$ClientEventFromJson(Map<String, dynamic> json) {
       return ClientWantsToGetEventFeed.fromJson(json);
     case 'ClientWantsToGetAssociationFeed':
       return ClientWantsToGetAssociationFeed.fromJson(json);
+    case 'ClientWantsEventIdsForUserId':
+      return ClientWantsEventIdsForUserId.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'eventType', 'ClientEvent',
@@ -51,6 +53,7 @@ mixin _$ClientEvent {
     required TResult Function(int userId, int eventId) ClientWantsToAttendEvent,
     required TResult Function() ClientWantsToGetEventFeed,
     required TResult Function() ClientWantsToGetAssociationFeed,
+    required TResult Function(int userId) ClientWantsEventIdsForUserId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +66,7 @@ mixin _$ClientEvent {
     TResult? Function(int userId, int eventId)? ClientWantsToAttendEvent,
     TResult? Function()? ClientWantsToGetEventFeed,
     TResult? Function()? ClientWantsToGetAssociationFeed,
+    TResult? Function(int userId)? ClientWantsEventIdsForUserId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +79,7 @@ mixin _$ClientEvent {
     TResult Function(int userId, int eventId)? ClientWantsToAttendEvent,
     TResult Function()? ClientWantsToGetEventFeed,
     TResult Function()? ClientWantsToGetAssociationFeed,
+    TResult Function(int userId)? ClientWantsEventIdsForUserId,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -88,6 +93,8 @@ mixin _$ClientEvent {
         ClientWantsToGetEventFeed,
     required TResult Function(ClientWantsToGetAssociationFeed value)
         ClientWantsToGetAssociationFeed,
+    required TResult Function(ClientWantsEventIdsForUserId value)
+        ClientWantsEventIdsForUserId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -99,6 +106,8 @@ mixin _$ClientEvent {
         ClientWantsToGetEventFeed,
     TResult? Function(ClientWantsToGetAssociationFeed value)?
         ClientWantsToGetAssociationFeed,
+    TResult? Function(ClientWantsEventIdsForUserId value)?
+        ClientWantsEventIdsForUserId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -110,6 +119,8 @@ mixin _$ClientEvent {
         ClientWantsToGetEventFeed,
     TResult Function(ClientWantsToGetAssociationFeed value)?
         ClientWantsToGetAssociationFeed,
+    TResult Function(ClientWantsEventIdsForUserId value)?
+        ClientWantsEventIdsForUserId,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -306,6 +317,7 @@ class _$ClientWantsToSignupImpl
     required TResult Function(int userId, int eventId) ClientWantsToAttendEvent,
     required TResult Function() ClientWantsToGetEventFeed,
     required TResult Function() ClientWantsToGetAssociationFeed,
+    required TResult Function(int userId) ClientWantsEventIdsForUserId,
   }) {
     return clientWantsToSignup(
         username, firstname, lastname, password, email, phone, userType_id);
@@ -322,6 +334,7 @@ class _$ClientWantsToSignupImpl
     TResult? Function(int userId, int eventId)? ClientWantsToAttendEvent,
     TResult? Function()? ClientWantsToGetEventFeed,
     TResult? Function()? ClientWantsToGetAssociationFeed,
+    TResult? Function(int userId)? ClientWantsEventIdsForUserId,
   }) {
     return clientWantsToSignup?.call(
         username, firstname, lastname, password, email, phone, userType_id);
@@ -338,6 +351,7 @@ class _$ClientWantsToSignupImpl
     TResult Function(int userId, int eventId)? ClientWantsToAttendEvent,
     TResult Function()? ClientWantsToGetEventFeed,
     TResult Function()? ClientWantsToGetAssociationFeed,
+    TResult Function(int userId)? ClientWantsEventIdsForUserId,
     required TResult orElse(),
   }) {
     if (clientWantsToSignup != null) {
@@ -358,6 +372,8 @@ class _$ClientWantsToSignupImpl
         ClientWantsToGetEventFeed,
     required TResult Function(ClientWantsToGetAssociationFeed value)
         ClientWantsToGetAssociationFeed,
+    required TResult Function(ClientWantsEventIdsForUserId value)
+        ClientWantsEventIdsForUserId,
   }) {
     return clientWantsToSignup(this);
   }
@@ -372,6 +388,8 @@ class _$ClientWantsToSignupImpl
         ClientWantsToGetEventFeed,
     TResult? Function(ClientWantsToGetAssociationFeed value)?
         ClientWantsToGetAssociationFeed,
+    TResult? Function(ClientWantsEventIdsForUserId value)?
+        ClientWantsEventIdsForUserId,
   }) {
     return clientWantsToSignup?.call(this);
   }
@@ -386,6 +404,8 @@ class _$ClientWantsToSignupImpl
         ClientWantsToGetEventFeed,
     TResult Function(ClientWantsToGetAssociationFeed value)?
         ClientWantsToGetAssociationFeed,
+    TResult Function(ClientWantsEventIdsForUserId value)?
+        ClientWantsEventIdsForUserId,
     required TResult orElse(),
   }) {
     if (clientWantsToSignup != null) {
@@ -548,6 +568,7 @@ class _$ClientWantsToLoginImpl
     required TResult Function(int userId, int eventId) ClientWantsToAttendEvent,
     required TResult Function() ClientWantsToGetEventFeed,
     required TResult Function() ClientWantsToGetAssociationFeed,
+    required TResult Function(int userId) ClientWantsEventIdsForUserId,
   }) {
     return ClientWantsToLogin(email, password, userType_id);
   }
@@ -563,6 +584,7 @@ class _$ClientWantsToLoginImpl
     TResult? Function(int userId, int eventId)? ClientWantsToAttendEvent,
     TResult? Function()? ClientWantsToGetEventFeed,
     TResult? Function()? ClientWantsToGetAssociationFeed,
+    TResult? Function(int userId)? ClientWantsEventIdsForUserId,
   }) {
     return ClientWantsToLogin?.call(email, password, userType_id);
   }
@@ -578,6 +600,7 @@ class _$ClientWantsToLoginImpl
     TResult Function(int userId, int eventId)? ClientWantsToAttendEvent,
     TResult Function()? ClientWantsToGetEventFeed,
     TResult Function()? ClientWantsToGetAssociationFeed,
+    TResult Function(int userId)? ClientWantsEventIdsForUserId,
     required TResult orElse(),
   }) {
     if (ClientWantsToLogin != null) {
@@ -597,6 +620,8 @@ class _$ClientWantsToLoginImpl
         ClientWantsToGetEventFeed,
     required TResult Function(ClientWantsToGetAssociationFeed value)
         ClientWantsToGetAssociationFeed,
+    required TResult Function(ClientWantsEventIdsForUserId value)
+        ClientWantsEventIdsForUserId,
   }) {
     return ClientWantsToLogin(this);
   }
@@ -611,6 +636,8 @@ class _$ClientWantsToLoginImpl
         ClientWantsToGetEventFeed,
     TResult? Function(ClientWantsToGetAssociationFeed value)?
         ClientWantsToGetAssociationFeed,
+    TResult? Function(ClientWantsEventIdsForUserId value)?
+        ClientWantsEventIdsForUserId,
   }) {
     return ClientWantsToLogin?.call(this);
   }
@@ -625,6 +652,8 @@ class _$ClientWantsToLoginImpl
         ClientWantsToGetEventFeed,
     TResult Function(ClientWantsToGetAssociationFeed value)?
         ClientWantsToGetAssociationFeed,
+    TResult Function(ClientWantsEventIdsForUserId value)?
+        ClientWantsEventIdsForUserId,
     required TResult orElse(),
   }) {
     if (ClientWantsToLogin != null) {
@@ -767,6 +796,7 @@ class _$ClientWantsToAttendEventImpl
     required TResult Function(int userId, int eventId) ClientWantsToAttendEvent,
     required TResult Function() ClientWantsToGetEventFeed,
     required TResult Function() ClientWantsToGetAssociationFeed,
+    required TResult Function(int userId) ClientWantsEventIdsForUserId,
   }) {
     return ClientWantsToAttendEvent(userId, eventId);
   }
@@ -782,6 +812,7 @@ class _$ClientWantsToAttendEventImpl
     TResult? Function(int userId, int eventId)? ClientWantsToAttendEvent,
     TResult? Function()? ClientWantsToGetEventFeed,
     TResult? Function()? ClientWantsToGetAssociationFeed,
+    TResult? Function(int userId)? ClientWantsEventIdsForUserId,
   }) {
     return ClientWantsToAttendEvent?.call(userId, eventId);
   }
@@ -797,6 +828,7 @@ class _$ClientWantsToAttendEventImpl
     TResult Function(int userId, int eventId)? ClientWantsToAttendEvent,
     TResult Function()? ClientWantsToGetEventFeed,
     TResult Function()? ClientWantsToGetAssociationFeed,
+    TResult Function(int userId)? ClientWantsEventIdsForUserId,
     required TResult orElse(),
   }) {
     if (ClientWantsToAttendEvent != null) {
@@ -816,6 +848,8 @@ class _$ClientWantsToAttendEventImpl
         ClientWantsToGetEventFeed,
     required TResult Function(ClientWantsToGetAssociationFeed value)
         ClientWantsToGetAssociationFeed,
+    required TResult Function(ClientWantsEventIdsForUserId value)
+        ClientWantsEventIdsForUserId,
   }) {
     return ClientWantsToAttendEvent(this);
   }
@@ -830,6 +864,8 @@ class _$ClientWantsToAttendEventImpl
         ClientWantsToGetEventFeed,
     TResult? Function(ClientWantsToGetAssociationFeed value)?
         ClientWantsToGetAssociationFeed,
+    TResult? Function(ClientWantsEventIdsForUserId value)?
+        ClientWantsEventIdsForUserId,
   }) {
     return ClientWantsToAttendEvent?.call(this);
   }
@@ -844,6 +880,8 @@ class _$ClientWantsToAttendEventImpl
         ClientWantsToGetEventFeed,
     TResult Function(ClientWantsToGetAssociationFeed value)?
         ClientWantsToGetAssociationFeed,
+    TResult Function(ClientWantsEventIdsForUserId value)?
+        ClientWantsEventIdsForUserId,
     required TResult orElse(),
   }) {
     if (ClientWantsToAttendEvent != null) {
@@ -947,6 +985,7 @@ class _$ClientWantsToGetEventFeedImpl
     required TResult Function(int userId, int eventId) ClientWantsToAttendEvent,
     required TResult Function() ClientWantsToGetEventFeed,
     required TResult Function() ClientWantsToGetAssociationFeed,
+    required TResult Function(int userId) ClientWantsEventIdsForUserId,
   }) {
     return ClientWantsToGetEventFeed();
   }
@@ -962,6 +1001,7 @@ class _$ClientWantsToGetEventFeedImpl
     TResult? Function(int userId, int eventId)? ClientWantsToAttendEvent,
     TResult? Function()? ClientWantsToGetEventFeed,
     TResult? Function()? ClientWantsToGetAssociationFeed,
+    TResult? Function(int userId)? ClientWantsEventIdsForUserId,
   }) {
     return ClientWantsToGetEventFeed?.call();
   }
@@ -977,6 +1017,7 @@ class _$ClientWantsToGetEventFeedImpl
     TResult Function(int userId, int eventId)? ClientWantsToAttendEvent,
     TResult Function()? ClientWantsToGetEventFeed,
     TResult Function()? ClientWantsToGetAssociationFeed,
+    TResult Function(int userId)? ClientWantsEventIdsForUserId,
     required TResult orElse(),
   }) {
     if (ClientWantsToGetEventFeed != null) {
@@ -996,6 +1037,8 @@ class _$ClientWantsToGetEventFeedImpl
         ClientWantsToGetEventFeed,
     required TResult Function(ClientWantsToGetAssociationFeed value)
         ClientWantsToGetAssociationFeed,
+    required TResult Function(ClientWantsEventIdsForUserId value)
+        ClientWantsEventIdsForUserId,
   }) {
     return ClientWantsToGetEventFeed(this);
   }
@@ -1010,6 +1053,8 @@ class _$ClientWantsToGetEventFeedImpl
         ClientWantsToGetEventFeed,
     TResult? Function(ClientWantsToGetAssociationFeed value)?
         ClientWantsToGetAssociationFeed,
+    TResult? Function(ClientWantsEventIdsForUserId value)?
+        ClientWantsEventIdsForUserId,
   }) {
     return ClientWantsToGetEventFeed?.call(this);
   }
@@ -1024,6 +1069,8 @@ class _$ClientWantsToGetEventFeedImpl
         ClientWantsToGetEventFeed,
     TResult Function(ClientWantsToGetAssociationFeed value)?
         ClientWantsToGetAssociationFeed,
+    TResult Function(ClientWantsEventIdsForUserId value)?
+        ClientWantsEventIdsForUserId,
     required TResult orElse(),
   }) {
     if (ClientWantsToGetEventFeed != null) {
@@ -1121,6 +1168,7 @@ class _$ClientWantsToGetAssociationFeedImpl
     required TResult Function(int userId, int eventId) ClientWantsToAttendEvent,
     required TResult Function() ClientWantsToGetEventFeed,
     required TResult Function() ClientWantsToGetAssociationFeed,
+    required TResult Function(int userId) ClientWantsEventIdsForUserId,
   }) {
     return ClientWantsToGetAssociationFeed();
   }
@@ -1136,6 +1184,7 @@ class _$ClientWantsToGetAssociationFeedImpl
     TResult? Function(int userId, int eventId)? ClientWantsToAttendEvent,
     TResult? Function()? ClientWantsToGetEventFeed,
     TResult? Function()? ClientWantsToGetAssociationFeed,
+    TResult? Function(int userId)? ClientWantsEventIdsForUserId,
   }) {
     return ClientWantsToGetAssociationFeed?.call();
   }
@@ -1151,6 +1200,7 @@ class _$ClientWantsToGetAssociationFeedImpl
     TResult Function(int userId, int eventId)? ClientWantsToAttendEvent,
     TResult Function()? ClientWantsToGetEventFeed,
     TResult Function()? ClientWantsToGetAssociationFeed,
+    TResult Function(int userId)? ClientWantsEventIdsForUserId,
     required TResult orElse(),
   }) {
     if (ClientWantsToGetAssociationFeed != null) {
@@ -1170,6 +1220,8 @@ class _$ClientWantsToGetAssociationFeedImpl
         ClientWantsToGetEventFeed,
     required TResult Function(ClientWantsToGetAssociationFeed value)
         ClientWantsToGetAssociationFeed,
+    required TResult Function(ClientWantsEventIdsForUserId value)
+        ClientWantsEventIdsForUserId,
   }) {
     return ClientWantsToGetAssociationFeed(this);
   }
@@ -1184,6 +1236,8 @@ class _$ClientWantsToGetAssociationFeedImpl
         ClientWantsToGetEventFeed,
     TResult? Function(ClientWantsToGetAssociationFeed value)?
         ClientWantsToGetAssociationFeed,
+    TResult? Function(ClientWantsEventIdsForUserId value)?
+        ClientWantsEventIdsForUserId,
   }) {
     return ClientWantsToGetAssociationFeed?.call(this);
   }
@@ -1198,6 +1252,8 @@ class _$ClientWantsToGetAssociationFeedImpl
         ClientWantsToGetEventFeed,
     TResult Function(ClientWantsToGetAssociationFeed value)?
         ClientWantsToGetAssociationFeed,
+    TResult Function(ClientWantsEventIdsForUserId value)?
+        ClientWantsEventIdsForUserId,
     required TResult orElse(),
   }) {
     if (ClientWantsToGetAssociationFeed != null) {
@@ -1220,6 +1276,225 @@ abstract class ClientWantsToGetAssociationFeed implements ClientEvent {
 
   factory ClientWantsToGetAssociationFeed.fromJson(Map<String, dynamic> json) =
       _$ClientWantsToGetAssociationFeedImpl.fromJson;
+}
+
+/// @nodoc
+abstract class _$$ClientWantsEventIdsForUserIdImplCopyWith<$Res> {
+  factory _$$ClientWantsEventIdsForUserIdImplCopyWith(
+          _$ClientWantsEventIdsForUserIdImpl value,
+          $Res Function(_$ClientWantsEventIdsForUserIdImpl) then) =
+      __$$ClientWantsEventIdsForUserIdImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int userId});
+}
+
+/// @nodoc
+class __$$ClientWantsEventIdsForUserIdImplCopyWithImpl<$Res>
+    extends _$ClientEventCopyWithImpl<$Res, _$ClientWantsEventIdsForUserIdImpl>
+    implements _$$ClientWantsEventIdsForUserIdImplCopyWith<$Res> {
+  __$$ClientWantsEventIdsForUserIdImplCopyWithImpl(
+      _$ClientWantsEventIdsForUserIdImpl _value,
+      $Res Function(_$ClientWantsEventIdsForUserIdImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userId = null,
+  }) {
+    return _then(_$ClientWantsEventIdsForUserIdImpl(
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ClientWantsEventIdsForUserIdImpl
+    with DiagnosticableTreeMixin
+    implements ClientWantsEventIdsForUserId {
+  _$ClientWantsEventIdsForUserIdImpl(
+      {required this.userId, final String? $type})
+      : $type = $type ?? 'ClientWantsEventIdsForUserId';
+
+  factory _$ClientWantsEventIdsForUserIdImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$ClientWantsEventIdsForUserIdImplFromJson(json);
+
+  @override
+  final int userId;
+
+  @JsonKey(name: 'eventType')
+  final String $type;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ClientEvent.ClientWantsEventIdsForUserId(userId: $userId)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'ClientEvent.ClientWantsEventIdsForUserId'))
+      ..add(DiagnosticsProperty('userId', userId));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ClientWantsEventIdsForUserIdImpl &&
+            (identical(other.userId, userId) || other.userId == userId));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, userId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ClientWantsEventIdsForUserIdImplCopyWith<
+          _$ClientWantsEventIdsForUserIdImpl>
+      get copyWith => __$$ClientWantsEventIdsForUserIdImplCopyWithImpl<
+          _$ClientWantsEventIdsForUserIdImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String username,
+            String firstname,
+            String lastname,
+            String password,
+            String email,
+            int phone,
+            int userType_id)
+        clientWantsToSignup,
+    required TResult Function(String email, String password, int userType_id)
+        ClientWantsToLogin,
+    required TResult Function(int userId, int eventId) ClientWantsToAttendEvent,
+    required TResult Function() ClientWantsToGetEventFeed,
+    required TResult Function() ClientWantsToGetAssociationFeed,
+    required TResult Function(int userId) ClientWantsEventIdsForUserId,
+  }) {
+    return ClientWantsEventIdsForUserId(userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String username, String firstname, String lastname,
+            String password, String email, int phone, int userType_id)?
+        clientWantsToSignup,
+    TResult? Function(String email, String password, int userType_id)?
+        ClientWantsToLogin,
+    TResult? Function(int userId, int eventId)? ClientWantsToAttendEvent,
+    TResult? Function()? ClientWantsToGetEventFeed,
+    TResult? Function()? ClientWantsToGetAssociationFeed,
+    TResult? Function(int userId)? ClientWantsEventIdsForUserId,
+  }) {
+    return ClientWantsEventIdsForUserId?.call(userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String username, String firstname, String lastname,
+            String password, String email, int phone, int userType_id)?
+        clientWantsToSignup,
+    TResult Function(String email, String password, int userType_id)?
+        ClientWantsToLogin,
+    TResult Function(int userId, int eventId)? ClientWantsToAttendEvent,
+    TResult Function()? ClientWantsToGetEventFeed,
+    TResult Function()? ClientWantsToGetAssociationFeed,
+    TResult Function(int userId)? ClientWantsEventIdsForUserId,
+    required TResult orElse(),
+  }) {
+    if (ClientWantsEventIdsForUserId != null) {
+      return ClientWantsEventIdsForUserId(userId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ClientWantsToSignup value) clientWantsToSignup,
+    required TResult Function(ClientWantsToLogin value) ClientWantsToLogin,
+    required TResult Function(ClientWantsToAttendEvent value)
+        ClientWantsToAttendEvent,
+    required TResult Function(ClientWantsToGetEventFeed value)
+        ClientWantsToGetEventFeed,
+    required TResult Function(ClientWantsToGetAssociationFeed value)
+        ClientWantsToGetAssociationFeed,
+    required TResult Function(ClientWantsEventIdsForUserId value)
+        ClientWantsEventIdsForUserId,
+  }) {
+    return ClientWantsEventIdsForUserId(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ClientWantsToSignup value)? clientWantsToSignup,
+    TResult? Function(ClientWantsToLogin value)? ClientWantsToLogin,
+    TResult? Function(ClientWantsToAttendEvent value)? ClientWantsToAttendEvent,
+    TResult? Function(ClientWantsToGetEventFeed value)?
+        ClientWantsToGetEventFeed,
+    TResult? Function(ClientWantsToGetAssociationFeed value)?
+        ClientWantsToGetAssociationFeed,
+    TResult? Function(ClientWantsEventIdsForUserId value)?
+        ClientWantsEventIdsForUserId,
+  }) {
+    return ClientWantsEventIdsForUserId?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ClientWantsToSignup value)? clientWantsToSignup,
+    TResult Function(ClientWantsToLogin value)? ClientWantsToLogin,
+    TResult Function(ClientWantsToAttendEvent value)? ClientWantsToAttendEvent,
+    TResult Function(ClientWantsToGetEventFeed value)?
+        ClientWantsToGetEventFeed,
+    TResult Function(ClientWantsToGetAssociationFeed value)?
+        ClientWantsToGetAssociationFeed,
+    TResult Function(ClientWantsEventIdsForUserId value)?
+        ClientWantsEventIdsForUserId,
+    required TResult orElse(),
+  }) {
+    if (ClientWantsEventIdsForUserId != null) {
+      return ClientWantsEventIdsForUserId(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ClientWantsEventIdsForUserIdImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class ClientWantsEventIdsForUserId implements ClientEvent {
+  factory ClientWantsEventIdsForUserId({required final int userId}) =
+      _$ClientWantsEventIdsForUserIdImpl;
+
+  factory ClientWantsEventIdsForUserId.fromJson(Map<String, dynamic> json) =
+      _$ClientWantsEventIdsForUserIdImpl.fromJson;
+
+  int get userId;
+  @JsonKey(ignore: true)
+  _$$ClientWantsEventIdsForUserIdImplCopyWith<
+          _$ClientWantsEventIdsForUserIdImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 ServerEvent _$ServerEventFromJson(Map<String, dynamic> json) {

@@ -121,6 +121,10 @@ class _MainScreenState extends State<MainScreen> {
             icon: Icon(Icons.event),
             label: 'Events',
           ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.event),
+          label: 'Profile'
+          ),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.blue,

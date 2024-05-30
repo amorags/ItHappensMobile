@@ -82,6 +82,9 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
     add(ClientEvent.ClientWantsToGetAssociationFeed());
     print("Request to retrieve associations sent");
   }
+  void getUserEvents(int userId) {
+    add(ClientEvent.ClientWantsEventIdsForUserId(userId: userId));
+  }
 
   FutureOr<void> _onClientEvent(ClientEvent event, Emitter<ItHappensState> emit) {
     _channel.sink.add(jsonEncode(event.toJson()));

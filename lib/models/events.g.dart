@@ -90,6 +90,20 @@ Map<String, dynamic> _$$ClientWantsToGetAssociationFeedImplToJson(
       'eventType': instance.$type,
     };
 
+_$ClientWantsEventIdsForUserIdImpl _$$ClientWantsEventIdsForUserIdImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ClientWantsEventIdsForUserIdImpl(
+      userId: (json['userId'] as num).toInt(),
+      $type: json['eventType'] as String?,
+    );
+
+Map<String, dynamic> _$$ClientWantsEventIdsForUserIdImplToJson(
+        _$ClientWantsEventIdsForUserIdImpl instance) =>
+    <String, dynamic>{
+      'userId': instance.userId,
+      'eventType': instance.$type,
+    };
+
 _$ServerSendsEventFeedImpl _$$ServerSendsEventFeedImplFromJson(
         Map<String, dynamic> json) =>
     _$ServerSendsEventFeedImpl(

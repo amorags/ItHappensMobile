@@ -16,6 +16,8 @@ class ItHappensState with _$ItHappensState {
   const factory ItHappensState.loaded({required List<Event> events}) = ItHappensStateLoaded;
   const factory ItHappensState.loadedAss({required List<Association> associations}) = ItHappensStateLoadedAss;
   const factory ItHappensState.error({required String message}) = ItHappensStateError;
+  const factory ItHappensState.loadedUserEvents({required List<Event> events}) = ItHappensStateLoadedUserEvents;
+
 
 }
 

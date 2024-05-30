@@ -35,6 +35,8 @@ sealed class ClientEvent with _$ClientEvent implements BaseEvent {
 
   factory ClientEvent.ClientWantsToGetAssociationFeed() = ClientWantsToGetAssociationFeed;
 
+  factory ClientEvent.ClientWantsEventIdsForUserId({required int userId}) = ClientWantsEventIdsForUserId;
+
   factory ClientEvent.fromJson(Map<String, dynamic> json) =>
       _$ClientEventFromJson(json);
 }
