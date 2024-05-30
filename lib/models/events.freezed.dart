@@ -20,6 +20,8 @@ ClientEvent _$ClientEventFromJson(Map<String, dynamic> json) {
       return ClientWantsToSignup.fromJson(json);
     case 'ClientWantsToLogin':
       return ClientWantsToLogin.fromJson(json);
+    case 'ClientWantsToAttendEvent':
+      return ClientWantsToAttendEvent.fromJson(json);
     case 'ClientWantsToGetEventFeed':
       return ClientWantsToGetEventFeed.fromJson(json);
     case 'ClientWantsToGetAssociationFeed':
@@ -46,6 +48,7 @@ mixin _$ClientEvent {
         clientWantsToSignup,
     required TResult Function(String email, String password, int userType_id)
         ClientWantsToLogin,
+    required TResult Function(int userId, int eventId) ClientWantsToAttendEvent,
     required TResult Function() ClientWantsToGetEventFeed,
     required TResult Function() ClientWantsToGetAssociationFeed,
   }) =>
@@ -57,6 +60,7 @@ mixin _$ClientEvent {
         clientWantsToSignup,
     TResult? Function(String email, String password, int userType_id)?
         ClientWantsToLogin,
+    TResult? Function(int userId, int eventId)? ClientWantsToAttendEvent,
     TResult? Function()? ClientWantsToGetEventFeed,
     TResult? Function()? ClientWantsToGetAssociationFeed,
   }) =>
@@ -68,6 +72,7 @@ mixin _$ClientEvent {
         clientWantsToSignup,
     TResult Function(String email, String password, int userType_id)?
         ClientWantsToLogin,
+    TResult Function(int userId, int eventId)? ClientWantsToAttendEvent,
     TResult Function()? ClientWantsToGetEventFeed,
     TResult Function()? ClientWantsToGetAssociationFeed,
     required TResult orElse(),
@@ -77,6 +82,8 @@ mixin _$ClientEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(ClientWantsToSignup value) clientWantsToSignup,
     required TResult Function(ClientWantsToLogin value) ClientWantsToLogin,
+    required TResult Function(ClientWantsToAttendEvent value)
+        ClientWantsToAttendEvent,
     required TResult Function(ClientWantsToGetEventFeed value)
         ClientWantsToGetEventFeed,
     required TResult Function(ClientWantsToGetAssociationFeed value)
@@ -87,6 +94,7 @@ mixin _$ClientEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ClientWantsToSignup value)? clientWantsToSignup,
     TResult? Function(ClientWantsToLogin value)? ClientWantsToLogin,
+    TResult? Function(ClientWantsToAttendEvent value)? ClientWantsToAttendEvent,
     TResult? Function(ClientWantsToGetEventFeed value)?
         ClientWantsToGetEventFeed,
     TResult? Function(ClientWantsToGetAssociationFeed value)?
@@ -97,6 +105,7 @@ mixin _$ClientEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ClientWantsToSignup value)? clientWantsToSignup,
     TResult Function(ClientWantsToLogin value)? ClientWantsToLogin,
+    TResult Function(ClientWantsToAttendEvent value)? ClientWantsToAttendEvent,
     TResult Function(ClientWantsToGetEventFeed value)?
         ClientWantsToGetEventFeed,
     TResult Function(ClientWantsToGetAssociationFeed value)?
@@ -294,6 +303,7 @@ class _$ClientWantsToSignupImpl
         clientWantsToSignup,
     required TResult Function(String email, String password, int userType_id)
         ClientWantsToLogin,
+    required TResult Function(int userId, int eventId) ClientWantsToAttendEvent,
     required TResult Function() ClientWantsToGetEventFeed,
     required TResult Function() ClientWantsToGetAssociationFeed,
   }) {
@@ -309,6 +319,7 @@ class _$ClientWantsToSignupImpl
         clientWantsToSignup,
     TResult? Function(String email, String password, int userType_id)?
         ClientWantsToLogin,
+    TResult? Function(int userId, int eventId)? ClientWantsToAttendEvent,
     TResult? Function()? ClientWantsToGetEventFeed,
     TResult? Function()? ClientWantsToGetAssociationFeed,
   }) {
@@ -324,6 +335,7 @@ class _$ClientWantsToSignupImpl
         clientWantsToSignup,
     TResult Function(String email, String password, int userType_id)?
         ClientWantsToLogin,
+    TResult Function(int userId, int eventId)? ClientWantsToAttendEvent,
     TResult Function()? ClientWantsToGetEventFeed,
     TResult Function()? ClientWantsToGetAssociationFeed,
     required TResult orElse(),
@@ -340,6 +352,8 @@ class _$ClientWantsToSignupImpl
   TResult map<TResult extends Object?>({
     required TResult Function(ClientWantsToSignup value) clientWantsToSignup,
     required TResult Function(ClientWantsToLogin value) ClientWantsToLogin,
+    required TResult Function(ClientWantsToAttendEvent value)
+        ClientWantsToAttendEvent,
     required TResult Function(ClientWantsToGetEventFeed value)
         ClientWantsToGetEventFeed,
     required TResult Function(ClientWantsToGetAssociationFeed value)
@@ -353,6 +367,7 @@ class _$ClientWantsToSignupImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ClientWantsToSignup value)? clientWantsToSignup,
     TResult? Function(ClientWantsToLogin value)? ClientWantsToLogin,
+    TResult? Function(ClientWantsToAttendEvent value)? ClientWantsToAttendEvent,
     TResult? Function(ClientWantsToGetEventFeed value)?
         ClientWantsToGetEventFeed,
     TResult? Function(ClientWantsToGetAssociationFeed value)?
@@ -366,6 +381,7 @@ class _$ClientWantsToSignupImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ClientWantsToSignup value)? clientWantsToSignup,
     TResult Function(ClientWantsToLogin value)? ClientWantsToLogin,
+    TResult Function(ClientWantsToAttendEvent value)? ClientWantsToAttendEvent,
     TResult Function(ClientWantsToGetEventFeed value)?
         ClientWantsToGetEventFeed,
     TResult Function(ClientWantsToGetAssociationFeed value)?
@@ -529,6 +545,7 @@ class _$ClientWantsToLoginImpl
         clientWantsToSignup,
     required TResult Function(String email, String password, int userType_id)
         ClientWantsToLogin,
+    required TResult Function(int userId, int eventId) ClientWantsToAttendEvent,
     required TResult Function() ClientWantsToGetEventFeed,
     required TResult Function() ClientWantsToGetAssociationFeed,
   }) {
@@ -543,6 +560,7 @@ class _$ClientWantsToLoginImpl
         clientWantsToSignup,
     TResult? Function(String email, String password, int userType_id)?
         ClientWantsToLogin,
+    TResult? Function(int userId, int eventId)? ClientWantsToAttendEvent,
     TResult? Function()? ClientWantsToGetEventFeed,
     TResult? Function()? ClientWantsToGetAssociationFeed,
   }) {
@@ -557,6 +575,7 @@ class _$ClientWantsToLoginImpl
         clientWantsToSignup,
     TResult Function(String email, String password, int userType_id)?
         ClientWantsToLogin,
+    TResult Function(int userId, int eventId)? ClientWantsToAttendEvent,
     TResult Function()? ClientWantsToGetEventFeed,
     TResult Function()? ClientWantsToGetAssociationFeed,
     required TResult orElse(),
@@ -572,6 +591,8 @@ class _$ClientWantsToLoginImpl
   TResult map<TResult extends Object?>({
     required TResult Function(ClientWantsToSignup value) clientWantsToSignup,
     required TResult Function(ClientWantsToLogin value) ClientWantsToLogin,
+    required TResult Function(ClientWantsToAttendEvent value)
+        ClientWantsToAttendEvent,
     required TResult Function(ClientWantsToGetEventFeed value)
         ClientWantsToGetEventFeed,
     required TResult Function(ClientWantsToGetAssociationFeed value)
@@ -585,6 +606,7 @@ class _$ClientWantsToLoginImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ClientWantsToSignup value)? clientWantsToSignup,
     TResult? Function(ClientWantsToLogin value)? ClientWantsToLogin,
+    TResult? Function(ClientWantsToAttendEvent value)? ClientWantsToAttendEvent,
     TResult? Function(ClientWantsToGetEventFeed value)?
         ClientWantsToGetEventFeed,
     TResult? Function(ClientWantsToGetAssociationFeed value)?
@@ -598,6 +620,7 @@ class _$ClientWantsToLoginImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ClientWantsToSignup value)? clientWantsToSignup,
     TResult Function(ClientWantsToLogin value)? ClientWantsToLogin,
+    TResult Function(ClientWantsToAttendEvent value)? ClientWantsToAttendEvent,
     TResult Function(ClientWantsToGetEventFeed value)?
         ClientWantsToGetEventFeed,
     TResult Function(ClientWantsToGetAssociationFeed value)?
@@ -633,6 +656,223 @@ abstract class ClientWantsToLogin implements ClientEvent {
   @JsonKey(ignore: true)
   _$$ClientWantsToLoginImplCopyWith<_$ClientWantsToLoginImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ClientWantsToAttendEventImplCopyWith<$Res> {
+  factory _$$ClientWantsToAttendEventImplCopyWith(
+          _$ClientWantsToAttendEventImpl value,
+          $Res Function(_$ClientWantsToAttendEventImpl) then) =
+      __$$ClientWantsToAttendEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int userId, int eventId});
+}
+
+/// @nodoc
+class __$$ClientWantsToAttendEventImplCopyWithImpl<$Res>
+    extends _$ClientEventCopyWithImpl<$Res, _$ClientWantsToAttendEventImpl>
+    implements _$$ClientWantsToAttendEventImplCopyWith<$Res> {
+  __$$ClientWantsToAttendEventImplCopyWithImpl(
+      _$ClientWantsToAttendEventImpl _value,
+      $Res Function(_$ClientWantsToAttendEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userId = null,
+    Object? eventId = null,
+  }) {
+    return _then(_$ClientWantsToAttendEventImpl(
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as int,
+      eventId: null == eventId
+          ? _value.eventId
+          : eventId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ClientWantsToAttendEventImpl
+    with DiagnosticableTreeMixin
+    implements ClientWantsToAttendEvent {
+  _$ClientWantsToAttendEventImpl(
+      {required this.userId, required this.eventId, final String? $type})
+      : $type = $type ?? 'ClientWantsToAttendEvent';
+
+  factory _$ClientWantsToAttendEventImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ClientWantsToAttendEventImplFromJson(json);
+
+  @override
+  final int userId;
+  @override
+  final int eventId;
+
+  @JsonKey(name: 'eventType')
+  final String $type;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ClientEvent.ClientWantsToAttendEvent(userId: $userId, eventId: $eventId)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ClientEvent.ClientWantsToAttendEvent'))
+      ..add(DiagnosticsProperty('userId', userId))
+      ..add(DiagnosticsProperty('eventId', eventId));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ClientWantsToAttendEventImpl &&
+            (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.eventId, eventId) || other.eventId == eventId));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, userId, eventId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ClientWantsToAttendEventImplCopyWith<_$ClientWantsToAttendEventImpl>
+      get copyWith => __$$ClientWantsToAttendEventImplCopyWithImpl<
+          _$ClientWantsToAttendEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String username,
+            String firstname,
+            String lastname,
+            String password,
+            String email,
+            int phone,
+            int userType_id)
+        clientWantsToSignup,
+    required TResult Function(String email, String password, int userType_id)
+        ClientWantsToLogin,
+    required TResult Function(int userId, int eventId) ClientWantsToAttendEvent,
+    required TResult Function() ClientWantsToGetEventFeed,
+    required TResult Function() ClientWantsToGetAssociationFeed,
+  }) {
+    return ClientWantsToAttendEvent(userId, eventId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String username, String firstname, String lastname,
+            String password, String email, int phone, int userType_id)?
+        clientWantsToSignup,
+    TResult? Function(String email, String password, int userType_id)?
+        ClientWantsToLogin,
+    TResult? Function(int userId, int eventId)? ClientWantsToAttendEvent,
+    TResult? Function()? ClientWantsToGetEventFeed,
+    TResult? Function()? ClientWantsToGetAssociationFeed,
+  }) {
+    return ClientWantsToAttendEvent?.call(userId, eventId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String username, String firstname, String lastname,
+            String password, String email, int phone, int userType_id)?
+        clientWantsToSignup,
+    TResult Function(String email, String password, int userType_id)?
+        ClientWantsToLogin,
+    TResult Function(int userId, int eventId)? ClientWantsToAttendEvent,
+    TResult Function()? ClientWantsToGetEventFeed,
+    TResult Function()? ClientWantsToGetAssociationFeed,
+    required TResult orElse(),
+  }) {
+    if (ClientWantsToAttendEvent != null) {
+      return ClientWantsToAttendEvent(userId, eventId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ClientWantsToSignup value) clientWantsToSignup,
+    required TResult Function(ClientWantsToLogin value) ClientWantsToLogin,
+    required TResult Function(ClientWantsToAttendEvent value)
+        ClientWantsToAttendEvent,
+    required TResult Function(ClientWantsToGetEventFeed value)
+        ClientWantsToGetEventFeed,
+    required TResult Function(ClientWantsToGetAssociationFeed value)
+        ClientWantsToGetAssociationFeed,
+  }) {
+    return ClientWantsToAttendEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ClientWantsToSignup value)? clientWantsToSignup,
+    TResult? Function(ClientWantsToLogin value)? ClientWantsToLogin,
+    TResult? Function(ClientWantsToAttendEvent value)? ClientWantsToAttendEvent,
+    TResult? Function(ClientWantsToGetEventFeed value)?
+        ClientWantsToGetEventFeed,
+    TResult? Function(ClientWantsToGetAssociationFeed value)?
+        ClientWantsToGetAssociationFeed,
+  }) {
+    return ClientWantsToAttendEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ClientWantsToSignup value)? clientWantsToSignup,
+    TResult Function(ClientWantsToLogin value)? ClientWantsToLogin,
+    TResult Function(ClientWantsToAttendEvent value)? ClientWantsToAttendEvent,
+    TResult Function(ClientWantsToGetEventFeed value)?
+        ClientWantsToGetEventFeed,
+    TResult Function(ClientWantsToGetAssociationFeed value)?
+        ClientWantsToGetAssociationFeed,
+    required TResult orElse(),
+  }) {
+    if (ClientWantsToAttendEvent != null) {
+      return ClientWantsToAttendEvent(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ClientWantsToAttendEventImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class ClientWantsToAttendEvent implements ClientEvent {
+  factory ClientWantsToAttendEvent(
+      {required final int userId,
+      required final int eventId}) = _$ClientWantsToAttendEventImpl;
+
+  factory ClientWantsToAttendEvent.fromJson(Map<String, dynamic> json) =
+      _$ClientWantsToAttendEventImpl.fromJson;
+
+  int get userId;
+  int get eventId;
+  @JsonKey(ignore: true)
+  _$$ClientWantsToAttendEventImplCopyWith<_$ClientWantsToAttendEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -704,6 +944,7 @@ class _$ClientWantsToGetEventFeedImpl
         clientWantsToSignup,
     required TResult Function(String email, String password, int userType_id)
         ClientWantsToLogin,
+    required TResult Function(int userId, int eventId) ClientWantsToAttendEvent,
     required TResult Function() ClientWantsToGetEventFeed,
     required TResult Function() ClientWantsToGetAssociationFeed,
   }) {
@@ -718,6 +959,7 @@ class _$ClientWantsToGetEventFeedImpl
         clientWantsToSignup,
     TResult? Function(String email, String password, int userType_id)?
         ClientWantsToLogin,
+    TResult? Function(int userId, int eventId)? ClientWantsToAttendEvent,
     TResult? Function()? ClientWantsToGetEventFeed,
     TResult? Function()? ClientWantsToGetAssociationFeed,
   }) {
@@ -732,6 +974,7 @@ class _$ClientWantsToGetEventFeedImpl
         clientWantsToSignup,
     TResult Function(String email, String password, int userType_id)?
         ClientWantsToLogin,
+    TResult Function(int userId, int eventId)? ClientWantsToAttendEvent,
     TResult Function()? ClientWantsToGetEventFeed,
     TResult Function()? ClientWantsToGetAssociationFeed,
     required TResult orElse(),
@@ -747,6 +990,8 @@ class _$ClientWantsToGetEventFeedImpl
   TResult map<TResult extends Object?>({
     required TResult Function(ClientWantsToSignup value) clientWantsToSignup,
     required TResult Function(ClientWantsToLogin value) ClientWantsToLogin,
+    required TResult Function(ClientWantsToAttendEvent value)
+        ClientWantsToAttendEvent,
     required TResult Function(ClientWantsToGetEventFeed value)
         ClientWantsToGetEventFeed,
     required TResult Function(ClientWantsToGetAssociationFeed value)
@@ -760,6 +1005,7 @@ class _$ClientWantsToGetEventFeedImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ClientWantsToSignup value)? clientWantsToSignup,
     TResult? Function(ClientWantsToLogin value)? ClientWantsToLogin,
+    TResult? Function(ClientWantsToAttendEvent value)? ClientWantsToAttendEvent,
     TResult? Function(ClientWantsToGetEventFeed value)?
         ClientWantsToGetEventFeed,
     TResult? Function(ClientWantsToGetAssociationFeed value)?
@@ -773,6 +1019,7 @@ class _$ClientWantsToGetEventFeedImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ClientWantsToSignup value)? clientWantsToSignup,
     TResult Function(ClientWantsToLogin value)? ClientWantsToLogin,
+    TResult Function(ClientWantsToAttendEvent value)? ClientWantsToAttendEvent,
     TResult Function(ClientWantsToGetEventFeed value)?
         ClientWantsToGetEventFeed,
     TResult Function(ClientWantsToGetAssociationFeed value)?
@@ -871,6 +1118,7 @@ class _$ClientWantsToGetAssociationFeedImpl
         clientWantsToSignup,
     required TResult Function(String email, String password, int userType_id)
         ClientWantsToLogin,
+    required TResult Function(int userId, int eventId) ClientWantsToAttendEvent,
     required TResult Function() ClientWantsToGetEventFeed,
     required TResult Function() ClientWantsToGetAssociationFeed,
   }) {
@@ -885,6 +1133,7 @@ class _$ClientWantsToGetAssociationFeedImpl
         clientWantsToSignup,
     TResult? Function(String email, String password, int userType_id)?
         ClientWantsToLogin,
+    TResult? Function(int userId, int eventId)? ClientWantsToAttendEvent,
     TResult? Function()? ClientWantsToGetEventFeed,
     TResult? Function()? ClientWantsToGetAssociationFeed,
   }) {
@@ -899,6 +1148,7 @@ class _$ClientWantsToGetAssociationFeedImpl
         clientWantsToSignup,
     TResult Function(String email, String password, int userType_id)?
         ClientWantsToLogin,
+    TResult Function(int userId, int eventId)? ClientWantsToAttendEvent,
     TResult Function()? ClientWantsToGetEventFeed,
     TResult Function()? ClientWantsToGetAssociationFeed,
     required TResult orElse(),
@@ -914,6 +1164,8 @@ class _$ClientWantsToGetAssociationFeedImpl
   TResult map<TResult extends Object?>({
     required TResult Function(ClientWantsToSignup value) clientWantsToSignup,
     required TResult Function(ClientWantsToLogin value) ClientWantsToLogin,
+    required TResult Function(ClientWantsToAttendEvent value)
+        ClientWantsToAttendEvent,
     required TResult Function(ClientWantsToGetEventFeed value)
         ClientWantsToGetEventFeed,
     required TResult Function(ClientWantsToGetAssociationFeed value)
@@ -927,6 +1179,7 @@ class _$ClientWantsToGetAssociationFeedImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ClientWantsToSignup value)? clientWantsToSignup,
     TResult? Function(ClientWantsToLogin value)? ClientWantsToLogin,
+    TResult? Function(ClientWantsToAttendEvent value)? ClientWantsToAttendEvent,
     TResult? Function(ClientWantsToGetEventFeed value)?
         ClientWantsToGetEventFeed,
     TResult? Function(ClientWantsToGetAssociationFeed value)?
@@ -940,6 +1193,7 @@ class _$ClientWantsToGetAssociationFeedImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ClientWantsToSignup value)? clientWantsToSignup,
     TResult Function(ClientWantsToLogin value)? ClientWantsToLogin,
+    TResult Function(ClientWantsToAttendEvent value)? ClientWantsToAttendEvent,
     TResult Function(ClientWantsToGetEventFeed value)?
         ClientWantsToGetEventFeed,
     TResult Function(ClientWantsToGetAssociationFeed value)?

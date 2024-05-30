@@ -54,6 +54,13 @@ class ItHappensBloc extends Bloc<BaseEvent, ItHappensState> {
     ));
   }
 
+  void attend({
+    required int userId,
+    required int eventId
+  }) {
+    add(ClientEvent.ClientWantsToAttendEvent(userId: userId, eventId: eventId));
+  }
+
   void login({
     required String email,
     required String password,

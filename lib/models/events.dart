@@ -25,6 +25,11 @@ sealed class ClientEvent with _$ClientEvent implements BaseEvent {
     required int userType_id
   }) = ClientWantsToLogin;
 
+  factory ClientEvent.ClientWantsToAttendEvent({
+    required int userId,
+    required int eventId
+}) = ClientWantsToAttendEvent;
+
 
   factory ClientEvent.ClientWantsToGetEventFeed() = ClientWantsToGetEventFeed;
 

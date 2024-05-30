@@ -50,6 +50,22 @@ Map<String, dynamic> _$$ClientWantsToLoginImplToJson(
       'eventType': instance.$type,
     };
 
+_$ClientWantsToAttendEventImpl _$$ClientWantsToAttendEventImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ClientWantsToAttendEventImpl(
+      userId: (json['userId'] as num).toInt(),
+      eventId: (json['eventId'] as num).toInt(),
+      $type: json['eventType'] as String?,
+    );
+
+Map<String, dynamic> _$$ClientWantsToAttendEventImplToJson(
+        _$ClientWantsToAttendEventImpl instance) =>
+    <String, dynamic>{
+      'userId': instance.userId,
+      'eventId': instance.eventId,
+      'eventType': instance.$type,
+    };
+
 _$ClientWantsToGetEventFeedImpl _$$ClientWantsToGetEventFeedImplFromJson(
         Map<String, dynamic> json) =>
     _$ClientWantsToGetEventFeedImpl(
