@@ -1,16 +1,12 @@
-# it_happens
+ItHappens
+Project for a social platform intended to showcase all the different associations social offers in Esbjerg.
+Contributors                  UserName
+Oliver Ager Jørgensen          oliverager
+Marc Aabrink Eenberg           Warfor
+Jesper Svenningsen Møller      JSM80
+Alexander Moretto Stengaard    amorags
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+User for Ithappens
+Admin:         Email(admin@admin.com),     password(Admin123),   userType(3(Admin))
+Alexander:     Email(abekat@abe.dk),       password(Abekat123),  userType(2(Owner: Sports Club))
+Tonny virker:  Email(tonny@hotmail.com),   password(Tonny1),     userType(1(User))
